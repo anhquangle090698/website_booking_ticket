@@ -1,0 +1,517 @@
+// Mobile First
+.header {
+  // display: none;
+  position: fixed;
+  top: -70px;
+  left: -100%;
+
+  z-index: 2;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0 auto;
+  padding: 200px $pd-40;
+  background-color: $color-blue-0;
+
+  transition: 0.4s ease;
+
+  .header-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    cursor: pointer;
+
+    &__logo {
+      max-width: 75px;
+      object-fit: cover;
+
+      padding: $pd-5;
+      background-color: $color-white-3;
+
+      border: 1px solid $color-blue-0;
+      border-radius: 50%;
+
+      transition: 0.3s ease;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(0.9);
+      }
+    }
+
+    &__text {
+      margin: $mg-10 0 0 $mg-5;
+
+      font-size: $fs-20;
+      color: $color-white-1;
+      letter-spacing: $letter-spacing;
+
+      transition: 0.3s ease;
+
+      &:hover {
+        color: $color-green-0;
+      }
+    }
+  }
+
+  .header-nav {
+    &__list {
+      display: flex;
+      flex-direction: column;
+
+      margin: $mg-70 0 0 $mg-5;
+    }
+
+    &__item {
+      margin: $mg-30 0;
+    }
+
+    &__link {
+      color: $color-white-1;
+      letter-spacing: $letter-spacing;
+
+      transition: 0.3s ease;
+
+      &:hover {
+        color: $color-green-0;
+      }
+    }
+  }
+
+  .header-login {
+    display: none;
+    margin: $mg-50 0 0 $mg-5;
+
+    .btn__login {
+      @include styleButton(transparent, $border-radius + 5, $pd-10 - 2, $pd-15);
+
+      border: 1px solid $color-white-1;
+
+      color: $color-white-1;
+
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    &__text {
+      margin-left: $mg-5;
+      transition: 0.3s ease;
+    }
+
+    &__icon {
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      .btn__login {
+        border-color: $color-green-0;
+      }
+
+      .header-login__text,
+      .header-login__icon {
+        color: $color-green-0;
+      }
+    }
+  }
+
+  .header-user {
+    // display: none;
+    margin: $mg-50 0 0 $mg-5;
+
+    .header-user__name {
+      color: $color-white-1;
+    }
+
+    .header-user__info {
+      margin-left: $mg-5;
+
+      color: $color-white-1;
+
+      transition: 0.3s ease;
+
+      &:hover {
+        color: $color-green-0;
+      }
+    }
+  }
+
+  .header-close {
+    position: absolute;
+    right: 60px;
+    top: 100px;
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+      background-color: $color-blue-1;
+
+      border-radius: 50%;
+
+      text-align: center;
+      line-height: 39px;
+      font-size: $fs-20;
+      color: $color-white-0;
+
+      cursor: pointer;
+
+      transform: rotate(0deg);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  &.show {
+    left: 0;
+  }
+}
+
+//Header First Mobile
+.header__mobile {
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 70px;
+  background-color: $color-white-1;
+
+  padding: 0 $pd-30;
+
+  transition: all 0.3s ease;
+
+  .header-brand {
+    &__logo--mobile {
+      max-width: 50px;
+      object-fit: cover;
+    }
+  }
+
+  .header-bars {
+    .header-bars__icon {
+      font-size: $fs-20 + 5;
+
+      cursor: pointer;
+      transition: 0.3s ease;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+//Responsive medium (tablets, iPads)
+@include responsive-min-width('md') {
+  .header {
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+    background-color: $color-white-1;
+
+    padding: 0 $pd-45 + 5;
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+
+      &__logo {
+        max-width: 55px;
+
+        border: 0;
+        background: transparent;
+      }
+
+      &__text {
+        display: none;
+      }
+    }
+
+    .header-nav {
+      &__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 0 $mg-20 0 0;
+      }
+
+      &__item {
+        margin: 0;
+
+        &:last-child {
+          display: none;
+        }
+      }
+
+      &__link {
+        position: relative;
+
+        font-size: $fs-12 + 1;
+
+        margin-right: $mg-5;
+        padding: $pd-10;
+
+        color: $color-black-1;
+        letter-spacing: 0;
+
+        transition: 0.3s ease-in-out;
+
+        &:after {
+          content: '';
+
+          position: absolute;
+          width: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          margin: 0 auto;
+
+          height: 2px;
+          background-color: $color-primary;
+
+          -webkit-transition: width 0.3s ease-in-out;
+          -o-transition: width 0.3s ease-in-out;
+          transition: width 0.3s ease-in-out;
+        }
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        &.active::after {
+          width: 100%;
+        }
+      }
+    }
+
+    .header-login {
+      display: none;
+      margin: 0;
+      .btn__login {
+        @include styleButton(transparent, $border-radius + 5, $pd-10 - 5, $pd-15 - 3);
+
+        border: 1px solid $color-black-1;
+
+        color: $color-black-1;
+
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      &__text {
+        margin-left: $mg-5;
+
+        font-size: $fs-12 + 1;
+
+        transition: 0.3s ease;
+      }
+
+      &__icon {
+        transition: 0.3s ease;
+      }
+
+      &:hover {
+        .btn__login {
+          border-color: $color-primary;
+        }
+
+        .header-login__text,
+        .header-login__icon {
+          color: $color-primary;
+        }
+      }
+    }
+
+    .header-user {
+      margin: 0;
+
+      .header-user__name {
+        color: $color-secondary-1;
+        font-size: $fs-12 + 1;
+      }
+
+      .header-user__info {
+        position: relative;
+
+        margin: 0;
+        padding-bottom: $pd-5;
+
+        color: $color-black-1;
+        font-size: $fs-12 + 1;
+
+        transition: 0.3s ease;
+
+        &:hover {
+          color: $color-secondary-1;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        &::after {
+          content: '';
+
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          width: 0;
+          height: 1px;
+          background-color: $color-secondary-1;
+
+          transition: width 0.3s ease-in-out;
+        }
+      }
+    }
+
+    .header-close {
+      display: none;
+    }
+  }
+
+  .header__mobile {
+    display: none;
+  }
+}
+
+//Responsive large (Small screens, laptops)
+
+@include responsive-min-width('lg') {
+  .header {
+    height: 65px;
+
+    padding: 0 $pd-40;
+
+    .header-brand {
+      &__logo {
+        max-width: 60px;
+      }
+
+      &__text {
+        display: inline-block;
+
+        font-size: $fs-20 + 3;
+
+        margin: 0 0 0 $mg-10 - 3;
+
+        background: linear-gradient(to right, $color-primary, $color-secondary-1);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .header-nav {
+      &__list {
+        margin: 0 $mg-10 0 0;
+      }
+
+      &__link {
+        padding: $pd-20;
+
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .header-login {
+      display: none;
+    }
+
+    .header-user {
+      //   display: none;
+    }
+  }
+}
+
+// Responsive extra large (Desktops, large screens)
+@include responsive-min-width('xl') {
+  .header {
+    height: 70px;
+
+    padding: 0 $pd-45;
+
+    .header-brand {
+      &__logo {
+        max-width: 70px;
+      }
+
+      &__text {
+        font-size: $fs-30;
+      }
+    }
+
+    .header-nav {
+      &__list {
+        margin: 0 $mg-10 0 0;
+      }
+
+      &__link {
+        padding: $pd-20;
+
+        font-size: $fs-14;
+
+        letter-spacing: 0.8px;
+      }
+    }
+
+    .header-login {
+      display: none;
+      .btn__login {
+        @include styleButton(transparent, $border-radius + 5, $pd-10 - 2, $pd-15);
+
+        border: 1px solid $color-black-1;
+
+        color: $color-black-1;
+
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      &__text {
+        font-size: $fs-14;
+      }
+    }
+
+    .header-user {
+      //   display: none;
+      .header-user__name {
+        font-size: $fs-14;
+      }
+
+      .header-user__info {
+        font-size: $fs-14;
+      }
+    }
+  }
+}
+
+//Responsive extra extra large (Extra large screens, TV.)
+
+@include responsive-min-width('xxl') {
+  .header {
+    padding: 0 $pd-45 + 10;
+  }
+}

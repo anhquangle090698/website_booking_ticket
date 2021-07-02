@@ -1,0 +1,32 @@
+/* Google fonts Open Sans*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+// Global Style
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    //global style text
+    @include styleText($color-black-1, $fs-14, $fw-400);
+    font-family: 'Open Sans', sans-serif;
+    line-height: $line-height;
+
+    scroll-behavior: smooth;
+
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+a {
+    color: $color-black-1;
+    text-decoration: none;
+    outline: none;
+}
