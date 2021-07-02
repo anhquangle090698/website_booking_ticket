@@ -64,14 +64,14 @@ function Header(props) {
       </header>
 
       {/* HEADER MOBILE */}
-      <header className="header__mobile">
+      <section className="header-mobile">
         <div className="header-brand header-brand--mobile">
           <img src={logo} alt="logo-g2" className="header-brand__logo header-brand__logo--mobile" />
         </div>
         <div className="header-bars">
             <i className="fa fa-bars header-bars__icon"></i>
         </div>
-      </header>
+      </section>
     </>
   );
 }

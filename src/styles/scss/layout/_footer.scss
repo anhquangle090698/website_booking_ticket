@@ -1,0 +1,303 @@
+// Mobile First
+.footer {
+    position: relative;
+    left: 0;
+    top: 70px;
+
+    margin: 0 auto;
+
+    width: 100%;
+    background-color: $color-black-1;
+
+    color: $color-gray-2;
+
+    &-top {
+        padding: $pd-40 $pd-30;
+    }
+
+    &-content {
+        margin: $mg-20 0;
+
+        &__title {
+            position: relative;
+
+            font-size: $fs-14;
+            text-transform: uppercase;
+            letter-spacing: $letter-spacing;
+
+            transition: all .3s ease-in-out;
+            
+            &:hover {
+                color: $color-tertiary-1;
+            }
+
+            &:after {
+                content: '';
+
+                position: absolute;
+                bottom: -1px;
+                left: -15px;
+
+                display: block;
+
+                width: 2px;
+                height: 100%;
+                background-color: $color-tertiary-1;
+            }
+        }
+
+        &__list {
+            margin-top: $mg-30;
+
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-height: 12rem;
+            
+        }
+
+        &__item {
+            margin: $mg-20 0;
+            
+            &-text {
+                margin-left: $mg-5;
+
+                font-size: $fs-12 + 1;
+                letter-spacing: .8;
+
+                cursor: pointer;
+                transition: color .3s ease; 
+            }
+
+            &-icon {
+                font-size: $fs-12;
+
+                transition: color .3s ease;
+            }
+            
+            &:hover {
+                color: $color-tertiary-1;
+            }
+        }
+
+        &__social {
+            margin: $mg-50 0;
+
+            &--icon {
+
+                margin-right: $mg-20;
+
+                font-size: $fs-30 - 5;
+                color: $color-gray-2;
+
+                cursor: pointer;
+                transition: color .3s ease; 
+            }
+
+            &--facebook {
+
+                &:hover {
+                    color: $color-blue-1;
+                }
+            }
+
+            &--youtube {
+
+                &:hover {
+                    color: $color-secondary-1;
+                }
+            }
+
+            &--instagram {
+
+                &:hover {
+                    color: $color-tertiary-0;
+                }
+            }
+
+            &--twitter {
+                &:hover {
+                    color: $color-green-0;
+                }
+            }
+        }
+
+        &__partner {
+            display: flex;
+            flex-wrap: wrap;
+
+            max-width: 300px;
+            margin-top: $mg-30;
+
+            &--image {
+                max-width: 35px;
+            
+                margin: $mg-10;
+
+                background-color: $color-white-0;
+                border: 1px solid transparent;
+                border-radius: 50%;
+
+                object-fit: cover;
+
+                &:nth-child(1),  &:nth-child(6) {
+                    margin-left: 0;
+                }
+
+                &:hover {
+                    filter: grayscale(100%);
+                }
+            }
+        }
+    }
+
+    &-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: $pd-40 $pd-30;
+
+        border-top: 1px solid $color-white-1;
+
+        &__logo {
+            max-width: 60px;
+            object-fit: cover;
+        }
+
+        &__address {
+            max-width: 380px;
+
+            text-align: center;
+            font-size: $fs-12 + 1;
+            font-style: italic;
+            letter-spacing: $letter-spacing;
+
+            margin: $mg-30 0;
+        }
+
+        &__permit {
+            max-width: 150px;
+            object-fit: cover;
+        }
+    }
+}
+
+//Responsive medium (tablets, iPads)
+@include responsive-min-width('md') {
+    .footer {
+        &-content {
+
+            &__title {  
+                font-size: $fs-16 - 1;
+            }
+
+            &__list {
+                display: flex;
+                max-height: none;
+
+                margin-top: $mg-30;
+            }
+
+            &__item {
+                &-text {
+                    font-size: $fs-14;
+                    letter-spacing: .8;
+                }
+    
+                &-icon {
+                    font-size: $fs-12;
+    
+                    transition: color .3s ease;
+                }
+                
+                &:hover {
+                    color: $color-tertiary-1;
+                }
+            }
+
+            &__social {
+                margin: $mg-50 - 5 0;
+
+                &--icon {
+                    font-size: $fs-30 - 2;
+                }
+            }
+
+            &__partner {      
+                max-width: 350px;
+
+                &--image {
+                    max-width: 38px;
+                
+                    margin: $mg-10 $mg-20 - 5;
+                }
+            }
+        }
+    }
+}
+
+//Responsive large (Small screens, laptops)
+
+@include responsive-min-width('lg') {
+    .footer {
+
+        &-top {
+            padding: $pd-40 $pd-40 + 10;
+        }
+        
+        &-content {
+            &__partner {      
+                max-width: 250px;
+
+                &--image {
+                    max-width: 38px;
+                
+                    margin: $mg-10;
+
+                    &:nth-child(1),  &:nth-child(5),  &:nth-child(9){
+                        margin-left: 0;
+                    }
+
+                    &:nth-child(6) {
+                        margin-left: $mg-10;
+                    }
+                }
+            }
+        }
+
+        &-bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+    
+            padding: $pd-40 $pd-30;
+    
+            border-top: 1px solid $color-white-1;
+    
+            &__logo {
+                max-width: 60px;
+                object-fit: cover;
+            }
+    
+            &__address {
+                margin: 0;
+                max-width: 550px;
+    
+                font-size: $fs-14;            
+            }
+    
+            &__permit {
+                max-width: 110px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+// Responsive extra large (Desktops, large screens)
+
+@include responsive-min-width('xl') {
+    
+}

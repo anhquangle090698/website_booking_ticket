@@ -1,6 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from 'assets/images/logo-600x600_g2.png';
+import f1 from "assets/images/footer-cgv.png";
+import f2 from "assets/images/footer-bhd.png";
+import f3 from "assets/images/footer-cinestar.png";
+import f4 from "assets/images/footer-galaxycine.png";
+import f5 from "assets/images/footer-megags.png";
+import f6 from "assets/images/footer-AGRIBANK.png";
+import f7 from "assets/images/footer-payoo.jpg";
+import f8 from "assets/images/footer-VCB.png";
+import f9 from "assets/images/footer-VIETTINBANK.png";
+import f10 from "assets/images/footer-zalopay_icon.png";
+import f11 from "assets/images/footer-informed.png";
+import logoB from "assets/images/logo-600x600_g2_bg_dark.png";
 
 Footer.propTypes = {};
 
@@ -10,68 +21,191 @@ function Footer(props) {
   return (
     <>
       {/* FOOTER */}
-      <header className="header">
-        <div className="header-brand">
-          <img src={logo} alt="logo-g2" className="header-brand__logo" />
-          <span className="header-brand__text">G2 Cinema</span>
-        </div>
-        <nav className="header-nav">
-          <ul className="header-nav__list">
-            <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Lịch Chiếu
-              </a>
-            </li>
-            <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Cụm Rạp
-              </a>
-            </li>
-            <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Tin Tức
-              </a>
-            </li>
-            <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Khuyến Mãi
-              </a>
-            </li>
-            <li className="header-nav__item">
-              <a href="#" className="header-nav__link">
-                Đăng Xuất
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div className="header-login">
-          <a className="btn btn__login">
-            <i className="fa fa-user-alt header-login__icon"></i>
-            <span className="header-login__text">Đăng nhập</span>
-          </a>
-        </div>
+      <footer className="footer">
+        
+          <div className="footer-top">
+            <div className="row">
+              <div className="col-md-6 col-lg-3">
+                <div className="footer-content">
+                  <h3 className="footer-content__title">Giới Thiệu</h3>
+                    <div className="footer-content__list">
+                      <div className="footer-content__item">
+                        <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                        <span className="footer-content__item-text">Về Chúng Tôi</span> 
+                      </div>
+                      <div className="footer-content__item">
+                        <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                        <span className="footer-content__item-text">Thỏa Thuận Sử Dụng</span> 
+                      </div>
+                      <div className="footer-content__item">
+                        <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                        <span className="footer-content__item-text">Quy Chế Hoạt Động</span> 
+                      </div>
+                      <div className="footer-content__item">
+                        <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                        <span className="footer-content__item-text">Chính Sách Bảo Mật</span>
+                      </div>
+                  </div>
+                </div>
+                  
+              </div>
+              <div className="col-md-6 col-lg-3">
+                <div className="footer-content">
+                <h3 className="footer-content__title">Hỗ Trợ</h3>
+                  <div className="footer-content__list">
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">Góp Ý</span> 
+                    </div>
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">Sale & Services</span> 
+                    </div>
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">Rạp / Giá vé</span> 
+                    </div>
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">Tuyển Dụng</span>
+                    </div>
+                  </div>      
+                </div>
+                          
+              </div>
+              <div className="col-md-6 col-lg-3">
+                <div className="footer-content">
+                <h3 className="footer-content__title">Liên Hệ</h3>
+                  <div className="footer-content__list">
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">www.g2cinema.com.vn</span> 
+                    </div>
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">Hotline: 1900 6996</span> 
+                    </div>
+                    <div className="footer-content__item">
+                      <i className="fa fa-angle-double-right footer-content__item-icon"></i>
+                      <span className="footer-content__item-text">g2_cinema@gmail.com</span> 
+                    </div>
+                  </div>    
+                </div>
+                          
+              </div>
+              <div className="col-md-6 col-lg-3">
+                <div className="footer-content">
+                <h3 className="footer-content__title">Kết nối g2 cinema</h3>
+                  <div className="footer-content__social">
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="fab fa-facebook-square footer-content__social--icon footer-content__social--facebook"></i>
+                    </a>
 
-        <div className="header-user">
-          <span className="header-user__name">Chào, Anh Quang |</span>
-          <a href="#" className="header-user__info">
-            Thông tin cá nhân
-          </a>
-        </div>
+                    <a
+                      href="https://www.youtube.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="fab fa-youtube footer-content__social--icon footer-content__social--youtube"></i>
+                    </a>
 
-        <div className="header-close">
-          <i className="fa fa-times header-close__icon"></i>
-        </div>
-      </header>
+                    <a
+                      href="https://www.instagram.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="fab fa-instagram footer-content__social--icon footer-content__social--instagram"></i>
+                    </a>
 
-      {/* HEADER MOBILE */}
-      <header className="header__mobile">
-        <div className="header-brand header-brand--mobile">
-          <img src={logo} alt="logo-g2" className="header-brand__logo header-brand__logo--mobile" />
-        </div>
-        <div className="header-bars">
-            <i className="fa fa-bars header-bars__icon"></i>
-        </div>
-      </header>
+                    <a
+                      href="https://twitter.com/?lang=vi"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i className="fab fa-twitter-square footer-content__social--icon footer-content__social--twitter"></i>
+                    </a>
+                  </div>
+                  <h3 className="footer-content__title">Đối Tác</h3>
+                  <div className="footer-content__partner">
+                      <img
+                        src={f1}
+                        alt={f1}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f2}
+                        alt={f2}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f3}
+                        alt={f3}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f4}
+                        alt={f4}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f5}
+                        alt={f5}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f6}
+                        alt={f6}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f7}
+                        alt={f7}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f8}
+                        alt={f8}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f9}
+                        alt={f9}
+                        className="footer-content__partner--image"
+                      ></img>
+                      <img
+                        src={f10}
+                        alt={f10}
+                        className="footer-content__partner--image"
+                      ></img>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="footer-bottom">
+                <img
+                  src={logoB}
+                  alt={logoB}
+                  className="footer-bottom__logo"
+                ></img>
+                <span className="footer-bottom__address">
+                  Công ty cổ phần G2, Tầng 5, 112 Cao Thắng, Phường 4, Quận 3,
+                  TPHCM
+                </span>
+                <img
+                  src={f11}
+                  alt={f11}
+                  className="footer-bottom__permit"
+                ></img>
+          </div>
+
+      </footer>
     </>
   );
 }
