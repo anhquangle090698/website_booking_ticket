@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import f1 from "assets/images/footer-cgv.png";
 import f2 from "assets/images/footer-bhd.png";
 import f3 from "assets/images/footer-cinestar.png";
@@ -12,10 +11,6 @@ import f9 from "assets/images/footer-VIETTINBANK.png";
 import f10 from "assets/images/footer-zalopay_icon.png";
 import f11 from "assets/images/footer-informed.png";
 import logoB from "assets/images/logo-600x600_g2_bg_dark.png";
-
-Footer.propTypes = {};
-
-Footer.defaultProps = {};
 
 function Footer(props) {
   return (
@@ -187,7 +182,7 @@ function Footer(props) {
               </div>
             </div>
           </div>
-          <hr />
+          <div className="footer-line"></div>
           <div className="footer-bottom">
                 <img
                   src={logoB}
@@ -210,6 +205,5 @@ function Footer(props) {
   );
 }
 
-Footer.propTypes = {};
 
 export default Footer;

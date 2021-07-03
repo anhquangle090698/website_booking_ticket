@@ -1,3 +1,4 @@
+import Carousel from 'components/Carousel';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import React from 'react';
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Header></Header>
+      <Carousel></Carousel>
       <Footer></Footer>
     </>
   );

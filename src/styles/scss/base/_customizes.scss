@@ -1,0 +1,54 @@
+//Custom swiper JS Library (Thự viện carousel)
+.swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+
+    background: $color-white-0;
+
+    border: 1px solid $color-white-0;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+
+    opacity: 1;
+
+    background-color: $color-primary !important;
+    border-color: $color-primary !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: $color-primary !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: $fs-30;
+}
+
+//Responsive medium (tablets, iPads)
+@include responsive-min-width('md') {
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 35px;
+    }
+}
+
+//Responsive medium (tablets, iPads)
+@include responsive-min-width('xl') {
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 45px;
+    }
+}
