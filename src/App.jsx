@@ -1,6 +1,8 @@
 import Carousel from 'components/Carousel';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import Popup from 'components/Popup';
+import ListSlide from 'features/Movies/components/ListSilde';
 import React from 'react';
 // import { Counter } from './features/counter/Counter';
 import 'styles/scss/main.scss';
@@ -10,6 +12,8 @@ function App() {
     <>
       <Header></Header>
       <Carousel></Carousel>
+      <ListSlide></ListSlide>
+      <Popup></Popup>
       <Footer></Footer>
     </>
   );

@@ -1,0 +1,37 @@
+.list-slide {
+  position: relative;
+  top: 70px;
+
+  margin: $mg-30 auto;
+  padding: 0 $pd-30;
+
+  .movie-title {
+    position: relative;
+
+    @include styleText($color-black-1, $fs-16 + 2, $fw-400);
+
+    letter-spacing: $letter-spacing;
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:after {
+      content: '';
+
+      display: block;
+
+      width: 3px;
+      height: 100%;
+
+      position: absolute;
+      bottom: -1px;
+      left: -10px;
+
+      background-color: $color-primary;
+    }
+  }
+}
