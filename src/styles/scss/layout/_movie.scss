@@ -1,0 +1,337 @@
+.movie {
+  width: 100%;
+  max-width: 220px;
+  height: 310px;
+
+  margin: $mg-50 auto;
+  padding: $pd-10;
+
+  &-box {
+    position: relative;
+
+    &__image {
+      width: 100%;
+      height: 280px;
+
+      border-radius: $border-radius;
+      object-fit: cover;
+
+      box-shadow: 5px 10px 10px 0 rgba($color: $color-black-2, $alpha: 0.3),
+        0px 0 10px 0 rgba($color: $color-black-2, $alpha: 0.3);
+    }
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(to top, $color-black-0, transparent 100%);
+      border-radius: $border-radius;
+
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    &__icon {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 60px;
+      height: 60px;
+
+      text-align: center;
+      line-height: 60px;
+      font-size: $fs-16;
+      color: $color-white-0;
+
+      border: 2px solid $color-white-0;
+      border-radius: 50%;
+
+      cursor: pointer;
+
+      transform: translate(-50%, -50%);
+      transition: all 0.3s;
+
+      &:hover {
+        transform: translate(-50%, -50%) scale(0.8);
+        transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+
+        color: $color-white-3;
+        border-color: $color-white-3;
+      }
+    }
+
+    &__rating {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      padding: $pd-5 $pd-5 - 2;
+
+      border-radius: 12px;
+      background-color: rgba($color: $color-blue-0, $alpha: 0.5);
+      border: 1px solid transparent;
+
+      max-width: 55px;
+      text-align: center;
+    }
+
+    &__text {
+      @include styleText($color-white-0, $fs-10, $fw-400);
+
+      margin-bottom: -$mg-5;
+    }
+
+    &__number {
+      @include styleText($color-white-0, $fs-16, $fw-700);
+    }
+  }
+
+  &-info {
+    position: relative;
+
+    margin-top: $mg-10;
+    padding: 0 $pd-10;
+
+    &__name {
+      @include styleText($color-black-2, $fs-14, $fw-700);
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      visibility: visible;
+      opacity: 1;
+
+      transition: 0.3 ease;
+    }
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3 ease;
+    }
+
+    &__button {
+      @include styleButton($color-secondary-1, 5px, $pd-10, $pd-10);
+      @include styleText($color-white-0, $fs-14, $fw-400);
+
+      width: 100%;
+
+      border: none;
+      outline: none;
+
+      transform: perspective(1px) translateZ(0);
+      transition: color 0.3s ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $color-tertiary-0;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: 0 50%;
+        transform-origin: 0 50%;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+
+        border-radius: 5px;
+      }
+
+      &:hover:before,
+      &:focus:before,
+      &:active:before {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &:hover {
+    .movie-box {
+      &__overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .movie-info {
+      &__name {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &__overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+//Responsive medium (tablets, iPads)
+@include responsive-min-width('md') {
+  .movie {
+    max-width: 255px;
+    height: 320px;
+
+    &-box {
+        &__image {
+          height: 310px;
+        }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .movie {
+    max-width: 265px;
+    height: 320px;
+
+    &-box {
+        &__image {
+          height: 325px;
+        }
+    }
+  }
+}
+
+// Responsive extra large (Desktops, large screens)
+@include responsive-min-width('xl') {
+  .movie {
+    max-width: 275px;
+    height: 355px;
+
+    &-box {
+        &__image {
+          height: 350px;
+        }
+
+        &__rating {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+    
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+    
+          padding: $pd-5;
+    
+          border-radius: 12px;
+          background-color: rgba($color: $color-blue-0, $alpha: 0.5);
+          border: 1px solid transparent;
+    
+          max-width: 65px;
+          text-align: center;
+        }
+    
+        &__text {
+          @include styleText($color-white-0, $fs-10 + 1, $fw-400);
+    
+          margin-bottom: -$mg-5;
+        }
+    
+        &__number {
+          @include styleText($color-white-0, $fs-16, $fw-700);
+        }
+    }
+
+    &-info {
+      &__name {
+        font-size: $fs-16 - 1;
+      }
+    }
+  }
+}
+
+
+//Responsive extra extra large (Extra large screens, TV.)
+
+@include responsive-min-width('xxl') {
+  .movie {
+    max-width: 270px;
+    height: 370px;
+
+    padding: 0;
+
+    &-box {
+        &__image {
+          height: 380px;
+        }
+
+        &__rating {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+    
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+    
+          padding: $pd-5;
+    
+          border-radius: 12px;
+          background-color: rgba($color: $color-blue-0, $alpha: 0.5);
+          border: 1px solid transparent;
+    
+          max-width: 65px;
+          text-align: center;
+        }
+    
+        &__text {
+          @include styleText($color-white-0, $fs-10 + 1, $fw-400);
+    
+          margin-bottom: -$mg-5;
+        }
+    
+        &__number {
+          @include styleText($color-white-0, $fs-16, $fw-700);
+        }
+    }
+
+    &-info {
+      &__name {
+        font-size: $fs-16 - 1;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .movie {
+    max-width: 275px;
+    height: 380px;
+
+    &-box {
+        &__image {
+          height: 390px;
+        }
+    }
+  }
+}

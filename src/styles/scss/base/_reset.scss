@@ -31,6 +31,10 @@ a {
     outline: none;
 }
 
+a:hover {
+    text-decoration: none !important;
+}
+
 .row {
     margin: 0;
     padding: 0;

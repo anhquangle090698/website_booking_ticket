@@ -2,7 +2,7 @@
   position: relative;
   top: 70px;
 
-  margin: $mg-30 auto;
+  margin: $mg-50 auto;
   padding: 0 $pd-30;
 
   .movie-title {
@@ -34,4 +34,130 @@
       background-color: $color-primary;
     }
   }
+
+  &__content {
+    position: relative;
+
+    margin: $mg-20 0;
+  }
+
+  &__link {
+    @include styleButton(transparent, $border-radius, $pd-5, $pd-10);
+
+    position: absolute;
+    bottom: -35px;
+    right: 0;
+
+    border: 1px solid $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      color: $color-primary;
+      .list-slide__icon {
+        animation: hvr-icon-wobble-horizontal 1s ease-in-out 1;
+      }
+    }
+  }
+
+  &__icon {
+    transform: translateZ(0);
+  }
 }
+
+//Responsive medium (tablets, iPads)
+@include responsive-min-width('md') {
+  .list-slide {
+    padding: 0 $pd-20;
+
+    &__link {
+      right: 15px;
+    }
+  }
+}
+
+@include responsive-min-width('lg') {
+  .list-slide {
+    .row {
+      padding: $pd-30 0 $pd-30 0;
+    }
+  }
+}
+
+// Responsive extra large (Desktops, large screens)
+@include responsive-min-width('xl') {
+  .list-slide {
+    &__link {
+      padding: $pd-10 $pd-15;
+    }
+  }
+}
+
+//Responsive extra extra large (Extra large screens, TV.)
+
+@include responsive-min-width('xxl') {
+  .list-slide {
+
+    .movie-title {
+      left: 100px;
+    }
+    .row {
+      padding: $pd-30 90px;
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .list-slide {
+    .row {
+      padding: $pd-30 120px;
+    }
+  }
+}
+
+@media screen and (min-width: 1730px) {
+  .list-slide {
+    .movie-title {
+      left: 150px;
+    }
+    .row {
+      padding: $pd-30 200px;
+    }
+  }
+}
+
+//Animation icon
+@keyframes hvr-icon-wobble-horizontal {
+  16.65% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+
+  33.3% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+
+  49.95% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+
+  66.6% {
+    -webkit-transform: translateX(-2px);
+    transform: translateX(-2px);
+  }
+
+  83.25% {
+    -webkit-transform: translateX(1px);
+    transform: translateX(1px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+
+//Responsive large (Small screens, laptops)
+

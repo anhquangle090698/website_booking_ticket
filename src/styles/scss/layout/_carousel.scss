@@ -40,7 +40,7 @@
 
       cursor: pointer;
       transform: translate(-50%, -50%) scale(1);
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
 
       &:hover {
         transform: translate(-50%, -50%) scale(1.1);
@@ -64,110 +64,100 @@
 }
 
 @media screen and (min-width: 600px) {
-    .carousel {
-        height: 260px;
-        &-item {
-            height: 260px;
-        }
+  .carousel {
+    height: 260px;
+    &-item {
+      height: 260px;
     }
+  }
 }
 
 //Responsive medium (tablets, iPads)
 @include responsive-min-width('md') {
-    .carousel {
+  .carousel {
+    height: 350px;
+    &-item {
+      height: 350px;
 
-        height: 350px;
-        &-item {
-            height: 350px;
+      &__play {
+        top: 49%;
+        left: 50%;
 
-            &__play {
-                 
-                top: 49%;
-                left: 50%;
-          
-                width: 50px;
-                height: 50px;
-          
-                line-height: 49px;
+        width: 50px;
+        height: 50px;
 
-              }
-          
-              &__icon {
-                font-size: $fs-20 - 2;
-              }
-        }
+        line-height: 49px;
+      }
+
+      &__icon {
+        font-size: $fs-20 - 2;
+      }
     }
+  }
 }
 
 //Responsive large (Small screens, laptops)
 @include responsive-min-width('lg') {
-    .carousel {
+  .carousel {
+    height: 450px;
+    &-item {
+      height: 450px;
 
-        height: 450px;
-        &-item {
-            height: 450px;
+      &__play {
+        top: 50%;
+        left: 50%;
 
-            &__play {
-                 
-                top: 50%;
-                left: 50%;
-          
-                width: 50px;
-                height: 50px;
-          
-                line-height: 49px;
+        width: 50px;
+        height: 50px;
 
-              }
-          
-              &__icon {
-                font-size: $fs-20 - 2;
-              }
-        }
+        line-height: 49px;
+      }
+
+      &__icon {
+        font-size: $fs-20 - 2;
+      }
     }
+  }
 }
 
 // Responsive extra large (Desktops, large screens)
 @include responsive-min-width('xl') {
-    .carousel {
+  .carousel {
+    height: 580px;
+    &-item {
+      height: 580px;
 
-        height: 580px;
-        &-item {
-            height: 580px;
+      &__play {
+        width: 70px;
+        height: 70px;
 
-            &__play {
-                width: 70px;
-                height: 70px;
-          
-                line-height: 69px;
+        line-height: 69px;
+      }
 
-              }
-          
-              &__icon {
-                font-size: $fs-20;
-              }
-        }
+      &__icon {
+        font-size: $fs-20;
+      }
     }
+  }
 }
 
 //Responsive extra extra large (Extra large screens, TV.)
 @include responsive-min-width('xxl') {
-    .carousel {
+  .carousel {
+    height: 750px;
+    &-item {
+      height: 750px;
 
-        height: 750px;
-        &-item {
-            height: 750px;
+      &__play {
+        width: 70px;
+        height: 70px;
 
-            &__play {
-                width: 70px;
-                height: 70px;
-          
-                line-height: 69px;
+        line-height: 69px;
+      }
 
-              }
-          
-              &__icon {
-                font-size: $fs-20;
-              }
-        }
+      &__icon {
+        font-size: $fs-20;
+      }
     }
+  }
 }
