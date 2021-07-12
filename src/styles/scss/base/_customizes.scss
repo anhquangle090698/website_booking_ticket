@@ -169,3 +169,14 @@
         }
       }
 }
+
+
+//Customizes scroll
+
+::-webkit-scrollbar-thumb {
+    background: $color-gray-2;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}

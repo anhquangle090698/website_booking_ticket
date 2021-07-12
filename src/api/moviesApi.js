@@ -2,8 +2,8 @@ import axiosClient from "./axiosClient";
 
 // api/productApi.js
 const MoviesApi = {
-  getAll: (params) => {
-    const url = "/QuanLyPhim/LayDanhSachPhim?maNhom=GP02";
+  getListMovies: () => {
+    const url = '/QuanLyPhim/LayDanhSachPhim?maNhom=GP02';
     return axiosClient.get(url
       // params,
       // headers : {
@@ -13,10 +13,16 @@ const MoviesApi = {
     );
   },
 
-  // get: (id) => {
-  //   const url = `/products/${id}`;
-  //   return axiosClient.get(url);
-  // },
+  getListSystemCinema : () => {
+    const url = '/QuanLyRap/LayThongTinHeThongRap';
+    return axiosClient.get(url);
+  },
+
+  getListShowTimeSystemCinema : (idSystemCinema) => {
+    const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP02`;
+    return axiosClient.get(url);
+  }
+
 };
 
 export default MoviesApi;

@@ -27,6 +27,7 @@
 
       width: 100%;
       height: 100%;
+      height: 280px;
 
       background: linear-gradient(to top, $color-black-0, transparent 100%);
       border-radius: $border-radius;
@@ -204,6 +205,10 @@
         &__image {
           height: 310px;
         }
+
+        &__overlay {
+          height: 310px;
+        }
     }
   }
 }
@@ -215,6 +220,10 @@
 
     &-box {
         &__image {
+          height: 325px;
+        }
+
+        &__overlay {
           height: 325px;
         }
     }
@@ -229,6 +238,10 @@
 
     &-box {
         &__image {
+          height: 350px;
+        }
+
+        &__overlay {
           height: 350px;
         }
 
@@ -285,6 +298,10 @@
           height: 380px;
         }
 
+        &__overlay {
+          height: 380px;
+        }
+
         &__rating {
           position: absolute;
           top: 10px;
@@ -330,6 +347,10 @@
 
     &-box {
         &__image {
+          height: 390px;
+        }
+
+        &__overlay {
           height: 390px;
         }
     }

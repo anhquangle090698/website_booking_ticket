@@ -5,40 +5,8 @@
   margin: $mg-50 auto;
   padding: 0 $pd-30;
 
-  .movie-title {
-    position: relative;
-
-    @include styleText($color-black-1, $fs-16 + 2, $fw-400);
-
-    letter-spacing: $letter-spacing;
-
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      color: $color-primary;
-    }
-
-    &:after {
-      content: '';
-
-      display: block;
-
-      width: 3px;
-      height: 100%;
-
-      position: absolute;
-      bottom: -1px;
-      left: -10px;
-
-      background-color: $color-primary;
-    }
-  }
-
   &__content {
     position: relative;
-
-    margin: $mg-20 0;
   }
 
   &__link {
@@ -96,10 +64,6 @@
 
 @include responsive-min-width('xxl') {
   .list-slide {
-
-    .movie-title {
-      left: 100px;
-    }
     .row {
       padding: $pd-30 90px;
     }
@@ -119,8 +83,13 @@
     .movie-title {
       left: 150px;
     }
+    
     .row {
       padding: $pd-30 200px;
+    }
+
+    &__link {
+      right: 100px;
     }
   }
 }

@@ -3,41 +3,41 @@
 
 // Global Style
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    //global style text
-    @include styleText($color-black-1, $fs-14, $fw-400);
-    font-family: 'Open Sans', sans-serif;
-    line-height: $line-height;
+  //global style text
+  @include styleText($color-black-1, $fs-14, $fw-400);
+  font-family: 'Open Sans', sans-serif;
+  line-height: $line-height;
 
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 img {
-    max-width: 100%;
-    cursor: pointer;
+  max-width: 100%;
+  cursor: pointer;
 }
 
 a {
-    color: $color-black-1;
-    text-decoration: none;
-    outline: none;
+  color: $color-black-1;
+  text-decoration: none;
+  outline: none;
 }
 
 a:hover {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .row {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .col,
@@ -110,6 +110,58 @@ a:hover {
 .col-xl-8,
 .col-xl-9,
 .col-xl-auto {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+//Element and style global share
+
+//Title of a section (list-slide, system-cinema, news, promotion,...)
+.movie-title {
+  position: relative;
+
+  margin: 0 auto;
+
+  @include styleText($color-black-1, $fs-16, $fw-400);
+
+  letter-spacing: $letter-spacing;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &:after {
+    content: '';
+
+    display: block;
+
+    width: 3px;
+    height: 100%;
+
+    position: absolute;
+    bottom: -1px;
+    left: -10px;
+
+    background-color: $color-primary;
+  }
+
+  //Responsive medium (tablets, iPads)
+// @include responsive-min-width('md') {
+//   display: inline-block;
+//   left: 100px;
+// }
+
+  // Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    display: inline-block;
+    left: 100px;
+  }
+
+  @media screen and (min-width: 1730px) {
+    left: 150px;
+  }
 }

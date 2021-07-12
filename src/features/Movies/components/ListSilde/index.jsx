@@ -23,9 +23,7 @@ ListSlide.defaultProps = {
 };
 
 function ListSlide(props) {
-  const movies = useSelector((state) => state.movies.moviesList);
-
-  // console.log('movies',movies);
+  const movies = useSelector((state) => state.movies.listMovies);
 
   const renderMovies = (startMovie, endMovie) => {
     return movies.slice(startMovie, endMovie).map((movie, index) => {
@@ -45,38 +43,30 @@ function ListSlide(props) {
           slidesPerView={1}
           navigation
           loop={true}
-          // onSwiper={(swiper) => console.log(swiper)}
-          // onSlideChange={() => console.log("slide change")}
         >
           <SwiperSlide>
-            <div className="row">
-              {renderMovies(0, 8)}
-            </div>
+            <div className="row">{renderMovies(0, 8)}</div>
             {/* <NavLink to="/phim-dang-chieu"> */}
             <a href="" className="list-slide__link">
-                Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-              </a>
-              {/* </NavLink> */}
+              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
+            </a>
+            {/* </NavLink> */}
           </SwiperSlide>
           <SwiperSlide>
-            <div className="row">
-              {renderMovies(8, 16)}
-            </div>
+            <div className="row">{renderMovies(8, 16)}</div>
             {/* <NavLink to="/phim-dang-chieu"> */}
             <a href="" className="list-slide__link">
-                Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-              </a>
-              {/* </NavLink> */}
+              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
+            </a>
+            {/* </NavLink> */}
           </SwiperSlide>
           <SwiperSlide>
-            <div className="row">
-              {renderMovies(16, 24)}
-            </div>
+            <div className="row">{renderMovies(16, 24)}</div>
             {/* <NavLink to="/phim-dang-chieu"> */}
             <a href="" className="list-slide__link">
-                Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-              </a>
-              {/* </NavLink> */}
+              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
+            </a>
+            {/* </NavLink> */}
           </SwiperSlide>
         </Swiper>
       </div>

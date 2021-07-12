@@ -29,7 +29,7 @@ function Carousel(props) {
         grabCursor={true}
         navigation
         pagination={{ clickable: true }}
-        // autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         loop={true}
       >
         <SwiperSlide>
