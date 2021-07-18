@@ -1,0 +1,194 @@
+.promotion {
+  margin: 0 auto;
+  padding: 0 $pd-30;
+
+  &__content {
+    margin-top: $mg-30;
+  }
+
+  &__item {
+    position: relative;
+
+    max-width: 200px;
+    margin: $mg-20 0;
+
+    color: $color-white-0;
+
+    &:hover {
+      .promotion__overlay,
+      .promotion__more {
+        opacity: 1;
+      }
+      .promotion__name,
+      .promotion__description {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: $border-radius;
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: $pd-20 $pd-20 $pd-10;
+
+    background-color: rgba($color: $color-black-0, $alpha: 0.5);
+
+    border-radius: 5px;
+
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-weight: 700;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    letter-spacing: $letter-spacing;
+
+    cursor: pointer;
+    transform: translateX(-101%);
+    transition: 0.4s ease;
+  }
+
+  &__description {
+    font-size: $fs-12 + 1;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-height: 1.7;
+
+    cursor: pointer;
+
+    transform: translateX(120%);
+    transition: 0.4s ease;
+  }
+
+  &__more {
+    @include styleButton(transparent, $border-radius - 1, $pd-10 - 2, $pd-15);
+
+    max-width: 100px;
+    margin: 0 auto;
+
+    outline: none;
+    border: none;
+
+    border: 1px solid $color-white-0;
+    color: $color-white-0;
+
+    opacity: 0;
+    transition: 0.4s ease;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    &__item {
+      max-width: 230px;
+    }
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
+    &__name {
+      font-size: $fs-14 + 1;
+    }
+
+    &__description {
+      font-size: $fs-14;
+    }
+  }
+  @media screen and (min-width: 870px) {
+    &__item {
+      max-width: 240px;
+    }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &__item {
+      max-width: 210px;
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+
+  @include responsive-min-width('xl') {
+    &__item {
+      max-width: 250px;
+    }
+
+    &__name {
+      font-size: $fs-16;
+    }
+
+    &__more {
+        @include styleButton(transparent, $border-radius - 1, $pd-10 + 2, $pd-20 + 2);
+        max-width: 150px;
+      }
+  }
+
+  @media screen and (min-width: 1300px) {
+    &__item {
+      max-width: 260px;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+  @include responsive-min-width('xxl') {
+    &__content {
+      width: 85%;
+      margin: 0 auto;
+    }
+
+    &__description {
+      font-size: $fs-14 + 1;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    &__content {
+      width: 80%;
+    }
+  }
+
+  @media screen and (min-width: 1730px) {
+    &__content {
+      width: 75%;
+    }
+
+    &__item {
+      max-width: 290px;
+    }
+  }
+}

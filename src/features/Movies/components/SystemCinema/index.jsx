@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import appStore from 'assets/images/app-store-badge.png';
 import googlePlay from 'assets/images/google-play-store.png';
-import { useSelector, useDispatch } from 'react-redux';
 import { getListShowtimeByC, getListShowTimeSystemCinemaAsync } from 'features/Movies/moviesSlice';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function SystemCinema(props) {
   const dispatch = useDispatch();
@@ -13,8 +13,6 @@ function SystemCinema(props) {
   const lSystemCinema = useSelector((state) => state.movies.listSystemCinema);
   const lShowtime = useSelector((state) => state.movies.listShowtime);
   const lShowtimeByC = useSelector((state) => state.movies.listShowtimeByC);
-
-  console.log('aa',lShowtimeByC);
 
   const handleActiveClassLogo = (e) => {
     //Add class active logo
@@ -182,10 +180,14 @@ function SystemCinema(props) {
 
 SystemCinema.propTypes = {
   lSystemCinema: PropTypes.array.isRequired,
+  lShowtime: PropTypes.array.isRequired,
+  lShowtimeByC: PropTypes.array.isRequired,
 };
 
 SystemCinema.defaultProps = {
   lSystemCinema: [],
+  lShowtime: [],
+  lShowtimeByC: [],
 };
 
 export default SystemCinema;

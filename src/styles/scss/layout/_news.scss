@@ -1,53 +1,148 @@
 .news {
-    padding: $pd-40 $pd-30;
-    margin: 0 auto;
+  padding: $pd-40 $pd-30;
+  margin: 0 auto;
 
-    &__content {
-        margin-top: $mg-30;
+  &__content {
+    margin-top: $mg-30;
+  }
+
+  &__item {
+    display: flex;
+
+    margin: $mg-20 0;
+
+    &:hover {
+      .news__image {
+        filter: grayscale(100%);
+      }
+      .news__topic {
+        color: $color-primary;
+      }
     }
+  }
 
-    &__item {
-        display: flex;
+  &__image {
+    max-width: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
-        margin: $mg-20 0;
-    }
+    border-radius: $border-radius;
+
+    transition: 0.3s ease;
+  }
+
+  &__block {
+    margin-left: $mg-10;
+    margin-right: $mg-70;
+  }
+
+  &__topic {
+    margin-bottom: $mg-30;
+    max-height: 80px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  &__description {
+    display: none;
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
+    padding: $pd-40 $pd-20;
 
     &__image {
-        max-width: 150px;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-        border-radius: $border-radius;
-    }
-
-    &__block {
-        margin-left: $mg-10;
-    }
-
-    &__topic {
-        margin-bottom: $mg-5;
-
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 2;
-    
-        max-height: 50px;       
+      max-width: 180px;
     }
 
     &__description {
-        font-size: $fs-12;
+      font-size: $fs-12;
+      color: #a5a5a5;
 
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
 
-        max-height: 70px;
+      max-height: 70px;
     }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &__block {
+      // margin-left: $mg-10;
+      margin-right: $mg-30;
+    }
+
+    &__topic {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+
+  @include responsive-min-width('xl') {
+    &__item {
+      margin: $mg-30 0;
+    }
+
+    &__topic {
+      font-size: $fs-14 + 1;
+    }
+
+    &__description {
+      font-size: $fs-12 + 1;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    width: 85%;
+
+    &__title {
+      left: -10px;
+    }
+
+    &__topic {
+      font-size: $fs-16;
+    }
+
+    &__description {
+      font-size: $fs-14;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    width: 80%;
+  }
+
+  @media screen and (min-width: 1730px) {
+    width: 75%;
+
+    &__title {
+      left: -65px;
+
+      &--right {
+        left: 0px;
+      }
+    }
+
+    &__image {
+      max-width: 200px;
+    }
+  }
 }

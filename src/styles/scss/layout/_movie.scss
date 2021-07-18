@@ -170,6 +170,11 @@
         -webkit-transform: scaleX(1);
         transform: scaleX(1);
       }
+
+      &:focus {
+        outline: none;
+        border: none;
+      }
     }
   }
 
@@ -202,13 +207,13 @@
     height: 320px;
 
     &-box {
-        &__image {
-          height: 310px;
-        }
+      &__image {
+        height: 310px;
+      }
 
-        &__overlay {
-          height: 310px;
-        }
+      &__overlay {
+        height: 310px;
+      }
     }
   }
 }
@@ -219,13 +224,13 @@
     height: 320px;
 
     &-box {
-        &__image {
-          height: 325px;
-        }
+      &__image {
+        height: 325px;
+      }
 
-        &__overlay {
-          height: 325px;
-        }
+      &__overlay {
+        height: 325px;
+      }
     }
   }
 }
@@ -237,42 +242,42 @@
     height: 355px;
 
     &-box {
-        &__image {
-          height: 350px;
-        }
+      &__image {
+        height: 350px;
+      }
 
-        &__overlay {
-          height: 350px;
-        }
+      &__overlay {
+        height: 350px;
+      }
 
-        &__rating {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-    
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-    
-          padding: $pd-5;
-    
-          border-radius: 12px;
-          background-color: rgba($color: $color-blue-0, $alpha: 0.5);
-          border: 1px solid transparent;
-    
-          max-width: 65px;
-          text-align: center;
-        }
-    
-        &__text {
-          @include styleText($color-white-0, $fs-10 + 1, $fw-400);
-    
-          margin-bottom: -$mg-5;
-        }
-    
-        &__number {
-          @include styleText($color-white-0, $fs-16, $fw-700);
-        }
+      &__rating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        padding: $pd-5;
+
+        border-radius: 12px;
+        background-color: rgba($color: $color-blue-0, $alpha: 0.5);
+        border: 1px solid transparent;
+
+        max-width: 65px;
+        text-align: center;
+      }
+
+      &__text {
+        @include styleText($color-white-0, $fs-10 + 1, $fw-400);
+
+        margin-bottom: -$mg-5;
+      }
+
+      &__number {
+        @include styleText($color-white-0, $fs-16, $fw-700);
+      }
     }
 
     &-info {
@@ -282,7 +287,6 @@
     }
   }
 }
-
 
 //Responsive extra extra large (Extra large screens, TV.)
 
@@ -294,42 +298,42 @@
     padding: 0;
 
     &-box {
-        &__image {
-          height: 380px;
-        }
+      &__image {
+        height: 380px;
+      }
 
-        &__overlay {
-          height: 380px;
-        }
+      &__overlay {
+        height: 380px;
+      }
 
-        &__rating {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-    
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-    
-          padding: $pd-5;
-    
-          border-radius: 12px;
-          background-color: rgba($color: $color-blue-0, $alpha: 0.5);
-          border: 1px solid transparent;
-    
-          max-width: 65px;
-          text-align: center;
-        }
-    
-        &__text {
-          @include styleText($color-white-0, $fs-10 + 1, $fw-400);
-    
-          margin-bottom: -$mg-5;
-        }
-    
-        &__number {
-          @include styleText($color-white-0, $fs-16, $fw-700);
-        }
+      &__rating {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        padding: $pd-5;
+
+        border-radius: 12px;
+        background-color: rgba($color: $color-blue-0, $alpha: 0.5);
+        border: 1px solid transparent;
+
+        max-width: 65px;
+        text-align: center;
+      }
+
+      &__text {
+        @include styleText($color-white-0, $fs-10 + 1, $fw-400);
+
+        margin-bottom: -$mg-5;
+      }
+
+      &__number {
+        @include styleText($color-white-0, $fs-16, $fw-700);
+      }
     }
 
     &-info {
@@ -346,13 +350,13 @@
     height: 380px;
 
     &-box {
-        &__image {
-          height: 390px;
-        }
+      &__image {
+        height: 390px;
+      }
 
-        &__overlay {
-          height: 390px;
-        }
+      &__overlay {
+        height: 390px;
+      }
     }
   }
 }

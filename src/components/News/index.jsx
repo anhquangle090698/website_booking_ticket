@@ -13,7 +13,7 @@ function News(props) {
     <div className="news">
       <div className="row">
         <div className="col-12 col-lg-6">
-          <div className="news__title movie-title">Bình Luận Phim</div>
+          <div className="news__title news__title--left movie-title">Bình Luận Phim</div>
           <div className="news__content">
             <div className="news__item">
               <img src={news1} alt={news1} className="news__image" />
@@ -24,7 +24,7 @@ function News(props) {
                 </p>
                 <p className="news__description">
                   Trong năm 2020, khi phòng vé vô cùng ảm đạm vì đại dịch Covid-19, phim điện ảnh
-                  <strong> Demon Slayer: Kimetsu No Yaiba the Movie: Mugen Train</strong>
+                  <strong> Demon Slayer: Kimetsu No Yaiba the Movie: Mugen Train </strong>
                   thắng lớn ở Nhật Bản với hơn 20 triệu lượt người xem, thu về xấp xỉ 265 triệu $.
                 </p>
               </div>
@@ -74,7 +74,7 @@ function News(props) {
           </div>
         </div>
         <div className="col-12 col-lg-6">
-          <div className="news__title movie-title">Góc Điện Ảnh</div>
+          <div className="news__title news__title--right movie-title">Góc Điện Ảnh</div>
           <div className="news__content">
             <div className="news__item">
               <img src={news5} alt={news5} className="news__image" />

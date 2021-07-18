@@ -1,0 +1,52 @@
+.introduction {
+  margin: 0 auto;
+  padding: $pd-20 $pd-30;
+
+  &.text--white {
+    color: $color-white-1;
+  }
+
+  &__content {
+    margin-top: $mg-20;
+    padding-right: $pd-20 + 5;
+
+    text-align: justify;
+  }
+
+  &__text {
+    font-size: $fs-12 + 1;
+    letter-spacing: 0.5;
+    line-height: 1.7;
+  }
+
+  &__title {
+    color: $color-white-1;
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+  @include responsive-min-width('xxl') {
+    &__content {
+      width: 85%;
+      padding-right: $pd-40;
+      margin: $mg-30 auto 0;
+    }
+
+    &__text {
+      font-size: $fs-14;
+      letter-spacing: 0.5;
+      line-height: 1.9;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    &__content {
+      width: 80%;
+    }
+  }
+
+  @media screen and (min-width: 1730px) {
+    &__content {
+      width: 75%;
+    }
+  }
+}

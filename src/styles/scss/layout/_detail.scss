@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+
+//Style page detail movie
+.detail-movie {
+  position: relative;
+  top: 50px;
+  width: 100%;
+  height: 100%;
+
+  padding-bottom: $pd-40;
+
+  background: rgb(10, 32, 41);
+}
+
+.detail {
+  position: relative;
+
+  margin: 0 auto;
+  background: rgb(10, 32, 41);
+
+  &__image-bg {
+    overflow: hidden;
+    width: 100%;
+    height: 900px;
+
+    object-fit: cover;
+
+    filter: blur(5px);
+  }
+
+  .gradient {
+    background: linear-gradient(to top, #0a2029, transparent 100%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+  }
+
+  &__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 $pd-20;
+
+    color: $color-white-1;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &__block-image {
+    position: relative;
+
+    margin-bottom: $mg-50;
+
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+
+    &:hover .detail__overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    border-radius: $border-radius;
+
+    box-shadow: 0 0 20px 0 rgba($color: $color-yellow-0, $alpha: 0.3),
+      0 10px 20px 0 rgba($color: $color-yellow-0, $alpha: 0.3),
+      10px 0 25px 0 rgba($color: $color-yellow-0, $alpha: 0.3);
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: $border-radius;
+    background: linear-gradient(to top, $color-black-0, transparent 100%);
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  &__icon-play {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    text-align: center;
+    line-height: 50px;
+    font-size: $fs-14;
+    color: $color-white-0;
+
+    border: 2px solid $color-white-0;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(0.8);
+      transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+
+      color: $color-white-3;
+      border-color: $color-white-3;
+    }
+  }
+
+  &__block-information {
+    min-width: 400px;
+  }
+
+  &__title {
+    font-size: $fs-12 + 1;
+
+    margin-bottom: $mg-10;
+  }
+
+  &__text {
+    margin-left: $mg-5;
+
+    font-size: $fs-14;
+    color: $color-tertiary-1;
+  }
+
+  &__name {
+    margin: $mg-10 0;
+
+    font-size: $fs-30;
+    font-family: 'Bungee Shade', cursive;
+    color: $color-tertiary-1;
+    letter-spacing: 3px;
+  }
+
+  &__icon-star {
+    color: $color-tertiary-1;
+  }
+
+  &__showtime-movie {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+
+    width: 90%;
+    height: 800px;
+    background-color: $color-yellow-0;
+
+    border: 1px solid $color-gray-1;
+  }
+
+  &__logo {
+    max-width: 50px;
+    height: 50px;
+
+    object-fit: cover;
+
+    opacity: 0.5;
+    transform: rotate(0deg);
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__list-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-right: 1px solid $color-gray-1;
+  }
+
+  &__system {
+    padding: $pd-20;
+  }
+
+  &__list-showtime {
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  &__showtime {
+    padding: $pd-20;
+
+    border-bottom: 1px solid $color-gray-2;
+  }
+
+  &__name-cinema {
+    @include styleText($color-green-0, $fs-16, $fw-700);
+  }
+
+  &__calendar {
+    margin: $mg-15 0;
+
+    font-weight: 700;
+    font-size: $fs-12 + 1;
+    color: $color-tertiary-0;
+    letter-spacing: 0.5;
+  }
+
+  &__block-time {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__time {
+    position: relative;
+
+    margin: $mg-10;
+    padding: $pd-10 - 2 $pd-15 - 2;
+
+    font-weight: 700;
+    font-size: $fs-14 + 1;
+
+    background-color: $color-secondary-0;
+    border: 1px solid $color-secondary-0;
+
+    border-radius: $border-radius;
+
+    box-shadow: 5px 5px 0px 0px #ffcd19, 10px 10px 0px 0px #ffd96a;
+
+    transition: 0.3 ease;
+
+    &:before {
+      content: '';
+      border-style: solid;
+      position: absolute;
+      z-index: 1;
+      transition: all 0.3s;
+
+      width: 0;
+      height: 100%;
+      border-width: 1px 0 1px 0;
+      top: -1px;
+      left: 0;
+      transition-delay: 0.05s;
+    }
+
+    &:after {
+      content: '';
+      border-style: solid;
+      position: absolute;
+      z-index: 1;
+      transition: all 0.3s;
+
+      width: 100%;
+      height: 0;
+      border-width: 0 1px 0 1px;
+      top: 0;
+      left: -1px;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: $color-green-0;
+      border-color: $color-green-0;
+
+      box-shadow: none;
+    }
+
+    &:hover::before {
+      width: 100%;
+      color: $color-green-0;
+      border-color: $color-green-0;
+    }
+
+    &:hover::after {
+      height: 100%;
+      color: $color-green-0;
+      border-color: $color-green-0;
+    }
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
+    &__block-image {
+      max-width: 250px;
+    }
+
+    &__icon-play {
+      width: 60px;
+      height: 60px;
+
+      line-height: 60px;
+      font-size: $fs-16;
+    }
+
+    &__title {
+      font-size: $fs-14;
+
+      margin-bottom: $mg-10;
+    }
+
+    &__text {
+      margin-left: $mg-5;
+
+      font-size: $fs-14 + 1;
+    }
+
+    &__name {
+      font-size: $fs-35;
+    }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &__content {
+      top: 40%;
+
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &__block-information {
+      margin-left: $mg-20;
+      flex-basis: 35%;
+    }
+
+    &__block-information {
+      flex-basis: 65%;
+    }
+
+    &__title {
+      font-size: $fs-14;
+
+      margin-bottom: $mg-10;
+    }
+
+    &__text {
+      margin-left: $mg-5;
+
+      font-size: $fs-16;
+    }
+
+    &__name {
+      font-size: 45px;
+    }
+
+    &__showtime-movie {
+      top: -50px;
+    }
+
+    &__list-system {
+      width: 150px;
+    }
+
+    &__logo {
+      max-width: 55px;
+      height: 55px;
+    }
+
+    &__name-cinema {
+      font-size: $fs-16 + 1;
+    }
+
+    &__calendar {
+      margin: $mg-15 0;
+
+      font-size: $fs-14;
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+
+  @include responsive-min-width('xl') {
+    &__content {
+      left: 55%;
+      width: 85%;
+    }
+
+    &__showtime-movie {
+      width: 75%;
+    }
+
+    &__time {
+      padding: $pd-10 $pd-15;
+
+      font-size: $fs-16;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    &__content {
+      width: 70%;
+    }
+
+    &__showtime-movie {
+      left: 2%;
+      width: 65%;
+    }
+  }
+
+  //Responsive custom width >= 1600px
+  @media screen and (min-width: 1600px) {
+    &__content {
+      width: 65%;
+    }
+
+    &__block-information {
+      margin-left: $mg-50;
+    }
+
+    &__showtime-movie {
+      left: 2%;
+      width: 58%;
+    }
+  }
+}
