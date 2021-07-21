@@ -1,0 +1,334 @@
+.sign {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+
+  background: linear-gradient(to bottom, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));
+  background-attachment: fixed;
+
+  overflow: hidden;
+
+  //Style Background (Moon, Forest, Star)
+  &__moon {
+    position: absolute;
+    top: 8%;
+    left: 15%;
+
+    width: 100px;
+    height: 100px;
+
+    background-color: $color-white-0;
+    border-radius: 50%;
+
+    z-index: 10;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 15px;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 50%;
+
+      background: linear-gradient(to bottom, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100));
+      background-attachment: fixed;
+    }
+  }
+
+  &__forest {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 20;
+
+    transform: scale(1.1) translateY(10%);
+  }
+
+  &__star {
+    position: absolute;
+
+    background: $color-white-0;
+    border-radius: 50%;
+
+    animation: toTop linear infinite;
+  }
+
+  //Style Sliding Sign In & Sign Up
+
+  &__main {
+    position: absolute;
+
+    top: 45%;
+    left: 50%;
+    width: 760px;
+
+    z-index: 500;
+
+    transform: translate(-50%, -50%);
+
+    overflow: hidden;
+
+    box-shadow: 0 14px 28px rgba($color: $color-black-0, $alpha: 0.25),
+      0 10px 10px rgba($color: $color-black-0, $alpha: 0.22);
+  }
+
+  &__box {
+    position: relative;
+    min-height: 550px;
+
+    background: $color-white-0;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    &.right-panel-active {
+      //  Move signIn to the right
+      .sign__in {
+        transform: translateX(100%);
+      }
+
+      // Move overlay to left
+      .sign__container-overlay {
+        transform: translateX(-100%);
+      }
+
+      // Bring sign up over sign in
+      .sign__up {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 35;
+      }
+
+      //Move overlay back to right
+      .sign__overlay {
+        transform: translateX(50%);
+      }
+
+      .sign__panel--left {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 $pd-45 + 5;
+
+    background-color: $color-white-0;
+  }
+
+  &__block-social {
+    margin: $mg-20 0;
+  }
+
+  &__social {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin: 0 $mg-5;
+
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    transition: all 0.3s ease-in-out;
+
+    &--facebook:hover {
+      color: #373a6d;
+      border-color: #373a6d;
+    }
+
+    &--google:hover {
+      color: #d72323;
+      border-color: #d72323;
+    }
+
+    &--linked:hover {
+      color: #1da1f2;
+      border-color: #1da1f2;
+    }
+  }
+
+  &__in {
+    left: 0;
+    width: 50%;
+  }
+
+  &__up {
+    left: 0;
+    width: 50%;
+
+    opacity: 0;
+  }
+
+  //Style container overlay
+  &__container-overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 50%;
+    height: 100%;
+
+    overflow: hidden;
+
+    transition: transform 0.6s ease;
+
+    z-index: 50;
+  }
+
+  &__overlay {
+    position: relative;
+
+    left: -100%;
+
+    height: 100%;
+    width: 200%;
+
+    background: rgb(15, 32, 39);
+    background: linear-gradient(to top, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100))
+      no-repeat 0 0 / cover;
+
+    transform: translateX(0);
+    transition: transform 0.6s ease;
+  }
+
+  &__panel {
+    position: absolute;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 $pd-40;
+    margin-top: -$mg-30;
+
+    text-align: center;
+
+    height: 100%;
+    width: 50%;
+
+    transform: translateX(0);
+    transition: transform 0.6s ease;
+
+    &--right {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    &--left {
+      transform: translateX(-20%);
+    }
+  }
+
+  &__title {
+    @include styleText($color-white-1, $fs-16 + 2, $fw-700);  
+    letter-spacing: 0.8px;
+
+    &--black {
+      color: $color-black-1;
+    }
+  }
+
+  &__text {
+    margin: $mg-20 0;
+
+    color: $color-white-1;
+    font-size: $fs-14 + 1;
+    letter-spacing: .7px;
+    line-height: 1.8;
+  }
+
+  &__button {
+    @include styleText($color-white-0, $fs-12, $fw-700);
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    background: transparent;
+
+    outline: none;
+
+    border: 1px solid $color-white-2;
+
+    border-radius: 10px;
+    padding: $pd-15 - 2 $pd-30;
+
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(0.95);
+
+      border-color: $color-green-0;
+      color: $color-green-0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .svg-right {
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+  }
+
+  .svg-left {
+    position: absolute;
+    left: -50px;
+    bottom: -20px;
+
+    width: 100%;
+    height: 150px;
+  }
+}
+
+//Animation
+// Star to top
+@keyframes toTop {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}

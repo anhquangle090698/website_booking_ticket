@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import logo from 'assets/images/logo-600x600_g2.png';
+import { NavLink } from 'react-router-dom';
 
 Header.propTypes = {};
 
@@ -45,10 +46,10 @@ function Header(props) {
           </ul>
         </nav>
         <div className="header-login">
-          <a className="btn btn__login">
-            <i className="fa fa-user-alt header-login__icon"></i>
-            <span className="header-login__text">Đăng nhập</span>
-          </a>
+          <NavLink to='/đặt-vé' className="btn btn__login">         
+              <i className="fa fa-user-alt header-login__icon"></i>
+              <span className="header-login__text">Đăng nhập</span>
+          </NavLink>
         </div>
 
         <div className="header-user">

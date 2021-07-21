@@ -1,0 +1,76 @@
+.input-group {
+  position: relative;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  margin: $mg-10 0;
+
+  height: 60px;
+
+  &__control {
+    width: 300px;
+    padding: $pd-10;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    border-bottom: 1px solid $color-gray-2;
+
+    font-size: $fs-12 + 1;
+
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      @include styleText($color-gray-1, $fs-14 - 1, $fw-400);
+
+      letter-spacing: 0.2px;
+
+      transform: translateY(5px);
+      transition: transform 0.3s ease-in;
+    }
+
+    &:focus {
+      &::placeholder {
+        transform: translateY(-10px);
+
+        font-size: $fs-10 + 1;
+      }
+
+      border-bottom: 1px solid $color-gray-0;
+    }
+
+    &.invalid {
+      border-bottom: 1.5px solid $color-secondary-1;
+    }
+  }
+
+  &__error {
+    @include styleText($color-secondary-1, $fs-12, $fw-400);
+
+    margin-top: $mg-5;
+
+    text-align: left;
+  }
+
+  &__icon {
+      position: absolute;
+      top: 14px;
+      right: 8px;
+
+      color: $color-secondary-1;
+      font-size: $fs-10 - 3;
+
+      width: 15px;
+      height: 15px;
+      line-height: 14px;
+
+      text-align: center;
+
+      border: 1px solid $color-secondary-1;
+      border-radius: 50%;
+  }
+}

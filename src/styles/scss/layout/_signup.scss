@@ -1,0 +1,31 @@
+.sign-up {
+  text-align: center;
+
+  padding-bottom: $mg-20;
+
+  &__button {
+    @include styleText($color-white-0, $fs-12, $fw-700);
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    background: linear-gradient(to right, rgb(241, 39, 17), rgb(245, 175, 25));
+
+    outline: none;
+
+    border: 1px solid rgb(245, 175, 25);
+
+    border-radius: 10px;
+    padding: $pd-15 - 2 $pd-30;
+
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

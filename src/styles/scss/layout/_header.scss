@@ -81,7 +81,7 @@
   }
 
   .header-login {
-    display: none;
+    // display: none;
     margin: $mg-50 0 0 $mg-5;
 
     .btn__login {
@@ -117,7 +117,7 @@
   }
 
   .header-user {
-    // display: none;
+    display: none;
     margin: $mg-50 0 0 $mg-5;
 
     .header-user__name {
@@ -311,7 +311,7 @@
     }
 
     .header-login {
-      display: none;
+      // display: none;
       margin: 0;
       .btn__login {
         @include styleButton(transparent, $border-radius + 5, $pd-10 - 5, $pd-15 - 3);
@@ -440,7 +440,7 @@
     }
 
     .header-login {
-      display: none;
+      // display: none;
     }
   }
 }
@@ -477,7 +477,7 @@
     }
 
     .header-login {
-      display: none;
+      // display: none;
       .btn__login {
         @include styleButton(transparent, $border-radius + 5, $pd-10 - 2, $pd-15);
 

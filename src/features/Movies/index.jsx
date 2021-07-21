@@ -10,7 +10,7 @@ function Movies(props) {
   return (
     <Switch>
       <Route exact path={match.url} component={Home} />
-      <Route path={`${match.url}/lich-chieu/:maPhim`} component={DetailMovie} />
+      <Route path={`${match.url}/lịch-chiếu/:maPhim`} component={DetailMovie} />
 
       {/* {/* <Route path={`${match.url}/add`} component={AddEditPage} /> */}
 

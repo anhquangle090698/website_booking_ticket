@@ -1,6 +1,9 @@
 import Introduction from 'components/Introduction';
 import Popup from 'components/Popup';
 import Detail from 'features/Movies/components/Detail';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import ScrollToTop from 'components/ScrollToTop';
 import { getDetailMovieAsync } from 'features/Movies/moviesSlice';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,11 +24,16 @@ function DetailMovie(props) {
   }, []);
 
   return (
-    <div className="detail-movie">
-      <Detail detailMovie={detailMovie} showtimeDetail={showtimeDetail}></Detail>
-      <Introduction textWhite="textWhite"></Introduction>
+    <>
+      <Header></Header>
+      <div className="detail-movie">
+        <Detail detailMovie={detailMovie} showtimeDetail={showtimeDetail}></Detail>
+        <Introduction textWhite="textWhite"></Introduction>
+      </div>
       <Popup></Popup>
-    </div>
+      <ScrollToTop></ScrollToTop>
+      <Footer></Footer>
+    </>
   );
 }
 

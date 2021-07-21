@@ -14,7 +14,7 @@ const MoviesApi = {
   },
 
   getDetailMovie: (idFilm) => {
-    const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${idFilm}`;
+    const url = `/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${idFilm}`;
     return axiosClient.get(url);
   },
 
@@ -24,7 +24,7 @@ const MoviesApi = {
   },
 
   getListShowTimeSystemCinema : (idSystemCinema) => {
-    const url = `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP02`;
+    const url = `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP02`;
     return axiosClient.get(url);
   }
 

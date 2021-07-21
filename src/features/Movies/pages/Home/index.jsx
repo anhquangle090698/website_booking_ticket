@@ -4,6 +4,9 @@ import News from 'components/News';
 import Popup from 'components/Popup';
 import Promotion from 'components/Promotion';
 import ListSlide from 'features/Movies/components/ListSlide';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import ScrollToTop from 'components/ScrollToTop';
 import SystemCinema from 'features/Movies/components/SystemCinema';
 import {
   getListMoviesAsync,
@@ -41,6 +44,7 @@ function Home(props) {
   }, []);
   return (
     <>
+      <Header></Header>
       <Carousel></Carousel>
       <ListSlide></ListSlide>
       <SystemCinema></SystemCinema>
@@ -48,6 +52,8 @@ function Home(props) {
       <Promotion></Promotion>
       <Introduction></Introduction>
       <Popup></Popup>
+      <ScrollToTop></ScrollToTop>
+      <Footer></Footer>
     </>
   );
 }
