@@ -1,0 +1,230 @@
+.ticket-room {
+  &__list-chair {
+    position: relative;
+    bottom: 60px;
+
+    padding: $pd-30 $pd-20;
+  }
+
+  &__screen {
+    // min-width: 200px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+
+  &__diagram-chair {
+    margin: $mg-30 0;
+  }
+
+  &__row-chair {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+
+    margin: $mg-10 0;
+  }
+
+  &__character {
+    @include styleText($color-green-0, $fs-16, $fw-700);
+    // margin-right: $mg-10;
+    width: 30px;
+  }
+
+  &__flex-chair {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  &__chair {
+    position: relative;
+
+    margin: 0 $mg-10 $mg-10 0;
+
+    cursor: pointer;
+
+    &--vip {
+      fill: $color-tertiary-0;
+    }
+
+    &--booking {
+      fill: $color-green-0;
+    }
+
+    &--booked {
+      fill: $color-secondary-1;
+    }
+
+    &--disabled {
+      cursor: no-drop !important;
+      pointer-events: none;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 1px;
+    left: 8px;
+
+    font-size: $fs-12 - 1;
+
+    &--vip {
+      color: $color-tertiary-0;
+    }
+
+    &--booking {
+      color: $color-green-0;
+    }
+
+    &--booked {
+      color: $color-secondary-1;
+    }
+  }
+
+  &__svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__notes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--normal {
+      fill: $color-black-1;
+    }
+
+    &--vip {
+      fill: $color-tertiary-0;
+    }
+
+    &--booking {
+      fill: $color-green-0;
+    }
+
+    &--booked {
+      fill: $color-secondary-1;
+    }
+  }
+
+  &__svg-small {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__note-text {
+    margin-top: $mg-5 - 2;
+
+    font-size: $fs-12;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
+    &__diagram-chair {
+      margin: 0;
+      margin-bottom: $mg-20;
+    }
+
+    &__flex-chair {
+      flex-wrap: nowrap;
+    }
+
+    &__notes {
+      width: 65%;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    &__chair {
+      margin: 0 $mg-15 - 2 $mg-10 0;
+    }
+
+    &__svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    &__number {
+      top: 2px;
+      left: 10px;
+
+      font-size: $fs-12 - 1;
+    }
+
+    &__notes {
+      width: 65%;
+    }
+
+    &__note {
+      margin-right: $mg-50;
+    }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &__diagram-chair {
+      margin-bottom: $mg-30;
+    }
+
+    &__chair {
+      margin: 0 $mg-10 $mg-10 0;
+    }
+
+    &__notes {
+      width: 70%;
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+  @include responsive-min-width('xl') {
+    &__number {
+      font-size: $fs-12;
+    }
+
+    &__svg {
+      width: 35px;
+      height: 35px;
+    }
+
+    &__notes {
+      width: 65%;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    &__screen {
+      min-width: 95%;
+    }
+
+    &__chair {
+      margin: 0 $mg-15 $mg-10 0;
+    }
+  }
+
+  @media screen and (min-width: 1730px) {
+    &__screen {
+      width: 90%;
+    }
+
+    &__row-chair {
+      margin-left: -$pd-40;
+    }
+  }
+}

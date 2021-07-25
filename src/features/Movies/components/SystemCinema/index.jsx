@@ -5,6 +5,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 function SystemCinema(props) {
   const dispatch = useDispatch();
@@ -112,9 +113,14 @@ function SystemCinema(props) {
           <div className="system-cinema__block-time">
             {lst?.lstLichChieuTheoPhim?.slice(0, 10).map((stbf, index) => {
               return (
-                <a href="#" key={index} className="system-cinema__time">
+                <NavLink
+                  className="system-cinema__time"
+                  to={`/đặt-vé/${stbf.maLichChieu}`}
+                  // target="_blank"
+                  key={index}
+                >
                   <span> {moment(stbf.ngayChieuGioChieu).format('hh:mm A')}</span>
-                </a>
+                </NavLink>
               );
             })}
           </div>
@@ -140,9 +146,14 @@ function SystemCinema(props) {
           <div className="system-cinema__block-time">
             {lstc?.lstLichChieuTheoPhim?.slice(0, 10).map((stbf, index) => {
               return (
-                <a href="#" key={index} className="system-cinema__time">
+                <NavLink
+                  className="system-cinema__time"
+                  to={`/đặt-vé/${stbf.maLichChieu}`}
+                  // target="_blank"
+                  key={index}
+                >
                   <span> {moment(stbf.ngayChieuGioChieu).format('hh:mm A')}</span>
-                </a>
+                </NavLink>
               );
             })}
           </div>

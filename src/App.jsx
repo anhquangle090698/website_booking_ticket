@@ -14,7 +14,7 @@ function App() {
       <Suspense fallback={<div>Loading ...</div>}>
         <Switch>
           <Redirect exact from="/" to="/trang-chủ" />
-          <Route path="/trang-chủ" component={Movies} />
+          <Route path="/trang-chủ" component={Movies}/>
           <Route path="/đăng-nhập" component={Login} />
           <Authentication path="/đặt-vé" Component={BookTicket}></Authentication>
           {/* <Route component={NotFound} /> */}

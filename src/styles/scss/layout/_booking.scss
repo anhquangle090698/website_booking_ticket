@@ -1,0 +1,161 @@
+.ticket-room {
+  &__book {
+    display: none;
+  }
+  @include responsive-min-width('lg') {
+    &__book {
+      display: block;
+      min-height: 99vh;
+      padding: $pd-20 $pd-30;
+
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    &__book-price {
+      @include styleText($color-green-0, $fs-30, $fw-700);
+
+      margin-top: $mg-20;
+
+      text-align: center;
+
+      padding-bottom: $pd-20;
+      border-bottom: 1.5px dashed $color-gray-2;
+    }
+
+    &__book-detail {
+      padding: $pd-30 0;
+
+      border-bottom: 1.5px dashed $color-gray-2;
+    }
+
+    &__book-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__book-name {
+      @include styleText($color-green-0, $fs-16, $fw-700);
+
+      text-align: center;
+    }
+
+    &__book-daytime {
+      margin-top: $mg-5;
+
+      font-weight: 700;
+    }
+
+    &__book-seats {
+      @include styleText($color-green-0, $fs-16, $fw-700);
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      text-transform: uppercase;
+
+      padding: $pd-30 0;
+
+      border-bottom: 1.5px dashed $color-gray-2;
+    }
+
+    &__seat {
+      margin-left: $mg-5;
+    }
+
+    &__notify {
+      margin-top: $mg-70;
+
+      text-align: center;
+    }
+
+    &__icon {
+      width: 15px;
+      height: 15px;
+
+      margin-right: $mg-5;
+    }
+
+    &__notify-text {
+      font-size: $fs-12 + 1;
+      color: $color-black-0;
+
+      line-height: 1.8;
+    }
+
+    &__confirm {
+      text-align: center;
+
+      margin-top: $mg-30;
+    }
+
+    .button__confirm {
+      @include styleButton($color-green-0, $border-radius + 3, $pd-10, $pd-45);
+
+      outline: none;
+      border: none;
+
+      color: $color-white-0;
+      text-transform: uppercase;
+
+      transition: 0.3s ease;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        border: 1px solid $color-green-0;
+        background-color: $color-white-1;
+        color: $color-green-0;
+      }
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+  @include responsive-min-width('xl') {
+    &__notify-text {
+      font-size: $fs-14;
+      line-height: 2;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    &__book-price {
+      font-size: $fs-30 + 5;
+    }
+
+    &__book-name {
+      @include styleText($color-green-0, $fs-20, $fw-700);
+
+      text-align: center;
+    }
+
+    &__book-daytime {
+      font-size: $fs-16;
+    }
+
+    &__notify {
+      margin-top: $mg-70 + $mg-20;
+
+      text-align: center;
+    }
+
+    &__confirm {
+      text-align: center;
+
+      margin-top: $mg-50;
+    }
+
+    .button__confirm {
+      padding: $pd-10 + 5 $pd-45 + 10;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.ticket-room {
+  &__information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: $pd-30 $pd-20;
+  }
+
+  &__detail {
+    flex-basis: 45%;
+  }
+
+  &__name-cinema {
+    @include styleText($color-green-0, $fs-14 + 1, $fw-700);
+  }
+
+  &__address {
+    margin: $mg-5 0;
+
+    font-size: $fs-12 + 1;
+    font-style: italic;
+  }
+
+  &__daytime {
+    font-size: $fs-12 + 1;
+    font-style: italic;
+  }
+
+  &__block {
+    flex-basis: 50%;
+  }
+
+  &__name-film {
+    @include styleText($color-green-0, $fs-14 + 1, $fw-700);
+    text-transform: uppercase;
+  }
+
+  &__total-price {
+    @include styleText($color-green-0, $fs-20 + 2, $fw-700);
+
+    margin-top: $mg-5;
+  }
+
+  &__countdown {
+    margin-top: $mg-10;
+    margin-left: auto;
+  }
+
+  &__text {
+    font-size: $fs-12 + 1;
+    font-style: italic;
+  }
+
+  &__time {
+    @include styleText($color-tertiary-1, $fs-20 + 2, $fw-700);
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
+    &__detail {
+      flex-basis: 35%;
+    }
+
+    &__block {
+      flex-basis: 35%;
+    }
+
+    &__countdown {
+      flex-basis: 20%;
+
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    &__time {
+      margin-top: $mg-5;
+    }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &__detail {
+      flex-basis: 50%;
+    }
+
+    &__name-cinema {
+      font-size: $fs-16 + 2;
+    }
+
+    &__address {
+      font-size: $fs-14;
+    }
+
+    &__daytime {
+      display: none;
+    }
+
+    &__block {
+      display: none;
+    }
+
+    &__text {
+      font-size: $fs-14;
+    }
+
+    &__time {
+      font-size: $fs-20 + 4;
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+  @include responsive-min-width('xl') {
+    &__countdown {
+      flex-basis: 18%;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    &__countdown {
+      flex-basis: 20%;
+    }
+  }
+}

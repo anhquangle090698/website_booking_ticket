@@ -32,6 +32,7 @@ export const postSignInAsync = createAsyncThunk(
         icon: "success",
         title: "Đăng nhập thành công",
         text: "Chào mừng đến với G2 Cinema!",
+        timer: 1500
       });
 
       history.push('/đặt-vé');

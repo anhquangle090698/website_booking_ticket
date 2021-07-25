@@ -1,0 +1,69 @@
+.ticket-room {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+
+  &__container {
+    padding-top: $pd-40;
+  }
+
+  &__book-small {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    height: 60px;
+
+    background-color: $color-white-2;
+    box-shadow: 0 -1px 0 0 $color-white-0, 0 1px 0 0 $color-white-0;
+  }
+
+  &__seats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-basis: 50%;
+  }
+
+  &__seat-small {
+    @include styleText($color-green-0, $fs-16, $fw-700);
+    text-transform: uppercase;
+  }
+
+  &__confirm-small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-basis: 50%;
+
+    background-color: $color-green-0;
+
+    cursor: pointer;
+  }
+
+  &__text-confirm {
+    @include styleText($color-white-0, $fs-16, $fw-700);
+    text-transform: uppercase;
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &__book-small {
+      display: none;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
+    &__container {
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
+}

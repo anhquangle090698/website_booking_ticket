@@ -5,6 +5,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 function Detail(props) {
   const { detailMovie, showtimeDetail } = props; //DetailMovie
@@ -55,9 +56,14 @@ function Detail(props) {
                 <div className="detail__block-time">
                   {crc?.lichChieuPhim?.slice(0, 10).map((stf, index) => {
                     return (
-                      <a href="#" key={index} className="detail__time">
+                      <NavLink
+                        className="detail__time"
+                        to={`/đặt-vé/${stf.maLichChieu}`}
+                        // target="_blank"
+                        key={index}
+                      >
                         <span> {moment(stf.ngayChieuGioChieu).format('hh:mm A')}</span>
-                      </a>
+                      </NavLink>
                     );
                   })}
                 </div>
@@ -79,9 +85,14 @@ function Detail(props) {
           <div className="detail__block-time">
             {stdt?.lichChieuPhim?.slice(0, 10).map((stf, index) => {
               return (
-                <a href="#" key={index} className="detail__time">
+                <NavLink
+                  className="detail__time"
+                  to={`/đặt-vé/${stf.maLichChieu}`}
+                  // target="_blank"
+                  key={index}
+                >
                   <span> {moment(stf.ngayChieuGioChieu).format('hh:mm A')}</span>
-                </a>
+                </NavLink>
               );
             })}
           </div>
