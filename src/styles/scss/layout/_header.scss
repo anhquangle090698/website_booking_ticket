@@ -13,7 +13,7 @@
   padding: 150px $pd-40 0;
   background-color: $color-blue-0;
 
-  transition: 0.4s ease;
+  transition: 0.5s ease-in-out;
 
   .header-brand {
     display: flex;
@@ -81,7 +81,6 @@
   }
 
   .header-login {
-    // display: none;
     margin: $mg-50 0 0 $mg-5;
 
     .btn__login {
@@ -117,14 +116,18 @@
   }
 
   .header-user {
-    display: none;
     margin: $mg-50 0 0 $mg-5;
+    display: flex;
 
-    .header-user__name {
+    &__content {
+      display: none;
+    }
+
+    &__name {
       color: $color-white-1;
     }
 
-    .header-user__info {
+    &__info {
       margin-left: $mg-5;
 
       color: $color-white-1;
@@ -172,7 +175,6 @@
 
 //Header First Mobile
 .header-mobile {
-  // display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -198,7 +200,7 @@
   }
 
   .header-bars {
-    .header-bars__icon {
+    &__icon {
       font-size: $fs-20 + 5;
 
       cursor: pointer;
@@ -217,7 +219,6 @@
   .header {
     top: 0;
     left: 0;
-
 
     display: flex;
     justify-content: space-between;
@@ -259,7 +260,7 @@
       &__item {
         margin: 0;
 
-        &:last-child {
+        &--logout {
           display: none;
         }
       }
@@ -311,7 +312,6 @@
     }
 
     .header-login {
-      // display: none;
       margin: 0;
       .btn__login {
         @include styleButton(transparent, $border-radius + 5, $pd-10 - 5, $pd-15 - 3);
@@ -349,14 +349,48 @@
     }
 
     .header-user {
+      display: flex;
       margin: 0;
+      margin-top: $mg-5 + 2;
 
-      .header-user__name {
+      &__dropdown {
+        position: relative;
+        display: inline-block;
+        top: -2px; 
+
+        &:hover {
+          .header-user__content {
+            display: block;
+          }
+        }
+      }
+
+      &__content {
+        position: absolute;
+        z-index: 1;
+
+        display: none;
+
+        width: 110px;
+
+        padding: $pd-5;
+        text-align: center;
+
+        background-color: $color-gray-2;
+        border-radius: 5px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      &__logout {
+        color: $color-white-0;
+      }
+
+      &__name {
         color: $color-secondary-1;
         font-size: $fs-12 + 1;
       }
 
-      .header-user__info {
+      &__info {
         position: relative;
 
         margin: 0;
@@ -438,10 +472,6 @@
         letter-spacing: 0.5px;
       }
     }
-
-    .header-login {
-      // display: none;
-    }
   }
 }
 
@@ -472,12 +502,11 @@
 
         font-size: $fs-14;
 
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
       }
     }
 
     .header-login {
-      // display: none;
       .btn__login {
         @include styleButton(transparent, $border-radius + 5, $pd-10 - 2, $pd-15);
 
@@ -495,12 +524,16 @@
     }
 
     .header-user {
-      //   display: none;
-      .header-user__name {
+
+      &__dropdown {
+        top: 0;
+      }
+
+      &__name {
         font-size: $fs-14;
       }
 
-      .header-user__info {
+      &__info {
         font-size: $fs-14;
       }
     }

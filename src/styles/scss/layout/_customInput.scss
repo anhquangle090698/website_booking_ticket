@@ -5,12 +5,20 @@
   flex-wrap: nowrap;
   flex-direction: column;
 
-  margin: $mg-10 0;
-
+  margin: $mg-5 0;
+  width: 300px;
   height: 60px;
 
+  &--account {
+    min-width: 350px;
+    height: 55px;
+
+    .hidden {
+      display: none;
+    }
+  }
+
   &__control {
-    width: 300px;
     padding: $pd-10;
 
     background: transparent;
@@ -23,6 +31,15 @@
     font-size: $fs-12 + 1;
 
     transition: all 0.3s ease;
+
+    &--account {
+      border: 1px solid $color-gray-2;
+      border-radius: $border-radius;
+
+      &.invalid {
+        border: 1.5px solid $color-secondary-1;
+      }
+    }
 
     &::placeholder {
       @include styleText($color-gray-1, $fs-14 - 1, $fw-400);
@@ -43,6 +60,10 @@
       border-bottom: 1px solid $color-gray-0;
     }
 
+    &:disabled {
+      background-color: $color-white-2;
+    }
+
     &.invalid {
       border-bottom: 1.5px solid $color-secondary-1;
     }
@@ -57,20 +78,28 @@
   }
 
   &__icon {
-      position: absolute;
-      top: 14px;
-      right: 8px;
+    position: absolute;
+    top: 14px;
+    right: 8px;
 
-      color: $color-secondary-1;
-      font-size: $fs-10 - 3;
+    color: $color-secondary-1;
+    font-size: $fs-10 - 3;
 
-      width: 15px;
-      height: 15px;
-      line-height: 14px;
+    width: 15px;
+    height: 15px;
+    line-height: 14px;
 
-      text-align: center;
+    text-align: center;
 
-      border: 1px solid $color-secondary-1;
-      border-radius: 50%;
+    border: 1px solid $color-secondary-1;
+    border-radius: 50%;
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    &--account {
+      min-width: 500px;
+    }
   }
 }

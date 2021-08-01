@@ -1,0 +1,73 @@
+.information-account {
+  position: relative;
+  width: 100%;
+
+  padding: $pd-20 $pd-30;
+
+  &__title {
+    font-size: $fs-16;
+    color: $color-black-2;
+  }
+
+  &__container {
+    margin-top: $mg-20;
+    padding: $pd-30 $pd-20;
+
+    background-color: $color-white-0;
+    border-radius: 10px;
+  }
+
+  &__form-control {
+    display: flex;
+    align-items: center;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__label {
+    flex-basis: 20%;
+
+    margin-bottom: $mg-20;
+
+    font-size: $fs-12 + 1;
+    letter-spacing: 0.2px;
+    color: $color-black-0;
+  }
+
+  &__button {
+    @include styleText($color-white-0, $fs-12, $fw-700);
+
+    display: block;
+
+    margin-top: $mg-20;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    background-color: $color-primary;
+
+    outline: none;
+    border: 1px solid rgb(245, 175, 25);
+
+    border-radius: $border-radius;
+    padding: $pd-15 - 2 $pd-40;
+
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+@include responsive-min-width('lg') {
+
+}
+}

@@ -1,0 +1,70 @@
+export const logicNumberChairTicket = (numberChair) => {
+  return numberChair < 17
+    ? `A${logicNumberChair(numberChair)}`
+    : numberChair < 33
+    ? `B${logicNumberChair(numberChair)}`
+    : numberChair < 49
+    ? `C${logicNumberChair(numberChair)}`
+    : numberChair < 65
+    ? `D${logicNumberChair(numberChair)}`
+    : numberChair < 81
+    ? `E${logicNumberChair(numberChair)}`
+    : numberChair < 97
+    ? `F${logicNumberChair(numberChair)}`
+    : numberChair < 113
+    ? `G${logicNumberChair(numberChair)}`
+    : numberChair < 129
+    ? `H${logicNumberChair(numberChair)}`
+    : numberChair < 145
+    ? `I${logicNumberChair(numberChair)}`
+    : numberChair < 161
+    ? `J${logicNumberChair(numberChair)}`
+    : '';
+};
+
+export const logicNumberChair = (numberChair) => {
+  return numberChair % 16 === 1
+    ? '01'
+    : numberChair % 16 === 2
+    ? '02'
+    : numberChair % 16 === 3
+    ? '03'
+    : numberChair % 16 === 4
+    ? '04'
+    : numberChair % 16 === 5
+    ? '05'
+    : numberChair % 16 === 6
+    ? '06'
+    : numberChair % 16 === 7
+    ? '07'
+    : numberChair % 16 === 8
+    ? '08'
+    : numberChair % 16 === 9
+    ? '09'
+    : numberChair % 16 === 10
+    ? '10'
+    : numberChair % 16 === 11
+    ? '11'
+    : numberChair % 16 === 12
+    ? '12'
+    : numberChair % 16 === 13
+    ? '13'
+    : numberChair % 16 === 14
+    ? '14'
+    : numberChair % 16 === 15
+    ? '15'
+    : numberChair % 16 === 0
+    ? '16'
+    : '';
+};
+
+export const secondsToHms = (d) => {
+  d = Number(d);
+
+  const m = Math.floor((d % 3600) / 60);
+  const s = Math.floor((d % 3600) % 60);
+
+  const minute = m < 10 ? `0${m}` : m;
+  const second = s < 10 ? `0${s}` : s;
+  return `${minute}:${second}`;
+};

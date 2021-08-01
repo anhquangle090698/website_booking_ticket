@@ -1,14 +1,19 @@
 import axiosClient from './axiosClient';
+import { ACCESS_TOKEN } from 'utils/config';
 
 const UserApi = {
-  postSignIn: (informationSignIn) => {
-    const url = '/QuanLyNguoiDung/DangNhap';
-    return axiosClient.post(url, informationSignIn);
+  postInformationAccount: (account) => {
+    const url = '/QuanLyNguoiDung/ThongTinTaiKhoan';
+    return axiosClient.post(url, account);
   },
 
-  postSignUp: (informationSignUp) => {
-    const url = '/QuanLyNguoiDung/DangKy';
-    return axiosClient.post(url, informationSignUp);
+  putUpdateUser: (informationUpdate) => {
+    const url = '/QuanLyNguoiDung/CapNhatThongTinNguoiDung';
+    return axiosClient.put(url, informationUpdate, {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+      },
+    });
   },
 };
 

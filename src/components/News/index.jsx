@@ -10,7 +10,7 @@ import news8 from 'assets/images/news-450-bay-cuu.jpg';
 
 function News(props) {
   return (
-    <div className="news">
+    <div className="news" id="tin-tuc">
       <div className="row">
         <div className="col-12 col-lg-6">
           <div className="news__title news__title--left movie-title">Bình Luận Phim</div>

@@ -36,7 +36,7 @@ function ListSlide(props) {
   };
 
   return (
-    <section className="list-slide">
+    <section className="list-slide" id="lich-chieu">
       <h3 className="list-slide__title movie-title">Phim Đang Chiếu</h3>
       <div className="list-slide__content">
         <Swiper

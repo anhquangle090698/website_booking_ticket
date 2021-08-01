@@ -1,182 +1,226 @@
 //Customizes swiper JS Library for Carousel component
 .carousel {
+  .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+
+    background: $color-white-0;
+
+    border: 1px solid $color-white-0;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+
+    background-color: $color-primary !important;
+    border-color: $color-primary !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $color-primary !important;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: $fs-30;
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
     .swiper-pagination-bullet {
-        width: 7px;
-        height: 7px;
-    
-        background: $color-white-0;
-    
-        border: 1px solid $color-white-0;
-        opacity: 1;
+      width: 8px;
+      height: 8px;
     }
-    
-    .swiper-pagination-bullet-active {
-    
-        opacity: 1;
-    
-        background-color: $color-primary !important;
-        border-color: $color-primary !important;
-    }
-    
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: $color-primary !important;
-    }
-    
+
     .swiper-button-prev::after,
     .swiper-button-next::after {
-        font-size: $fs-30;
+      font-size: 35px;
     }
-    
-    //Responsive medium (tablets, iPads)
-    @include responsive-min-width('md') {
-        .swiper-pagination-bullet {
-            width: 8px;
-            height: 8px;
-        }
-    
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            font-size: 35px;
-        }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+  @include responsive-min-width('xl') {
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
     }
-    
-    // Responsive extra large (Desktops, large screens)
-    @include responsive-min-width('xl') {
-        .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-        }
-    
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            font-size: 45px;
-        }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 45px;
     }
+  }
 }
 
 //Customizes swiper JS Library for ListSlide
 .list-slide {
+  .swiper-container {
+    padding-bottom: $pd-40;
+  }
+  .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
 
-    .swiper-container {
-        padding-bottom: $pd-40;
-    }
+    background: $color-white-0;
+
+    border: 1px solid $color-white-0;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+
+    background-color: $color-primary !important;
+    border-color: $color-primary !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $color-primary !important;
+  }
+
+  .swiper-button-prev {
+    left: -5px;
+  }
+
+  .swiper-button-next {
+    right: -5px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: $fs-30;
+  }
+
+  //Responsive medium (tablets, iPads)
+  @include responsive-min-width('md') {
     .swiper-pagination-bullet {
-        width: 7px;
-        height: 7px;
-    
-        background: $color-white-0;
-    
-        border: 1px solid $color-white-0;
-        opacity: 1;
+      width: 8px;
+      height: 8px;
     }
-    
-    .swiper-pagination-bullet-active {
-    
-        opacity: 1;
-    
-        background-color: $color-primary !important;
-        border-color: $color-primary !important;
-    }
-    
+
     .swiper-button-prev,
     .swiper-button-next {
-        color: $color-primary !important;
+      top: 35%;
     }
 
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 35px;
+    }
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 51%;
+    }
+  }
+
+  // Responsive extra large (Desktops, large screens)
+  @include responsive-min-width('xl') {
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 35px;
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+
+  @include responsive-min-width('xxl') {
     .swiper-button-prev {
-        left: -5px;
+      left: 25px;
     }
 
     .swiper-button-next {
-        right: -5px;
+      right: 25px;
     }
-    
-    .swiper-button-prev::after,
-    .swiper-button-next::after {
-        font-size: $fs-30;
-    }
-    
-    //Responsive medium (tablets, iPads)
-    @include responsive-min-width('md') {
-        .swiper-pagination-bullet {
-            width: 8px;
-            height: 8px;
-        }
+  }
 
-        .swiper-button-prev,
-        .swiper-button-next {
-            top: 35%;
-        }
-    
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            font-size: 35px;
-        }
+  @media screen and (min-width: 1600px) {
+    .swiper-button-prev {
+      left: 45px;
     }
 
-    //Responsive large (Small screens, laptops)
-
-    @include responsive-min-width('lg') {
-        .swiper-button-prev,
-        .swiper-button-next {
-            top: 51%;
-        }
+    .swiper-button-next {
+      right: 45px;
     }
-    
-    // Responsive extra large (Desktops, large screens)
-    @include responsive-min-width('xl') {
-        .swiper-pagination-bullet {
-            width: 10px;
-            height: 10px;
-        }
-    
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            font-size: 35px;
-        }
+  }
+
+  @media screen and (min-width: 1730px) {
+    .swiper-button-prev {
+      left: 110px;
     }
 
-    //Responsive extra extra large (Extra large screens, TV.)
-
-    @include responsive-min-width('xxl') {
-        .swiper-button-prev {
-            left: 25px;
-        }
-    
-        .swiper-button-next {
-            right: 25px;
-        }
+    .swiper-button-next {
+      right: 110px;
     }
-
-    @media screen and (min-width: 1600px) {
-        .swiper-button-prev {
-            left: 45px;
-        }
-    
-        .swiper-button-next {
-            right: 45px;
-        }
-      }
-
-      @media screen and (min-width: 1730px) {
-        .swiper-button-prev {
-            left: 110px;
-        }
-    
-        .swiper-button-next {
-            right: 110px;
-        }
-      }
+  }
 }
-
 
 //Customizes scroll
 
 ::-webkit-scrollbar-thumb {
-    background: $color-gray-2;
+  background: $color-gray-2;
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
+}
+
+//Customizes material tabs
+
+.my-account .tab-panel {
+  flex-basis: 78%;
+
+  padding-bottom: $mg-30;
+}
+
+.my-account .MuiTab-wrapper {
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  font-size: $fs-12 + 1;
+  text-transform: initial;
+}
+
+.my-account .MuiCheckbox-colorSecondary.Mui-checked {
+  color: $color-primary;
+}
+
+.my-account .MuiIconButton-label {
+  color: $color-primary;
+}
+
+.my-account .MuiTableSortLabel-root:hover {
+  color: $color-tertiary-1;
+}
+
+//Responsive extra extra large (Extra large screens, TV.)
+
+@include responsive-min-width('xxl') {
+  .my-account .makeStyles-root-1 {
+    justify-content: center;
+
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .my-account .makeStyles-root-1 {
+    justify-content: center;
+
+    width: 75%;
+    margin: 0 auto;
+  }
 }

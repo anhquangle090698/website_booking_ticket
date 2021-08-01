@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { unwrapResult } from '@reduxjs/toolkit';
 import CustomInput from 'components/CustomInput';
-import CustomInputPhone from 'components/CustomInputPhone';
 import { postSignUpAsync } from 'features/Login/loginSlice';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -14,7 +13,7 @@ const schema = yup.object().shape({
   accountSignUp: yup
     .string()
     .required('Vui lập nhập tài khoản')
-    .matches(/^(?=.*[a-zA-Z])[a-zA-Z0-9]+$/, {
+    .matches(/^(?=.*[a-zA-Z0-9])[a-zA-Z0-9]+$/, {
       excludeEmptyString: true,
       message: 'Vui lòng không nhập kí tự đặc biệt',
     })
@@ -45,10 +44,11 @@ const schema = yup.object().shape({
   numberPhone: yup
     .string()
     .required('Vui lòng nhập số điện thoại')
-    .matches(/([+84]|0[3|5|7|8|9])+(([ ]{1})+([0-9]{3})){3}/, {
-      message: 'Vui lòng nhập đúng định dạng số điện thoại',
+    .matches(/^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})$/, {
+      message: 'Nhập đúng định dạng, vd: 0378xxxxxx',
       excludeEmptyString: true,
-    }),
+    })
+    .max(10, 'Số điện thoại tối đa 10 kí tự'),
 });
 
 function SignUp(props) {
@@ -57,7 +57,7 @@ function SignUp(props) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'all',
+    mode: 'onChange',
     resolver: yupResolver(schema),
   });
 
@@ -132,14 +132,14 @@ function SignUp(props) {
           type="email"
           placeholder="Email"
         ></CustomInput>
-        <CustomInputPhone
+        <CustomInput
           register={register}
           id="numberPhone"
           name="numberPhone"
           errors={errors.numberPhone}
           type="text"
           placeholder="Số điện thoại"
-        ></CustomInputPhone>
+        ></CustomInput>
 
         <button className="sign-up__button" type="submit">
           Đăng Nhập

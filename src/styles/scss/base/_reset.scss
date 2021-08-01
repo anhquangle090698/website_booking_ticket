@@ -35,6 +35,10 @@ a:hover {
   text-decoration: none !important;
 }
 
+button:focus {
+  outline: none;
+}
+
 .row {
   margin: 0;
   padding: 0;

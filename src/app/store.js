@@ -4,6 +4,7 @@ import moviesReducer from 'features/Movies/moviesSlice';
 // import counterReducer from '../features/counter/counterSlice';
 import logicReducer from 'features/Logic/logicSlice';
 import bookTicketReducer from 'features/BookTicket/bookTicketSlice';
+import userReducer from 'features/User/userSlice';
 
 const rootReducer = {
   // counter: counterReducer,
@@ -11,6 +12,7 @@ const rootReducer = {
   movies: moviesReducer,
   login: loginReducer,
   bookTicket: bookTicketReducer,
+  user: userReducer,
 };
 
 const store = configureStore({

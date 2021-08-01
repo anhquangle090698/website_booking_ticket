@@ -163,7 +163,7 @@ function SystemCinema(props) {
   };
 
   return (
-    <section className="system-cinema">
+    <section className="system-cinema" id="cum-rap">
       <h3 className="system-cinema__title movie-title">Hệ Thống Cụm Rạp</h3>
       <div className="system-cinema__content">
         <div className="system-cinema__mobile">

@@ -10,7 +10,7 @@ import promotion8 from 'assets/images/promotion-300x450_8.jpg';
 
 function Promotion(props) {
   return (
-    <div className="promotion">
+    <div className="promotion" id="khuyen-mai">
       <div className="promotion__title movie-title">Khuyến Mãi</div>
       <div className="promotion__content">
         <div className="row">

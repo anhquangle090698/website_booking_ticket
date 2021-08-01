@@ -6,6 +6,7 @@ import 'styles/scss/main.scss';
 
 const Movies = lazy(() => import('features/Movies'));
 const Login = lazy(() => import('features/Login'));
+const User = lazy(() => import('features/User'));
 const BookTicket = lazy(() => import('features/BookTicket'));
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Redirect exact from="/" to="/trang-chủ" />
           <Route path="/trang-chủ" component={Movies}/>
           <Route path="/đăng-nhập" component={Login} />
+          <Route path="/tài-khoản-của-tôi" component={User} />
           <Authentication path="/đặt-vé" Component={BookTicket}></Authentication>
           {/* <Route component={NotFound} /> */}
         </Switch>

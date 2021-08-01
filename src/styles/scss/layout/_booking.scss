@@ -42,6 +42,7 @@
       @include styleText($color-green-0, $fs-16, $fw-700);
 
       text-align: center;
+      text-transform: capitalize;
     }
 
     &__book-daytime {
@@ -133,7 +134,7 @@
     }
 
     &__book-name {
-      @include styleText($color-green-0, $fs-20, $fw-700);
+      @include styleText($color-green-0, $fs-20 + 2, $fw-700);
 
       text-align: center;
     }
@@ -156,6 +157,22 @@
 
     .button__confirm {
       padding: $pd-10 + 5 $pd-45 + 10;
+    }
+  }
+
+  @media screen and (min-width: 1730px) {
+    &__book-detail {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &__image {
+      display: block;
+
+      max-width: 120px;
+      object-fit: cover;
+
+      border-radius: $border-radius;
     }
   }
 }
