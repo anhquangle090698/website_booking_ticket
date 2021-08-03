@@ -47,7 +47,7 @@
 
     padding: $pd-20 $pd-20 $pd-10;
 
-    background-color: rgba($color: $color-black-0, $alpha: 0.5);
+    background-color: rgba($color: $color-black-0, $alpha: 0.7);
 
     border-radius: 5px;
 
@@ -103,11 +103,13 @@
     color: $color-white-0;
 
     opacity: 0;
+    transform: scale(1);
     transition: 0.4s ease;
 
     &:hover {
-      border-color: $color-primary;
-      color: $color-primary;
+      border-color: $color-white-3;
+      color: $color-white-3;
+      transform: scale(.95);
     }
   }
 

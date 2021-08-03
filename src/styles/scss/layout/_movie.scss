@@ -203,16 +203,16 @@
 //Responsive medium (tablets, iPads)
 @include responsive-min-width('md') {
   .movie {
-    max-width: 255px;
-    height: 320px;
+    max-width: 260px;
+    height: 340px;
 
     &-box {
       &__image {
-        height: 310px;
+        height: 330px;
       }
 
       &__overlay {
-        height: 310px;
+        height: 330px;
       }
     }
   }
@@ -221,15 +221,15 @@
 @media screen and (min-width: 900px) {
   .movie {
     max-width: 265px;
-    height: 320px;
+    height: 360px;
 
     &-box {
       &__image {
-        height: 325px;
+        height: 350px;
       }
 
       &__overlay {
-        height: 325px;
+        height: 350px;
       }
     }
   }
@@ -239,15 +239,15 @@
 @include responsive-min-width('xl') {
   .movie {
     max-width: 275px;
-    height: 355px;
+    height: 370px;
 
     &-box {
       &__image {
-        height: 350px;
+        height: 360px;
       }
 
       &__overlay {
-        height: 350px;
+        height: 360px;
       }
 
       &__rating {

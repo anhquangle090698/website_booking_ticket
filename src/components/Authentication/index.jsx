@@ -14,7 +14,7 @@ function Authentication(props) {
           return <Component {...propsRoute}></Component>;
         }
 
-        return <Redirect to="/đăng-nhập"></Redirect>;
+        return <Redirect to="/dang-nhap"></Redirect>;
       }}
     />
   );

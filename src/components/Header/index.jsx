@@ -122,13 +122,13 @@ function Header(props) {
               </div>
             </div>
 
-            <NavLink to="/tài-khoản-của-tôi" className="header-user__info">
+            <NavLink to="/tai-khoan-cua-toi" className="header-user__info">
               Thông tin cá nhân
             </NavLink>
           </div>
         ) : (
           <div className="header-login">
-            <NavLink to="/đăng-nhập" className="btn btn__login">
+            <NavLink to="/dang-nhap" className="btn btn__login">
               <i className="fa fa-user-alt header-login__icon"></i>
               <span className="header-login__text">Đăng nhập</span>
             </NavLink>

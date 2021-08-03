@@ -1,0 +1,187 @@
+.detail-news {
+  position: relative;
+  top: 70px;
+  left: 0;
+
+  width: 85%;
+  margin: 0 auto;
+  padding: $pd-30 0;
+
+  &__breadcrumb {
+    margin-bottom: $mg-30;
+  }
+
+  &__home {
+    color: $color-gray-1;
+
+    transition: color 0.3s ease;
+
+    &--active {
+      color: $color-black-1;
+    }
+
+    &:hover {
+      color: $color-black-1;
+    }
+  }
+
+  &__breadcrumb-icon {
+    margin: 0 $mg-5;
+
+    font-size: $fs-14;
+    color: $color-gray-1;
+  }
+
+  &__title {
+    color: $color-black-0;
+    font-size: $fs-20 + 5;
+  }
+
+  &__main {
+    margin-top: $mg-30;
+  }
+
+  &__text {
+    margin-top: $mg-10;
+
+    line-height: 1.9;
+    text-align: justify;
+  }
+
+  &__block-image {
+    margin: $mg-20 0;
+    text-align: center;
+  }
+
+  &__related {
+    margin-top: $mg-30;
+  }
+
+  &__subject {
+    margin-bottom: $mg-20;
+
+    font-size: $fs-16;
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+
+      display: block;
+      width: 50px;
+      height: 2px;
+
+      margin-top: $mg-10 - 2;
+
+      background-color: $color-primary;
+    }
+  }
+
+  &__post {
+    margin: $mg-20 0;
+
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__more {
+    margin: $mg-30 0;
+  }
+
+  &__list-more {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-gap: 20px;
+  }
+
+  &__item {
+    position: relative;
+    border-radius: $border-radius;
+
+    &:hover {
+      .detail-news__overlay {
+        opacity: 1;
+      }
+
+      .detail-news__overlay-text {
+        transform: translateX(0);
+      }
+
+      .detail-news__overlay-button {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: $pd-20;
+    border-radius: inherit;
+    background-color: rgba($color: $color-black-0, $alpha: 0.7);
+
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+
+  &__overlay-text {
+    color: $color-white-0;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+
+    cursor: pointer;
+
+    transform: translateX(-101%);
+    transition: all 0.4s ease-out;
+  }
+
+  &__overlay-button {
+    @include styleButton(transparent, 4px, $pd-10 - 2, $pd-20 + 5);
+
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+
+    outline: none;
+    border: none;
+
+    border: 1px solid $color-white-0;
+    color: $color-white-0;
+
+    opacity: 0;
+
+    transition: all 0.4s ease-out;
+
+    &:hover {
+      color: $color-tertiary-0;
+      border-color: $color-tertiary-0;
+    }
+  }
+}

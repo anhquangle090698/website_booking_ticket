@@ -1,0 +1,96 @@
+.movie-vertical {
+  &__list-movies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin-top: $mg-50;
+  }
+
+  &__item {
+    margin: $mg-20 $mg-20 $mg-20 0;
+  }
+
+  &__movie {
+    position: relative;
+    width: 250px;
+    height: 350px;
+
+    border-radius: 10px;
+
+    &:hover {
+      .movie-vertical__overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: inherit;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba($color: $color-black-0, $alpha: 0.7);
+    border-radius: inherit;
+
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__button {
+    @include styleButton(transparent, $border-radius, $pd-10, $pd-20 + 5);
+
+    outline: none;
+    border: none;
+
+    border: 1px solid $color-white-0;
+    color: $color-white-0;
+    font-size: $fs-12 + 1;
+
+    transition: all 0.4s ease-out;
+
+    &:hover {
+      color: $color-tertiary-0;
+      border-color: $color-tertiary-0;
+    }
+  }
+
+  &__name {
+    margin-top: $mg-5;
+    width: 250px;
+
+    font-size: $fs-16;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+  }
+
+  //Responsive large (Small screens, laptops)
+
+  @include responsive-min-width('lg') {
+    padding: $pd-45 + 10 $pd-45;
+
+    &__list-movies {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      &__item {
+        margin: $mg-20 0;
+      }
+  }
+}

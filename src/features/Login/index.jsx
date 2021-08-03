@@ -5,7 +5,7 @@ import Sign from 'features/Login/pages/Sign';
 
 function Login(props) {
     const match = useRouteMatch();
-    //   console.log(match);
+    console.log(match);
 
   return (
     <Switch>

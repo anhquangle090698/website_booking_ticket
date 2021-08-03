@@ -36,7 +36,7 @@ function Movie(props) {
       <div className="movie-info">
         <p className="movie-info__name">{movie.tenPhim}</p>
         <div className="movie-info__overlay">
-          <NavLink to={`/trang-chủ/lịch-chiếu/${movie.maPhim}`}>
+          <NavLink to={`/trang-chu/lich-chieu/${movie.maPhim}`}>
             <button className="movie-info__button movie-info__button--orange">Mua Vé</button>
           </NavLink>        
         </div>

@@ -7,6 +7,7 @@ import promotion5 from 'assets/images/promotion-300x450_5.jpg';
 import promotion6 from 'assets/images/promotion-300x450_6.jpg';
 import promotion7 from 'assets/images/promotion-300x450_7.png';
 import promotion8 from 'assets/images/promotion-300x450_8.jpg';
+import { NavLink } from 'react-router-dom';
 
 function Promotion(props) {
   return (
@@ -16,23 +17,27 @@ function Promotion(props) {
         <div className="row">
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion4} alt={promotion4} className="promotion__image"/>
+              <img src={promotion4} alt={promotion4} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">Bắp Milo Độc Lạ Chào 2021!</h4>
+
                 <p className="promotion__description">
                   {' '}
                   Đến G2 Cinema để được đắm chìm trong món bắp mới ngọt ngào thơm hương Milo nào các
                   Stars!
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/bap-milo-doc-la-chao-2021"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion2} alt={promotion2} className="promotion__image"/>
+              <img src={promotion2} alt={promotion2} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">Ngày Thành Viên - Milo Day</h4>
                 <p className="promotion__description">
@@ -40,30 +45,36 @@ function Promotion(props) {
                   Bước sang năm mới, Galaxy dành tặng các Stars thêm một ngày tràn đầy “yêu thương”
                   – Milo Day.
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/ngay-thanh-vien-milo-day"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion3} alt={promotion3} className="promotion__image"/>
+              <img src={promotion3} alt={promotion3} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">TƯNG BỪNG HÁI "SAO" – NHẬN ƯU ĐÃI KHỦNG</h4>
                 <p className="promotion__description">
                   {' '}
                   G2 Cinema ra mắt hệ thống tích điểm thành viên hoàn toàn mới!
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/tung-bung-hai-sao-nhan-uu-dai-khung"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion1} alt={promotion1} className="promotion__image"/>
+              <img src={promotion1} alt={promotion1} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name"> X2 Thành Viên - X2 Quyền Lợi</h4>
                 <p className="promotion__description">
@@ -73,15 +84,18 @@ function Promotion(props) {
                   chọn ưu đãi hấp dẫn với đa dạng lĩnh vực từ ăn uống, mua sắm, giải trí cho đến du
                   lịch.
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/x2-thanh-vien-x2-quyen-loi"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion5} alt={promotion5} className="promotion__image"/>
+              <img src={promotion5} alt={promotion5} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">
                   Ngày Tri Ân Của G2 Cinema - Ngày Thứ Hai ĐẦU TIÊN Mỗi Tháng
@@ -92,41 +106,50 @@ function Promotion(props) {
                   hàng thả ga xem phim đã trở nên quen thuộc với các khách hàng thân yêu của Galaxy
                   Cinema.
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/ngay-tri-an-cua-galaxy-cinema-ngay-thu-hai-dau-tien-moi-thang"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion6} alt={promotion6} className="promotion__image"/>
+              <img src={promotion6} alt={promotion6} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">Tiệc Trà Tất Niên – Xem Phim Miễn Phí</h4>
                 <p className="promotion__description">
                   Không khí xuân tràn ngập khắp rạp chiếu, còn gì tuyệt hơn khi được nhận vé miễn
                   phí, thưởng thức những thước phim chất lượng và thỏa thích nhâm nhi trà cực đã.
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/tiec-tra-tat-nien-xem-phim-mien-phi"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion7} alt={promotion7} className="promotion__image"/>
+              <img src={promotion7} alt={promotion7} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">G2 Cinema Tri Ân Thành Viên</h4>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/galaxy-cinema-tri-an-thanh-vien"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>
           <div className="col-6 col-md-4 col-lg-3">
             <div className="promotion__item">
-              <img src={promotion8} alt={promotion8} className="promotion__image"/>
+              <img src={promotion8} alt={promotion8} className="promotion__image" />
               <div className="promotion__overlay">
                 <h4 className="promotion__name">Xem Phim Hay – Nhận Lì Xì Chất</h4>
                 <p className="promotion__description">
@@ -134,9 +157,12 @@ function Promotion(props) {
                   vé xem phim, tận hưởng không khí xuân rộn ràng và thưởng thức loạt siêu phẩm mùa
                   Tết đang được mong chờ nhất.
                 </p>
-                <a href="#" className="promotion__more">
+                <NavLink
+                  to="/tin-tuc/khuyen-mai/xem-phim-hay-nhan-li-xi-chat"
+                  className="promotion__more"
+                >
                   Chi Tiết
-                </a>
+                </NavLink>
               </div>
             </div>
           </div>

@@ -39,34 +39,36 @@ function ListSlide(props) {
     <section className="list-slide" id="lich-chieu">
       <h3 className="list-slide__title movie-title">Phim Đang Chiếu</h3>
       <div className="list-slide__content">
-        <Swiper
-          slidesPerView={1}
-          navigation
-          loop={true}
-        >
+        <Swiper slidesPerView={1} navigation loop={true}>
           <SwiperSlide>
             <div className="row">{renderMovies(0, 8)}</div>
-            {/* <NavLink to="/phim-dang-chieu"> */}
-            <a href="" className="list-slide__link">
+            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
               Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </a>
-            {/* </NavLink> */}
+            </NavLink>
           </SwiperSlide>
           <SwiperSlide>
             <div className="row">{renderMovies(8, 16)}</div>
-            {/* <NavLink to="/phim-dang-chieu"> */}
-            <a href="" className="list-slide__link">
+            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
               Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </a>
-            {/* </NavLink> */}
+            </NavLink>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="row">{renderMovies(16, 24)}</div>
-            {/* <NavLink to="/phim-dang-chieu"> */}
-            <a href="" className="list-slide__link">
+            <div className="row">{renderMovies(24, 32)}</div>
+            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
               Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </a>
-            {/* </NavLink> */}
+            </NavLink>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="row">{renderMovies(32, 40)}</div>
+            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
+              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
+            </NavLink>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="row">{renderMovies(40, 48)}</div>
+            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
+              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
+            </NavLink>
           </SwiperSlide>
         </Swiper>
       </div>

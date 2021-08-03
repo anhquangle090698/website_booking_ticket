@@ -58,7 +58,7 @@ function Detail(props) {
                     return (
                       <NavLink
                         className="detail__time"
-                        to={`/đặt-vé/${stf.maLichChieu}`}
+                        to={`/dat-ve/${stf.maLichChieu}`}
                         // target="_blank"
                         key={index}
                       >
@@ -87,7 +87,7 @@ function Detail(props) {
               return (
                 <NavLink
                   className="detail__time"
-                  to={`/đặt-vé/${stf.maLichChieu}`}
+                  to={`/dat-ve/${stf.maLichChieu}`}
                   // target="_blank"
                   key={index}
                 >

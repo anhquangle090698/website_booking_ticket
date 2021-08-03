@@ -356,7 +356,7 @@
       &__dropdown {
         position: relative;
         display: inline-block;
-        top: -2px; 
+        top: -2px;
 
         &:hover {
           .header-user__content {
@@ -393,7 +393,7 @@
       &__info {
         position: relative;
 
-        margin: 0;
+        margin-top: 0;
         padding-bottom: $pd-5;
 
         color: $color-black-1;
@@ -500,8 +500,6 @@
       &__link {
         padding: $pd-20;
 
-        font-size: $fs-14;
-
         letter-spacing: 0.5px;
       }
     }
@@ -517,24 +515,16 @@
         cursor: pointer;
         transition: 0.3s ease;
       }
-
-      &__text {
-        font-size: $fs-14;
-      }
     }
 
     .header-user {
-
       &__dropdown {
         top: 0;
       }
 
-      &__name {
-        font-size: $fs-14;
-      }
-
       &__info {
-        font-size: $fs-14;
+        margin-top: $mg-5 - 3;
+        padding-bottom: $pd-5;
       }
     }
   }

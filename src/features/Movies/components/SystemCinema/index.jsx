@@ -115,7 +115,7 @@ function SystemCinema(props) {
               return (
                 <NavLink
                   className="system-cinema__time"
-                  to={`/đặt-vé/${stbf.maLichChieu}`}
+                  to={`/dat-ve/${stbf.maLichChieu}`}
                   // target="_blank"
                   key={index}
                 >
@@ -148,7 +148,7 @@ function SystemCinema(props) {
               return (
                 <NavLink
                   className="system-cinema__time"
-                  to={`/đặt-vé/${stbf.maLichChieu}`}
+                  to={`/dat-ve/${stbf.maLichChieu}`}
                   // target="_blank"
                   key={index}
                 >

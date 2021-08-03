@@ -3,7 +3,7 @@ import axiosClient from "./axiosClient";
 // api/productApi.js
 const MoviesApi = {
   getListMovies: () => {
-    const url = '/QuanLyPhim/LayDanhSachPhim?maNhom=GP02';
+    const url = '/QuanLyPhim/LayDanhSachPhim?maNhom=GP03';
     return axiosClient.get(url
       // params,
       // headers : {
@@ -24,7 +24,7 @@ const MoviesApi = {
   },
 
   getListShowTimeSystemCinema : (idSystemCinema) => {
-    const url = `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP02`;
+    const url = `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP03`;
     return axiosClient.get(url);
   }
 

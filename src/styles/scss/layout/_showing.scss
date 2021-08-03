@@ -1,0 +1,30 @@
+.showing {
+  position: relative;
+  top: 70px;
+  left: 0;
+
+  margin: $mg-20 auto;
+  padding: 0 $pd-30;
+
+  &__content {
+    display: grid;
+    grid-gap: 0 25px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    padding-bottom: $pd-45;
+  }
+
+  @media screen and (min-width: 923px) {
+    &__content {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+  }
+
+  //Responsive extra extra large (Extra large screens, TV.)
+  @include responsive-min-width('xxl') {
+    &__content {
+      width: 75%;
+      margin: 0 auto;
+    }
+  }
+}
