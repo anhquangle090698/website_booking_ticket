@@ -66,11 +66,11 @@ function InformationAccount(props) {
   const account = useSelector((state) => state.user.informationAccount);
 
   useEffect(() => {
-    setValue('fullName', `${account.hoTen}`);
-    setValue('phone', `${account.soDT}`);
-    setValue('accountName', `${account.taiKhoan}`);
-    setValue('emailAccount', `${account.email}`);
-    setValue('passWordHidden', `${account.matKhau}`);
+    setValue('fullName', `${account?.hoTen}`);
+    setValue('phone', `${account?.soDT}`);
+    setValue('accountName', `${account?.taiKhoan}`);
+    setValue('emailAccount', `${account?.email}`);
+    setValue('passWordHidden', `${account?.matKhau}`);
     setValue('hasPassword', false);
   }, []);
 

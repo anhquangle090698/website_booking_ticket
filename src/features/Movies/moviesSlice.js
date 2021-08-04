@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import MoviesApi from 'api/moviesApi';
+import history from 'utils/history';
 
 const initialMovies = {
   listMovies: [],
@@ -7,6 +8,7 @@ const initialMovies = {
   listShowtime: [],
   listShowtimeByC: [],
   detailMovie: {},
+  listMoviesByNameFilm : [],
 
   showtimeDetailMovie: [],
 };
@@ -49,6 +51,17 @@ export const getDetailMovieAsync = createAsyncThunk(
   }
 );
 
+export const getSearchMovieAsync = createAsyncThunk(
+  'movies/getSearchMovie',
+  async (nameFilm, thunkAPI) => {
+    const response = await MoviesApi.getSearchMovie(nameFilm);
+
+    history.push('/trang-chu/ket-qua-tim-kiem');
+    
+    return response;
+  }
+)
+
 export const moviesSlice = createSlice({
   name: 'movies',
   initialState: initialMovies,
@@ -82,6 +95,9 @@ export const moviesSlice = createSlice({
     });
     builder.addCase(getDetailMovieAsync.fulfilled, (state, action) => {
       state.detailMovie = action.payload;
+    });
+    builder.addCase(getSearchMovieAsync.fulfilled, (state, action) => {
+      state.listMoviesByNameFilm = action.payload;
     });
   },
 });

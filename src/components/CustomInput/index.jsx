@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function CustomInput({
-  register,
-  id,
-  name,
-  errors,
-  cnCustom,
-  disabled,
-  ...inputProps
-}) {
+function CustomInput({ register, id, name, errors, cnCustom, disabled, ...inputProps }) {
   return (
     <div className={cnCustom ? 'input-group input-group--account' : 'input-group'}>
       <input

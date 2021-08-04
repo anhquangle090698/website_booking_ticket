@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useSelector } from 'react-redux';
 import Movie from '../Movie';
+import InputSearch from '../InputSearch';
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y, EffectFade, Autoplay]);
 
@@ -38,7 +39,9 @@ function ListSlide(props) {
   return (
     <section className="list-slide" id="lich-chieu">
       <h3 className="list-slide__title movie-title">Phim Đang Chiếu</h3>
+      
       <div className="list-slide__content">
+      <InputSearch></InputSearch>
         <Swiper slidesPerView={1} navigation loop={true}>
           <SwiperSlide>
             <div className="row">{renderMovies(0, 8)}</div>
