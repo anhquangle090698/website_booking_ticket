@@ -7,6 +7,7 @@ import Introduction from 'components/Introduction';
 import { useDispatch, useSelector } from 'react-redux';
 import Movie from 'features/Movies/components/Movie';
 import { getListMoviesAsync } from 'features/Movies/moviesSlice';
+import Popup from 'components/Popup';
 
 function ResultSearch(props) {
   const movies = useSelector((state) => state.movies.listMoviesByNameFilm);
@@ -37,6 +38,7 @@ function ResultSearch(props) {
       <Introduction></Introduction>
       <Footer></Footer>
       <ScrollToTop></ScrollToTop>
+      <Popup></Popup>
     </>
   );
 }

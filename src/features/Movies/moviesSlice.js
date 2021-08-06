@@ -6,11 +6,17 @@ const initialMovies = {
   listMovies: [],
   listSystemCinema: [],
   listShowtime: [],
+  listAllShowtime: [],
+
   listShowtimeByC: [],
   detailMovie: {},
-  listMoviesByNameFilm : [],
+  listMoviesByNameFilm: [],
 
   showtimeDetailMovie: [],
+
+  listShowtimeSearch: [],
+  listMoviesByCinema: [],
+  listShowtimeByNameFilm: {},
 };
 
 //Get list movies with 'id group = 02'
@@ -42,6 +48,15 @@ export const getListShowTimeSystemCinemaAsync = createAsyncThunk(
   }
 );
 
+//Get all list showtime
+export const getAllListShowtimeAsync = createAsyncThunk(
+  'movies/getAllListShowtimeAsync',
+  async (idSystemCinema, thunkAPI) => {
+    const response = await MoviesApi.getAllListShowtime();
+    return response;
+  }
+);
+
 //Get detail movie by 'id film = ?'
 export const getDetailMovieAsync = createAsyncThunk(
   'movies/getDetailMovie',
@@ -57,10 +72,10 @@ export const getSearchMovieAsync = createAsyncThunk(
     const response = await MoviesApi.getSearchMovie(nameFilm);
 
     history.push('/trang-chu/ket-qua-tim-kiem');
-    
+
     return response;
   }
-)
+);
 
 export const moviesSlice = createSlice({
   name: 'movies',
@@ -82,6 +97,30 @@ export const moviesSlice = createSlice({
         (htrc) => htrc.maHeThongRap === action.payload
       );
     },
+
+    getListShowtimeSearch: (state, action) => {
+      state.listShowtimeSearch = state.listAllShowtime?.filter(
+        (lst) => lst.maHeThongRap === action.payload
+      );
+    },
+
+    getListMoviesByCinema: (state, action) => {
+      //Option 2: update state in rtk
+      state.listMoviesByCinema = state.listShowtimeSearch[0]?.lstCumRap?.filter(
+        (lcr) => lcr.maCumRap === action.payload
+      );
+    },
+
+    getListShowtimeByNameFilm: (state, action) => {
+      //Option 2: update state in rtk
+      if (action.payload !== null) {
+        state.listShowtimeByNameFilm = state.listMoviesByCinema[0]?.danhSachPhim?.filter(
+          (lmbc) => lmbc.maPhim === action.payload
+        );
+      } else {
+        state.listShowtimeByNameFilm = [];
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getListMoviesAsync.fulfilled, (state, action) => {
@@ -93,6 +132,9 @@ export const moviesSlice = createSlice({
     builder.addCase(getListShowTimeSystemCinemaAsync.fulfilled, (state, action) => {
       state.listShowtime = action.payload;
     });
+    builder.addCase(getAllListShowtimeAsync.fulfilled, (state, action) => {
+      state.listAllShowtime = action.payload;
+    });
     builder.addCase(getDetailMovieAsync.fulfilled, (state, action) => {
       state.detailMovie = action.payload;
     });
@@ -102,6 +144,12 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { getListShowtimeByC, getShowtimeDetailMovie } = moviesSlice.actions;
+export const {
+  getListShowtimeByC,
+  getShowtimeDetailMovie,
+  getListMoviesByCinema,
+  getListShowtimeSearch,
+  getListShowtimeByNameFilm,
+} = moviesSlice.actions;
 const { reducer: moviesReducer } = moviesSlice;
 export default moviesReducer;

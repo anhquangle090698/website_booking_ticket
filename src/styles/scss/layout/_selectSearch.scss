@@ -1,0 +1,55 @@
+.select-search {
+  display: none;
+  visibility: hidden;
+
+  //Responsive large (Small screens, laptops)
+  @include responsive-min-width('lg') {
+    position: relative;
+    top: 30px;
+    z-index: 100;
+
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+
+    padding: 0 $pd-30;
+    margin: 0 auto;
+
+    &__container {
+      display: flex;
+      align-items: center;
+
+      width: 1000px;
+      height: 90px;
+
+      padding: 0 $pd-10;
+      background-color: $color-white-1;
+      border-radius: 10px;
+
+      box-shadow: 5px 10px 10px 0 rgba($color: $color-black-2, $alpha: 0.1),
+        0px 0 10px 0 rgba($color: $color-black-2, $alpha: 0.3);
+    }
+
+    &__select {
+      flex-basis: 20%;
+    }
+
+    &__form {
+      display: flex;
+      flex-basis: 40%;
+    }
+
+    &__input {
+      flex-basis: 50%;
+      color: $color-white-0;
+
+      background-color: $color-black-1;
+      border: 1px solid $color-black-1;
+      border-radius: $border-radius;
+    }
+
+    &__form-option {
+      flex-basis: 50%;
+    }
+  }
+}

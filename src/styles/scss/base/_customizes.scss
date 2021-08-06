@@ -224,3 +224,15 @@
     margin: 0 auto;
   }
 }
+
+
+// Customize react select
+
+.select-search .css-1g8ily9-Control {
+  display: flex;
+  border-right: 1px dotted #bdbdbd,
+}
+
+.select-search .css-1okebmr-indicatorSeparator {
+  width: 0;
+}

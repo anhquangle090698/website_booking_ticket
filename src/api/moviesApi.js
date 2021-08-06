@@ -29,10 +29,20 @@ const MoviesApi = {
     return axiosClient.get(url);
   },
 
+  getListCinema: (idSystemCinema) => {
+    const url = `/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${idSystemCinema}`;
+    return axiosClient.get(url);
+  },
+
   getListShowTimeSystemCinema: (idSystemCinema) => {
     const url = `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP03`;
     return axiosClient.get(url);
   },
+
+  getAllListShowtime: () => {
+    const url = '/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP03';
+    return axiosClient.get(url);
+  }
 };
 
 export default MoviesApi;

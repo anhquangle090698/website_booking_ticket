@@ -9,12 +9,14 @@ import Header from 'components/Header';
 import ScrollToTop from 'components/ScrollToTop';
 import SystemCinema from 'features/Movies/components/SystemCinema';
 import {
+  getAllListShowtimeAsync,
   getListMoviesAsync,
   getListShowTimeSystemCinemaAsync,
   getListSystemCinemaAsync
 } from 'features/Movies/moviesSlice';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import SelectSearch from 'features/Movies/components/SelectSearch';
 
 function Home(props) {
   const dispatch = useDispatch();
@@ -42,10 +44,19 @@ function Home(props) {
 
     getListShowtime();
   }, []);
+
+  useEffect(() => {
+    const getListShowtime = async () => {
+      dispatch(await getAllListShowtimeAsync());
+    };
+
+    getListShowtime();
+  }, []);
   return (
     <>
       <Header></Header>
       <Carousel></Carousel>
+      <SelectSearch></SelectSearch>
       <ListSlide></ListSlide>
       <SystemCinema></SystemCinema>
       <News></News>
