@@ -1,9 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import MyAccount from './pages/MyAccount';
 
+User.propTypes = {
+  match: PropTypes.object.isRequired,
+};
+
 function User(props) {
+  //Get path from url
   const match = useRouteMatch();
 
   return (

@@ -7,15 +7,24 @@ import { USER_LOGIN, ACCESS_TOKEN } from 'utils/config';
 import { useDispatch } from 'react-redux';
 import { handleSignOut } from 'features/Login/loginSlice';
 
-Header.propTypes = {};
+Header.propTypes = {
+  informationUser : PropTypes.object.isRequired,
+  account : PropTypes.object.isRequired,
+  handleToggleNav : PropTypes.func
+};
 
-Header.defaultProps = {};
+Header.defaultProps = {
+  informationUser : {},
+  account : {},
+  handleToggleNav : () => {}
+};
 
 const handleToggleNav = () => {
   const header = document.getElementById('header');
   header.classList.toggle('show');
 };
 
+//Header use entire app
 function Header(props) {
   const informationUser = useSelector((state) => state.login.informationUser);
   const account = useSelector((state) => state.user.informationAccount);
@@ -162,7 +171,5 @@ function Header(props) {
     </>
   );
 }
-
-Header.propTypes = {};
 
 export default Header;

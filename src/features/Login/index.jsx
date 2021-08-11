@@ -1,11 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Sign from 'features/Login/pages/Sign';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+
+Login.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 
 function Login(props) {
-    const match = useRouteMatch();
-    console.log(match);
+  //Get path from url
+  const match = useRouteMatch();
 
   return (
     <Switch>
@@ -16,9 +20,4 @@ function Login(props) {
   );
 }
 
-Login.propTypes = {
-
-}
-
-export default Login
-
+export default Login;

@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Promotion1 from 'features/News/components/Promotion/Promotion1';
 import Promotion2 from 'features/News/components/Promotion/Promotion2';
 import Promotion3 from 'features/News/components/Promotion/Promotion3';
@@ -9,8 +6,15 @@ import Promotion5 from 'features/News/components/Promotion/Promotion5';
 import Promotion6 from 'features/News/components/Promotion/Promotion6';
 import Promotion7 from 'features/News/components/Promotion/Promotion7';
 import Promotion8 from 'features/News/components/Promotion/Promotion8';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
+PromotionFilm.propTypes = {
+  match: PropTypes.object
+};
 function PromotionFilm(props) {
+  //Get path from url
   const match = useRouteMatch();
   return (
     <Switch>

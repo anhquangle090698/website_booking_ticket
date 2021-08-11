@@ -1,4 +1,5 @@
 import React from 'react';
+//Promotion images from asset image
 import promotion1 from 'assets/images/promotion-300x450_1.jpg';
 import promotion2 from 'assets/images/promotion-300x450_2.jpg';
 import promotion3 from 'assets/images/promotion-300x450_3.jpg';

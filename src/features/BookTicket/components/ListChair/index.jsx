@@ -1,14 +1,22 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import screen from 'assets/images/screen.png';
 import arrRowChair from 'constant/arrRowChair';
-import { useDispatch } from 'react-redux';
 import { chooseChairBooking } from 'features/BookTicket/bookTicketSlice';
+import PropTypes from 'prop-types';
+import React, { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
 import { logicNumberChair } from 'utils/common';
+
+ListChair.propTypes = {
+  detailTicketRoom: PropTypes.object.isRequired,
+  listChairBooking: PropTypes.array,
+  handleChairBooking: PropTypes.func,
+};
+
 function ListChair(props) {
   const { detailTicketRoom, listChairBooking } = props;
   const dispatch = useDispatch();
 
+  //Handle logic choose chair
   const handleChairBooking = (maGhe, stt, giaVe) => {
     const chairBooking = {
       maGhe,
@@ -19,6 +27,7 @@ function ListChair(props) {
     dispatch(chooseChairBooking(chairBooking));
   };
 
+  //Render a chair => 01, 02,...
   const renderChair = (numStart, numEnd) => {
     return detailTicketRoom?.danhSachGhe?.map((chair, index) => {
       let chairVip = chair.loaiGhe === 'Vip' ? 'ticket-room__chair--vip' : '';
@@ -67,6 +76,7 @@ function ListChair(props) {
     });
   };
 
+  //Render 1 row chair => A 01 02 03 04 05...
   const renderRowChair = () => {
     return arrRowChair.map((rc, index) => {
       return (
@@ -143,7 +153,5 @@ function ListChair(props) {
     </div>
   );
 }
-
-ListChair.propTypes = {};
 
 export default ListChair;

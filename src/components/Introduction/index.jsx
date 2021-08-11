@@ -1,4 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+Introduction.propTypes = {
+  textWhite: PropTypes.string,
+};
+
+Introduction.defaultProps = {
+  textWhite: '',
+};
 
 function Introduction(props) {
   const { textWhite } = props;

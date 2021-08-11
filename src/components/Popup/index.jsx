@@ -1,7 +1,19 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { closePopup } from 'features/Logic/logicSlice';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+Popup.propTypes = {
+  active: PropTypes.bool.isRequired,
+  sourceVideo: PropTypes.string.isRequired,
+};
+
+Popup.defaultProps = {
+  active: false,
+  sourceVideo: '',
+};
+
+//Component popup handle popup for view video intro movie
 function Popup() {
   const dispatch = useDispatch();
   const active = useSelector((state) => state.logic.active);

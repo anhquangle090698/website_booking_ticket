@@ -1,3 +1,4 @@
+//Array support for render row name and number chair
 const arrRowChair = [
     {
         "character" : "A",

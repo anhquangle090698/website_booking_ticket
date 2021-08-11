@@ -2,12 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import bookTicketApi from 'api/bookTicketApi';
 
 const initialBookTicket = {
+  //Detail ticket room by id showtime
   detailTicketRoom: {},
 
+  //List all chair use is booking
   listChairBooking: [],
 };
 
-// get detail ticket room 'id showtime = ?'
+//Action get detail ticket room
 export const getDetailTicketRoomAsync = createAsyncThunk(
   'bookTicket/getDetailTicketRoom',
   async (idShowtime, thunkAPI) => {
@@ -16,11 +18,7 @@ export const getDetailTicketRoomAsync = createAsyncThunk(
   }
 );
 
-// post booking ticket 'data = {
-//   maLichChieu : ?,
-//   danhSachGhe : ?,
-//   taiKhoanNguoiDung : ?
-// }
+//action post booking ticket
 export const postBookingTicketAsync = createAsyncThunk(
   'bookTicket/postBookingTicket',
   async (informationTicket, { dispatch }) => {
@@ -34,6 +32,7 @@ export const bookTicketSlice = createSlice({
   name: 'bookTicket',
   initialState: initialBookTicket,
   reducers: {
+    //Handle logic choose chair
     chooseChairBooking: (state, action) => {
       const listChairBookingNew = [...state.listChairBooking];
 

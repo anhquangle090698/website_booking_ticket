@@ -68,3 +68,32 @@ export const secondsToHms = (d) => {
   const second = s < 10 ? `0${s}` : s;
   return `${minute}:${second}`;
 };
+
+export const renderStars = () => {
+  const contentStar = [];
+
+  for (let index = 0; index < 500; index++) {
+    let x = Math.floor(Math.random() * 1900);
+    let y = Math.floor(Math.random() * window.innerHeight);
+    let duration = Math.random() * 10 + 5;
+    let delay = Math.random() * 10;
+    let size = Math.random() * 2 + 1;
+
+    contentStar.push(
+      <span
+        className="sign__star"
+        style={{
+          left: `${x}px`,
+          top: `${y}px`,
+          width: `${size}px`,
+          height: `${size}px`,
+          animationDuration: `${duration}s`,
+          animationDelay: `${delay}s`,
+        }}
+        key={index}
+      ></span>
+    );
+  }
+
+  return contentStar;
+};

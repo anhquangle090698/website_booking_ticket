@@ -3,15 +3,22 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+MovieVertical.propTypes = {
+  movies: PropTypes.array.isRequired,
+  start : PropTypes.number.isRequired,
+  end : PropTypes.number.isRequired,
+  renderMovie: PropTypes.func
+};
 function MovieVertical(props) {
   const { start, end } = props;
   const movies = useSelector((state) => state.movies.listMovies);
 
+  //Render movie vertical at blog, comment, promotion
   const renderMovie = () => {
     return movies.slice(start, end).map((movie, index) => {
       return (
-        <div className="movie-vertical__item">
-          <div className="movie-vertical__movie" key={index}>
+        <div className="movie-vertical__item" key={index}>
+          <div className="movie-vertical__movie">
             <img src={movie.hinhAnh} alt={movie.hinhAnh} className="movie-vertical__image" />
             <div className="movie-vertical__overlay">
               <NavLink to={`/trang-chu/lich-chieu/${movie.maPhim}`}>
@@ -35,6 +42,5 @@ function MovieVertical(props) {
   );
 }
 
-MovieVertical.propTypes = {};
 
 export default MovieVertical;

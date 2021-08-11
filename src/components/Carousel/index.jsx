@@ -1,3 +1,4 @@
+//Banner from assets image
 import banner_1 from 'assets/images/banner-2048x682_1.jpg';
 import banner_2 from 'assets/images/banner-2048x682_2.jpg';
 import banner_3 from 'assets/images/banner-2048x682_3.jpg';
@@ -5,6 +6,7 @@ import banner_4 from 'assets/images/banner-2048x682_4.png';
 import banner_5 from 'assets/images/banner-2048x682_5.jpg';
 import banner_6 from 'assets/images/banner-2048x682_6.jpg';
 import banner_7 from 'assets/images/banner-2048x682_7.jpg';
+//Function handle open popup from logic slice
 import { openPopup } from 'features/Logic/logicSlice';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -13,18 +15,20 @@ import SwiperCore, { A11y, Autoplay, EffectFade, Navigation, Pagination } from '
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
+//Link document swiper : https://swiperjs.com/react
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/swiper.scss';
 
-
-
-
-// install Swiper components
+// Install Swiper modules
 SwiperCore.use([Navigation, Pagination, A11y, EffectFade, Autoplay]);
 
+//Show banner of web
 function Carousel(props) {
+  //Hook of react-redux, use dispatch action
   const dispatch = useDispatch();
+
   return (
     <div className="carousel">
       <Swiper

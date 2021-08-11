@@ -1,12 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Blog1 from 'features/News/components/Blog/Blog1';
 import Blog2 from 'features/News/components/Blog/Blog2';
 import Blog3 from 'features/News/components/Blog/Blog3';
 import Blog4 from 'features/News/components/Blog/Blog4';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+
+
+BlogFilm.propTypes = {
+  match: PropTypes.object
+};
 
 function BlogFilm(props) {
+  //Get path from url
   const match = useRouteMatch();
   return (
     <Switch>
@@ -28,6 +34,5 @@ function BlogFilm(props) {
   );
 }
 
-BlogFilm.propTypes = {};
 
 export default BlogFilm;

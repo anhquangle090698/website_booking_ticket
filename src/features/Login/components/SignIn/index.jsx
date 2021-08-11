@@ -1,13 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { unwrapResult } from '@reduxjs/toolkit';
 import CustomInput from 'components/CustomInput';
 import { postSignInAsync } from 'features/Login/loginSlice';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import * as yup from 'yup';
 
+//Schema validation use yup
 const schema = yup.object().shape({
   account: yup
     .string()
@@ -29,7 +29,12 @@ const schema = yup.object().shape({
     .min(10, 'Mật khẩu phải có ít nhất 10 kí tự'),
 });
 
+SignIn.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 function SignIn(props) {
+  //Use form of React-hook-form
   const {
     register,
     handleSubmit,
@@ -40,8 +45,8 @@ function SignIn(props) {
   });
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
+  //Handle submit form sign in
   const onSubmit = async (data) => {
     const informationUser = {
       taiKhoan: data.account,
@@ -49,12 +54,7 @@ function SignIn(props) {
     };
 
     try {
-      const result = await dispatch(postSignInAsync(informationUser));
-      const currentUser = unwrapResult(result);
-      console.log('currentUser', currentUser);
-    //   if(currentUser) {
-    //       history.push('/trang-chủ');
-    //   }
+      await dispatch(postSignInAsync(informationUser));
     } catch (error) {
       console.log('fail', error.message);
     }
@@ -87,7 +87,5 @@ function SignIn(props) {
     </div>
   );
 }
-
-SignIn.propTypes = {};
 
 export default SignIn;

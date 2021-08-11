@@ -1,6 +1,25 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
+CustomInput.propTypes = {
+  register: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  errors: PropTypes.object,
+  cnCustom: PropTypes.string.isRequired,
+  disabled: PropTypes.string.isRequired,
+  inputProps: PropTypes.object,
+};
+
+CustomInput.defaultProps = {
+  register: () => {},
+  id: '',
+  name: '',
+  cnCustom: '',
+  disabled: '',
+};
+
+//Custom input about style, error change input of react-hook-form
 function CustomInput({ register, id, name, errors, cnCustom, disabled, ...inputProps }) {
   return (
     <div className={cnCustom ? 'input-group input-group--account' : 'input-group'}>
@@ -18,7 +37,5 @@ function CustomInput({ register, id, name, errors, cnCustom, disabled, ...inputP
     </div>
   );
 }
-
-CustomInput.propTypes = {};
 
 export default CustomInput;

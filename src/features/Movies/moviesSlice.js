@@ -3,23 +3,38 @@ import MoviesApi from 'api/moviesApi';
 import history from 'utils/history';
 
 const initialMovies = {
+  //-----------Feature show list movies, show showtime of all movies at home page----------
+  //List all movies
   listMovies: [],
+  //List all system cinema
   listSystemCinema: [],
+  //List showtime by system cinema
   listShowtime: [],
+  //List all showtime
   listAllShowtime: [],
-
+  //List showtime by cinema
   listShowtimeByC: [],
-  detailMovie: {},
+
+  //-----------Feature show list movie after input search name movie-----------
+  //List movie by name movie
   listMoviesByNameFilm: [],
 
+  //-----------Feature show detail movie, showtime of movie--------------
+  //Detail movie by id movie
+  detailMovie: {},
+  //List showtime detail movie by system cinema
   showtimeDetailMovie: [],
 
+  //-----------Feature show showtime of movie after select search------------
+  //List showtime select search by system cinema
   listShowtimeSearch: [],
+  //List movies select search by cinema
   listMoviesByCinema: [],
+  //List showtime select search by name movie
   listShowtimeByNameFilm: {},
 };
 
-//Get list movies with 'id group = 02'
+//Action get list movies
 export const getListMoviesAsync = createAsyncThunk(
   'movies/getListMovies',
   async (params, thunkAPI) => {
@@ -30,7 +45,7 @@ export const getListMoviesAsync = createAsyncThunk(
   }
 );
 
-//Get list system cinema
+//Action get list system cinema
 export const getListSystemCinemaAsync = createAsyncThunk(
   'movies/getListSystemCinema',
   async (params, thunkAPI) => {
@@ -39,7 +54,7 @@ export const getListSystemCinemaAsync = createAsyncThunk(
   }
 );
 
-//Get list showtime by 'id system cinema = ?'
+//Action get list showtime
 export const getListShowTimeSystemCinemaAsync = createAsyncThunk(
   'movies/getListShowTimeSystemCinema',
   async (idSystemCinema, thunkAPI) => {
@@ -48,7 +63,7 @@ export const getListShowTimeSystemCinemaAsync = createAsyncThunk(
   }
 );
 
-//Get all list showtime
+//Action get all list showtime
 export const getAllListShowtimeAsync = createAsyncThunk(
   'movies/getAllListShowtimeAsync',
   async (idSystemCinema, thunkAPI) => {
@@ -57,7 +72,7 @@ export const getAllListShowtimeAsync = createAsyncThunk(
   }
 );
 
-//Get detail movie by 'id film = ?'
+//Action get detail movie
 export const getDetailMovieAsync = createAsyncThunk(
   'movies/getDetailMovie',
   async (idFilm, thunkAPI) => {
@@ -66,11 +81,13 @@ export const getDetailMovieAsync = createAsyncThunk(
   }
 );
 
+//Action get search movie
 export const getSearchMovieAsync = createAsyncThunk(
   'movies/getSearchMovie',
   async (nameFilm, thunkAPI) => {
     const response = await MoviesApi.getSearchMovie(nameFilm);
 
+    //Go to result page
     history.push('/trang-chu/ket-qua-tim-kiem');
 
     return response;
@@ -81,6 +98,7 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState: initialMovies,
   reducers: {
+    //Handle logic showtime by cinema at home page
     getListShowtimeByC: (state, action) => {
       //Option 1: update state in rtk
       // let stateNew = [ ...state.listShowtimeByC ];
@@ -92,25 +110,34 @@ export const moviesSlice = createSlice({
         (lcr) => lcr.maCumRap === action.payload
       );
     },
+
+    //Handle logic showtime of movie at detail movie page
     getShowtimeDetailMovie: (state, action) => {
       state.showtimeDetailMovie = state.detailMovie?.heThongRapChieu?.filter(
         (htrc) => htrc.maHeThongRap === action.payload
       );
     },
 
+    //Handle logic showtime of system cinema in component select search
     getListShowtimeSearch: (state, action) => {
       state.listShowtimeSearch = state.listAllShowtime?.filter(
         (lst) => lst.maHeThongRap === action.payload
       );
     },
 
+    //Handle logic list movie of cinema in component select search
     getListMoviesByCinema: (state, action) => {
       //Option 2: update state in rtk
-      state.listMoviesByCinema = state.listShowtimeSearch[0]?.lstCumRap?.filter(
-        (lcr) => lcr.maCumRap === action.payload
-      );
+      if (action.payload !== null) {
+        state.listMoviesByCinema = state.listShowtimeSearch[0]?.lstCumRap?.filter(
+          (lcr) => lcr.maCumRap === action.payload
+        );
+      } else {
+        state.listMoviesByCinema = [];
+      }
     },
 
+    //Handle logic list showtime of movie by name movie in component select search
     getListShowtimeByNameFilm: (state, action) => {
       //Option 2: update state in rtk
       if (action.payload !== null) {

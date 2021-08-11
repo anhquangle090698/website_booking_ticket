@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { unwrapResult } from '@reduxjs/toolkit';
-import { useForm, Controller } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from '@material-ui/core/Checkbox';
-import * as yup from 'yup';
-import CustomInput from 'components/CustomInput';
-import Swal from 'sweetalert2';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import CustomInput from 'components/CustomInput';
 import { putUpdateUserAsync } from 'features/User/userSlice';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
 
+//Schema validation use yup
 const schema = yup.object().shape({
   fullName: yup
     .string()
@@ -32,7 +31,7 @@ const schema = yup.object().shape({
     then: yup
       .string()
       .required('Vui lòng nhập mật khẩu cũ')
-      .oneOf([yup.ref('passWordHidden')], 'Mật khẩu cũ không đúng')
+      .oneOf([yup.ref('passWordHidden')], 'Mật khẩu cũ không đúng'),
   }),
   passwordAccountEdit: yup.string().when('hasPassword', {
     is: true,
@@ -49,7 +48,14 @@ const schema = yup.object().shape({
     .string()
     .oneOf([yup.ref('passwordAccountEdit'), ''], 'Mật khẩu mới không khớp!'),
 });
+
+InformationAccount.propTypes = {
+  account: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func,
+};
+
 function InformationAccount(props) {
+  //Use form of React-hook-form
   const {
     register,
     handleSubmit,
@@ -61,8 +67,10 @@ function InformationAccount(props) {
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
-  const dispatch = useDispatch();
   const hasPassword = watch('hasPassword');
+
+  const dispatch = useDispatch();
+
   const account = useSelector((state) => state.user.informationAccount);
 
   useEffect(() => {
@@ -85,28 +93,10 @@ function InformationAccount(props) {
       hoTen: data.fullName,
     };
 
-    console.log('data', informationUpdate);
-
     try {
-      const response = await dispatch(putUpdateUserAsync(informationUpdate));
-      const result = unwrapResult(response);
-      console.log('result', result);
-      if (result) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Cập nhật thông tin thành công',
-          timer: 1500,
-        });
-      }
+      await dispatch(putUpdateUserAsync(informationUpdate));
     } catch (error) {
-      if (error.message) {
-        // Swal.fire({
-        //   icon: 'error',
-        //   title: 'Email đã tồn tại!',
-        //   text: 'Vui lòng sử dụng email khác',
-        //   timer: 3000,
-        // });
-      }
+      console.log(error.message);
     }
   };
 
@@ -249,7 +239,5 @@ function InformationAccount(props) {
     </div>
   );
 }
-
-InformationAccount.propTypes = {};
 
 export default InformationAccount;

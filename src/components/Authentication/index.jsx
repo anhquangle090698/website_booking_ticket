@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import { Redirect, Route } from 'react-router-dom';
 import { USER_LOGIN } from 'utils/config';
 
+Authentication.propTypes = {
+  Component : PropTypes.elementType,
+};
+
+//Authentication user logged, if not yet log in direct to component (sign), else log in direct to component (book ticket)
 function Authentication(props) {
+
+  //Component : direct after log in.
+  //restParams: props of Route App(path, exact, location...)
   const { Component, ...restParams } = props;
 
   return (
     <Route
       {...restParams}
+      //propsRoute: props of Route Authentication
       render={(propsRoute) => {
         if (localStorage.getItem(USER_LOGIN)) {
           return <Component {...propsRoute}></Component>;
@@ -19,7 +28,5 @@ function Authentication(props) {
     />
   );
 }
-
-Authentication.propTypes = {};
 
 export default Authentication;

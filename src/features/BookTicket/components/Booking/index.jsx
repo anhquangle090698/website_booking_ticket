@@ -1,19 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import notify from 'assets/images/exclamation.png';
-import { logicNumberChairTicket } from 'utils/common';
-import { unwrapResult } from '@reduxjs/toolkit';
-import {
-  getDetailTicketRoomAsync,
-  postBookingTicketAsync,
-} from 'features/BookTicket/bookTicketSlice';
-import Swal from 'sweetalert2';
+import { postBookingTicketAsync } from 'features/BookTicket/bookTicketSlice';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
+import { logicNumberChairTicket } from 'utils/common';
+
+Booking.propTypes = {
+  maLichChieu: PropTypes.string.isRequired,
+  detailTicketRoom: PropTypes.object.isRequired,
+  listChairBooking: PropTypes.array,
+  informationUser: PropTypes.object.isRequired,
+  handleBookTicket: PropTypes.func
+};
 
 function Booking(props) {
-  const { detailTicketRoom, listChairBooking, maLichChieu, informationUser } = props;
+  const { maLichChieu, detailTicketRoom, listChairBooking, informationUser } = props;
   const dispatch = useDispatch();
 
+  //Render list chair are choosing
   const renderChairBooking = () => {
     return listChairBooking.map((chair, index) => {
       return (
@@ -22,6 +27,35 @@ function Booking(props) {
         </span>
       );
     });
+  };
+
+  const handleBookTicket = async () => {
+    if (typeof listChairBooking !== 'undefined' && listChairBooking.length > 0) {
+      let objectBooking = {
+        maLichChieu: maLichChieu,
+        danhSachVe: listChairBooking,
+        taiKhoanNguoiDung: informationUser.taiKhoan,
+      };
+      try {
+        dispatch(await postBookingTicketAsync(objectBooking));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Đặt Vé Thành Công!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } catch (error) {
+        // console.log(error.message);
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Bạn Chưa Chọn Ghế!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   return (
@@ -58,35 +92,7 @@ function Booking(props) {
       <div className="ticket-room__confirm">
         <button
           className="button__confirm"
-          onClick={async () => {
-            if (typeof listChairBooking !== 'undefined' && listChairBooking.length > 0) {
-              let objectBooking = {
-                maLichChieu: maLichChieu,
-                danhSachVe: listChairBooking,
-                taiKhoanNguoiDung: informationUser.taiKhoan,
-              };
-              try {
-                const result = dispatch(await postBookingTicketAsync(objectBooking));
-                const currentUser = unwrapResult(result);
-
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Đặt Vé Thành Công!',
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-              } catch (error) {
-                console.log(error.message);
-              }
-            } else {
-              Swal.fire({
-                icon: 'error',
-                title: 'Bạn Chưa Chọn Ghế!',
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            }
-          }}
+          onClick={() => {handleBookTicket()}}
         >
           Đặt Vé
         </button>
@@ -94,7 +100,5 @@ function Booking(props) {
     </div>
   );
 }
-
-Booking.propTypes = {};
 
 export default Booking;

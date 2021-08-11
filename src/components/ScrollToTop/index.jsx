@@ -1,4 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+ScrollToTop.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+  isComponentMounted: PropTypes.bool.isRequired,
+  handleScrollToTop : PropTypes.func
+};
+
+ScrollToTop.defaultProps = {
+  isVisible: false,
+  isComponentMounted: true,
+  handleScrollToTop : () => {}
+};
 
 function ScrollToTop(props) {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,7 +33,7 @@ function ScrollToTop(props) {
     };
   }, []);
 
-  const scrollToTop = () => {
+  const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -33,7 +46,7 @@ function ScrollToTop(props) {
         <div
           className="scroll"
           onClick={() => {
-            scrollToTop();
+            handleScrollToTop();
           }}
         >
           <i className="fa fa-angle-double-up scroll__icon"></i>

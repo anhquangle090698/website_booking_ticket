@@ -1,10 +1,3 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import MaterialTable from 'material-table';
-import { logicNumberChairTicket } from 'utils/common';
-import { forwardRef } from 'react';
-import moment from 'moment';
-
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -20,13 +13,15 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import MaterialTable from 'material-table';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { logicNumberChairTicket } from 'utils/common';
 
 const tableIcons = {
-  Add: forwardRef((props, ref) => {
-    console.log('props', props);
-    return <AddBox {...props} ref={ref} />;
-  }),
+  Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
   Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
   Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
   Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
@@ -48,10 +43,15 @@ const tableIcons = {
 const cellStyle = {
   fontSize: '13px',
 };
+
+HistoryBooking.propTypes = {
+  account: PropTypes.object.isRequired,
+};
 function HistoryBooking(props) {
   const account = useSelector((state) => state.user.informationAccount);
   const [selectedRow, setSelectedRow] = useState(null);
 
+  //Transform data account to data table
   const data = account?.thongTinDatVe?.map((ttdv, index) => {
     const dsGhe = ttdv.danhSachGhe?.map((dsg) => logicNumberChairTicket(dsg.tenGhe)).toString();
 
@@ -80,7 +80,7 @@ function HistoryBooking(props) {
           {
             title: 'Tên phim',
             field: 'name',
-            cellStyle: cellStyle,
+            cellStyle: { ...cellStyle, textTransform: 'uppercase' },
           },
           {
             title: 'Tên rạp',
@@ -114,7 +114,5 @@ function HistoryBooking(props) {
     </div>
   );
 }
-
-HistoryBooking.propTypes = {};
 
 export default HistoryBooking;

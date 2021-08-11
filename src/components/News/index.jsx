@@ -1,4 +1,5 @@
 import React from 'react';
+//News image from asset images
 import news1 from 'assets/images/news-450-diet-quy.jpg';
 import news2 from 'assets/images/news-450-crood.jpg';
 import news3 from 'assets/images/news-tiectrangmau450x300.jpg';

@@ -8,9 +8,13 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import ScrollToTop from 'components/ScrollToTop';
 
+News.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 function News(props) {
+  //Get path from url
   const match = useRouteMatch();
-  console.log('macthnew', match);
+
   return (
     <>
       <Header></Header>

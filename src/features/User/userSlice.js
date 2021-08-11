@@ -6,9 +6,11 @@ import history from 'utils/history';
 import UserApi from 'api/userApi';
 
 const initialUser = {
+  //Information account user after sign in
   informationAccount: {},
 };
 
+//Action post information account
 export const postInformationAccountAsync = createAsyncThunk(
   'user/postInformationAccount',
   async (account, thunkAPI) => {
@@ -18,11 +20,13 @@ export const postInformationAccountAsync = createAsyncThunk(
   }
 );
 
+//Action put update user
 export const putUpdateUserAsync = createAsyncThunk(
   'user/putUpdateUser',
   async (informationUpdate, thunkAPI) => {
     const response = await UserApi.putUpdateUser(informationUpdate);
 
+    //Show alter update success
     if (response) {
       Swal.fire({
         icon: 'success',

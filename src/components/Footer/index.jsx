@@ -1,4 +1,5 @@
 import React from 'react';
+//Logo brand import asset images
 import f1 from 'assets/images/footer-cgv.png';
 import f2 from 'assets/images/footer-bhd.png';
 import f3 from 'assets/images/footer-cinestar.png';
@@ -12,6 +13,8 @@ import f10 from 'assets/images/footer-zalopay_icon.png';
 import f11 from 'assets/images/footer-informed.png';
 import logoB from 'assets/images/logo-600x600_g2_bg_dark.png';
 
+
+//Footer use entire app
 function Footer(props) {
   return (
     <>

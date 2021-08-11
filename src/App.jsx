@@ -1,7 +1,8 @@
 import Authentication from 'components/Authentication';
+import Loading from 'components/Loading';
 import React, { lazy, Suspense } from 'react';
-
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
+//Main contain entire scss of app
 import 'styles/scss/main.scss';
 
 const Movies = lazy(() => import('features/Movies'));
@@ -13,7 +14,7 @@ const News = lazy(() => import('features/News'));
 function App() {
   return (
     <>
-      <Suspense fallback={<div>Loading ...</div>}>
+      <Suspense fallback={<Loading></Loading>}>
         <Switch>
           <Redirect exact from="/" to="/trang-chu" />
           <Route path="/trang-chu" component={Movies} />

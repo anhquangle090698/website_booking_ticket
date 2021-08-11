@@ -1,6 +1,13 @@
-import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { secondsToHms } from 'utils/common';
+
+InformationTicket.propTypes = {
+  timer: PropTypes.number,
+  detailTicketRoom: PropTypes.object.isRequired,
+  listChairBooking: PropTypes.array,
+};
+
 function InformationTicket(props) {
   const { detailTicketRoom, timer, listChairBooking } = props;
 
@@ -16,11 +23,13 @@ function InformationTicket(props) {
       </div>
       <div className="ticket-room__block">
         <p className="ticket-room__name-film">{detailTicketRoom.thongTinPhim?.tenPhim}</p>
-        <p className="ticket-room__total-price">{listChairBooking
-                    .reduce((tongTien, chair, index) => {
-                      return tongTien + chair.giaVe;
-                    }, 0)
-                    .toLocaleString(2) + " đ"}</p>
+        <p className="ticket-room__total-price">
+          {listChairBooking
+            .reduce((tongTien, chair, index) => {
+              return tongTien + chair.giaVe;
+            }, 0)
+            .toLocaleString(2) + ' đ'}
+        </p>
       </div>
       <div className="ticket-room__countdown">
         <p className="ticket-room__text">Thời gian giữ ghế</p>
@@ -29,7 +38,5 @@ function InformationTicket(props) {
     </div>
   );
 }
-
-InformationTicket.propTypes = {};
 
 export default InformationTicket;

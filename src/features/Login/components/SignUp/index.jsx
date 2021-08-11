@@ -1,14 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { unwrapResult } from '@reduxjs/toolkit';
 import CustomInput from 'components/CustomInput';
 import { postSignUpAsync } from 'features/Login/loginSlice';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import * as yup from 'yup';
 import Swal from 'sweetalert2';
+import * as yup from 'yup';
 
+//Schema validation use yup
 const schema = yup.object().shape({
   accountSignUp: yup
     .string()
@@ -51,7 +51,12 @@ const schema = yup.object().shape({
     .max(10, 'Số điện thoại tối đa 10 kí tự'),
 });
 
+SignUp.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 function SignUp(props) {
+  //Use form of React-hook-form
   const {
     register,
     handleSubmit,
@@ -63,6 +68,7 @@ function SignUp(props) {
 
   const dispatch = useDispatch();
 
+  //Handle submit form sign up
   const onSubmit = async (data) => {
     const informationUser = {
       taiKhoan: data.accountSignUp,
@@ -75,16 +81,7 @@ function SignUp(props) {
     };
 
     try {
-      const result = await dispatch(postSignUpAsync(informationUser));
-      const currentUser = unwrapResult(result);
-      console.log('currentUser', currentUser);
-      if (currentUser) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Đăng ký thành công',
-          text: 'Bạn có thể dùng tài khoản này để đăng nhập',
-        });
-      }
+      await dispatch(postSignUpAsync(informationUser));
     } catch (error) {
       if (error.message) {
         Swal.fire({
@@ -148,13 +145,5 @@ function SignUp(props) {
     </div>
   );
 }
-
-SignUp.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
-
-SignUp.defaultProps = {
-  onSubmit: () => {},
-};
 
 export default SignUp;

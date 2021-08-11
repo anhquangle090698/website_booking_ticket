@@ -1,12 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Comment1 from 'features/News/components/Comment/Comment1';
 import Comment2 from 'features/News/components/Comment/Comment2';
 import Comment3 from 'features/News/components/Comment/Comment3';
 import Comment4 from 'features/News/components/Comment/Comment4';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+
+CommentFilm.propTypes = {
+  match: PropTypes.object,
+};
 
 function CommentFilm(props) {
+  //Get path from url
   const match = useRouteMatch();
   return (
     <Switch>

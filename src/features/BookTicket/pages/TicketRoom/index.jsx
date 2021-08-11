@@ -1,43 +1,45 @@
-import { unwrapResult } from '@reduxjs/toolkit';
+import Loading from 'components/Loading';
 import {
   getDetailTicketRoomAsync,
-  postBookingTicketAsync,
+  postBookingTicketAsync
 } from 'features/BookTicket/bookTicketSlice';
 import Booking from 'features/BookTicket/components/Booking';
 import InformationTicket from 'features/BookTicket/components/InfromationTicket';
 import ListChair from 'features/BookTicket/components/ListChair';
-import React, { useEffect, useState } from 'react';
+import { useShowLoading, useShowTimeOut } from 'hooks/customHook';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { logicNumberChairTicket } from 'utils/common';
 
+TicketRoom.propTypes = {
+  maLichChieu: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  timer: PropTypes.number,
+  detailTicketRoom: PropTypes.object.isRequired,
+  listChairBooking: PropTypes.array,
+  informationUser: PropTypes.object.isRequired,
+  renderChairBooking: PropTypes.func,
+  handleBookTicket: PropTypes.func,
+  getDetailTicketRoom: PropTypes.func,
+};
+
 function TicketRoom(props) {
+  //Get id showtime from path url.
   const { maLichChieu } = useParams();
+
+  //Custom hook show loading
+  const loading = useShowLoading(1500);
+  //Custom hook show time out
+  const timer = useShowTimeOut(300, 1000);
+
   const dispatch = useDispatch();
 
   const detailTicketRoom = useSelector((state) => state.bookTicket.detailTicketRoom);
   const listChairBooking = useSelector((state) => state.bookTicket.listChairBooking);
   const informationUser = useSelector((state) => state.login.informationUser);
-
-  console.log('informationUser', informationUser);
-  const [timer, setTimer] = useState(300);
-
-  useEffect(() => {
-    let intervalTimer;
-
-    if (timer > 0) {
-      intervalTimer = setInterval(() => {
-        setTimer(timer - 1);
-      }, 1000);
-    } else {
-      clearInterval(intervalTimer);
-    }
-
-    return () => {
-      clearInterval(intervalTimer);
-    };
-  });
 
   useEffect(() => {
     const getDetailTicketRoom = async () => {
@@ -47,6 +49,7 @@ function TicketRoom(props) {
     getDetailTicketRoom();
   }, []);
 
+  //Render list chair are choosing
   const renderChairBooking = () => {
     return listChairBooking.map((chair, index) => {
       return (
@@ -57,92 +60,102 @@ function TicketRoom(props) {
     });
   };
 
-  return (
-    <div className="ticket-room">
-      <div className="row">
-        <div className="col-12 col-lg-9">
-          <div className="ticket-room__container">
-            <InformationTicket
-              detailTicketRoom={detailTicketRoom}
-              listChairBooking={listChairBooking}
-              timer={timer}
-            ></InformationTicket>
-            <ListChair
-              detailTicketRoom={detailTicketRoom}
-              listChairBooking={listChairBooking}
-            ></ListChair>
-          </div>
-        </div>
-        <div className="col-12 col-lg-3">
-          <Booking
-            detailTicketRoom={detailTicketRoom}
-            listChairBooking={listChairBooking}
-            maLichChieu={maLichChieu}
-            informationUser={informationUser}
-          ></Booking>
-        </div>
-      </div>
+  const handleBookTicket = async () => {
+    if (typeof listChairBooking !== 'undefined' && listChairBooking.length > 0) {
+      let objectBooking = {
+        maLichChieu: maLichChieu,
+        danhSachVe: listChairBooking,
+        taiKhoanNguoiDung: informationUser.taiKhoan,
+      };
+      try {
+        dispatch(await postBookingTicketAsync(objectBooking));
 
-      {timer <= 0 ? (
-        <div className="ticket-room__expired">
-          <div className="ticket-room__expired-main">
-            <p className="ticket-room__text-expired">
-              Đã hết thời gian giữ ghế. Vui lòng thực hiện đơn hàng trong thời hạn 5 phút.
-              <span
-                className="ticket-room__rebook"
+        Swal.fire({
+          icon: 'success',
+          title: 'Đặt Vé Thành Công!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } catch (error) {
+        // console.log(error.message);
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Bạn Chưa Chọn Ghế!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
+  return (
+    <>
+      {loading && <Loading></Loading>}
+
+      {!loading && (
+        <>
+          <div className="ticket-room">
+            <div className="row">
+              <div className="col-12 col-lg-9">
+                <div className="ticket-room__container">
+                  <InformationTicket
+                    detailTicketRoom={detailTicketRoom}
+                    listChairBooking={listChairBooking}
+                    timer={timer}
+                  ></InformationTicket>
+                  <ListChair
+                    detailTicketRoom={detailTicketRoom}
+                    listChairBooking={listChairBooking}
+                  ></ListChair>
+                </div>
+              </div>
+              <div className="col-12 col-lg-3">
+                <Booking
+                  detailTicketRoom={detailTicketRoom}
+                  listChairBooking={listChairBooking}
+                  maLichChieu={maLichChieu}
+                  informationUser={informationUser}
+                ></Booking>
+              </div>
+            </div>
+
+            {timer <= 0 ? (
+              <div className="ticket-room__expired">
+                <div className="ticket-room__expired-main">
+                  <p className="ticket-room__text-expired">
+                    Đã hết thời gian giữ ghế. Vui lòng thực hiện đơn hàng trong thời hạn 5 phút.
+                    <span
+                      className="ticket-room__rebook"
+                      onClick={() => {
+                        window.location.reload();
+                      }}
+                    >
+                      Đặt vé lại
+                    </span>
+                  </p>
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
+
+            <div className="ticket-room__book-small">
+              <div className="ticket-room__seats">{renderChairBooking()}</div>
+              <div
+                className="ticket-room__confirm-small"
                 onClick={() => {
-                  window.location.reload();
+                  handleBookTicket();
                 }}
               >
-                Đặt vé lại
-              </span>
-            </p>
+                <span className="ticket-room__text-confirm">Đặt vé</span>
+              </div>
+            </div>
           </div>
-        </div>
-      ) : (
-        ''
+        </>
       )}
-
-      <div className="ticket-room__book-small">
-        <div className="ticket-room__seats">{renderChairBooking()}</div>
-        <div
-          className="ticket-room__confirm-small"
-          onClick={async () => {
-            if (typeof listChairBooking !== 'undefined' && listChairBooking.length > 0) {
-              let objectBooking = {
-                maLichChieu: maLichChieu,
-                danhSachVe: listChairBooking,
-                taiKhoanNguoiDung: informationUser.taiKhoan,
-              };
-              try {
-                const result = dispatch(await postBookingTicketAsync(objectBooking));
-                const currentUser = unwrapResult(result);
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Đặt Vé Thành Công!',
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-              } catch (error) {
-                console.log(error.message);
-              }
-            } else {
-              Swal.fire({
-                icon: 'error',
-                title: 'Bạn Chưa Chọn Ghế!',
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            }
-          }}
-        >
-          <span className="ticket-room__text-confirm">Đặt vé</span>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
-
-TicketRoom.propTypes = {};
 
 export default TicketRoom;

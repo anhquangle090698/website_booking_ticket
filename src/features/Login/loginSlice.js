@@ -1,20 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import LoginApi from 'api/loginApi';
-import { USER_LOGIN, ACCESS_TOKEN } from 'utils/config';
 import Swal from 'sweetalert2';
+import { ACCESS_TOKEN, USER_LOGIN } from 'utils/config';
 import history from 'utils/history';
 
+//Information user save local storage
 let userSignInStorage = {};
 
+//If logged, get information from local storage assign for user.
 localStorage.getItem(USER_LOGIN)
   ? (userSignInStorage = JSON.parse(localStorage.getItem(USER_LOGIN)))
   : (userSignInStorage = {});
 
 const initialLogin = {
+  //Information user after sign in
   informationUser: userSignInStorage,
 };
 
-//Post sign in 'data = {taiKhoan : ?, matKhau : ?}'
+//Action post sign in
 export const postSignInAsync = createAsyncThunk(
   'login/postSignIn',
   async (informationSignIn, { rejectWithValue }) => {
@@ -28,23 +31,26 @@ export const postSignInAsync = createAsyncThunk(
     //save token to local storage
     localStorage.setItem(ACCESS_TOKEN, response.accessToken);
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Đăng nhập thành công',
-      text: 'Chào mừng đến với G2 Cinema!',
-      timer: 1500,
-    });
-
+    //Previous page
     history.goBack();
 
     return response;
   }
 );
 
+//Action post sign up
 export const postSignUpAsync = createAsyncThunk(
   'login/postSignUp',
   async (informationSignUp, thunkAPI) => {
     const response = await LoginApi.postSignUp(informationSignUp);
+
+    //Show alter sign up success
+    Swal.fire({
+      icon: 'success',
+      title: 'Đăng ký thành công',
+      text: 'Dùng tài khoản này để đăng nhập',
+      timer: 1500,
+    });
 
     return response;
   }
@@ -54,9 +60,10 @@ export const loginSlice = createSlice({
   name: 'login',
   initialState: initialLogin,
   reducers: {
-    handleSignOut : (state) => {
+    //Handle logic when use sign out
+    handleSignOut: (state) => {
       state.informationUser = {};
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(postSignInAsync.fulfilled, (state, action) => {

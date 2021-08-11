@@ -1,7 +1,7 @@
 import {
   getListMoviesByCinema,
   getListShowtimeByNameFilm,
-  getListShowtimeSearch
+  getListShowtimeSearch,
 } from 'features/Movies/moviesSlice';
 import moment from 'moment';
 import React from 'react';
@@ -16,13 +16,9 @@ const customStyles = {
     ...provided,
     borderBottom: '1px dotted #bdbdbd',
     color: state.isSelected ? '#F05520' : '#212121',
-    backgroundColor: state.isFocused
-      ? '#eeeeee'
-      : state.isSelected
-      ? 'transparent'
-      : 'transparent',
+    backgroundColor: state.isFocused ? '#eeeeee' : state.isSelected ? 'transparent' : 'transparent',
     transition: 'all .3s ease',
-    padding: 20,
+    padding: 10,
     cursor: state.isDisabled ? 'not-allowed' : 'default',
   }),
   control: () => ({
@@ -106,7 +102,6 @@ function SelectSearch(props) {
       : [{ value: '', label: 'Vui lòng chọn hệ thống rạp, cụm rạp và phim', disabled: true }];
 
   const onSubmit = (data) => {
-
     if (data.showtime) {
       history.push(`/dat-ve/${data.showtime.value}`);
     } else {
