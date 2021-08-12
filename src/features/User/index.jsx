@@ -1,3 +1,4 @@
+import NotFound from 'components/NotFound';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
@@ -15,13 +16,9 @@ function User(props) {
     <Switch>
       <Route exact path={match.url} component={MyAccount} />
 
-      {/* {/* <Route path={`${match.url}/add`} component={AddEditPage} /> */}
-
-      {/* <Route component={NotFound} /> */}
+      <Route component={NotFound} />
     </Switch>
   );
 }
-
-User.propTypes = {};
 
 export default User;

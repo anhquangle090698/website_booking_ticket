@@ -52,7 +52,7 @@ const schema = yup.object().shape({
 });
 
 SignUp.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 };
 
 function SignUp(props) {

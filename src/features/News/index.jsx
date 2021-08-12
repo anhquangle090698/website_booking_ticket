@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import ScrollToTop from 'components/ScrollToTop';
+import NotFound from 'components/NotFound';
 
 News.propTypes = {
   match: PropTypes.object.isRequired,
@@ -17,15 +18,12 @@ function News(props) {
 
   return (
     <>
-      <Header></Header>
       <Switch>
         <Route path={`${match.url}/goc-dien-anh`} component={BlogFilm} />
         <Route path={`${match.url}/binh-luan-phim`} component={CommentFilm} />
         <Route path={`${match.url}/khuyen-mai`} component={PromotionFilm} />
-        {/* <Route component={NotFound} /> */}
+        <Route component={NotFound} />
       </Switch>
-      <Footer></Footer>
-      <ScrollToTop></ScrollToTop>
     </>
   );
 }

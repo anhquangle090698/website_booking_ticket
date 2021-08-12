@@ -7,11 +7,23 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+Detail.propTypes = {
+  detailMovie: PropTypes.object,
+  showtimeDetail: PropTypes.object,
+  handleActiveClassLogo: PropTypes.func,
+  renderListSystem: PropTypes.func,
+  renderListShowtimeFirstTime: PropTypes.func,
+  renderListShowtime: PropTypes.func,
+  renderShowtime: PropTypes.bool,
+};
+
 function Detail(props) {
   const { detailMovie, showtimeDetail } = props; //DetailMovie
   const [renderShowtime, setRenderShowtime] = useState(false);
+
   const dispatch = useDispatch();
 
+  //Handle style active logo
   const handleActiveClassLogo = (e) => {
     //Add class active logo
     let classNameLogo = 'detail__logo';
@@ -137,7 +149,7 @@ function Detail(props) {
           </div>
         </div>
       </div>
-      <div className="detail__showtime-movie">
+      <div className="detail__showtime-movie" data-aos="zoom-in">
         <div className="detail__list-system">{renderListSystem()}</div>
         <div className="detail__list-showtime">
           {!renderShowtime ? renderListShowtimeFirstTime() : renderListShowtime()}
@@ -146,13 +158,5 @@ function Detail(props) {
     </>
   );
 }
-
-Detail.propTypes = {
-  detailMovie: PropTypes.object.isRequired,
-};
-
-Detail.defaultProps = {
-  detailMovie: {},
-};
 
 export default Detail;

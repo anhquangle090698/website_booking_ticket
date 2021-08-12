@@ -1,5 +1,6 @@
 import Authentication from 'components/Authentication';
 import Loading from 'components/Loading';
+import NotFound from 'components/NotFound';
 import React, { lazy, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 //Main contain entire scss of app
@@ -22,7 +23,7 @@ function App() {
           <Route path="/tai-khoan-cua-toi" component={User} />
           <Route path="/tin-tuc" component={News} />
           <Authentication path="/dat-ve" Component={BookTicket}></Authentication>
-          {/* <Route component={NotFound} /> */}
+          <Route component={NotFound} />
         </Switch>
       </Suspense>
     </>

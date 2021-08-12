@@ -13,9 +13,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 DetailMovie.propTypes = {
-  maPhim: PropTypes.string.isRequired,
-  detailMovie: PropTypes.object.isRequired,
-  showtimeDetail: PropTypes.array.isRequired,
+  maPhim: PropTypes.string,
+  detailMovie: PropTypes.object,
+  showtimeDetail: PropTypes.array,
   loading: PropTypes.bool,
   getDetailMovies: PropTypes.func
 };

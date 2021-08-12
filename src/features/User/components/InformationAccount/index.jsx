@@ -85,7 +85,7 @@ function InformationAccount(props) {
   const onSubmit = async (data) => {
     const informationUpdate = {
       taiKhoan: account.taiKhoan,
-      matKhau: data.passwordAccountEdit,
+      matKhau: data.passwordAccountEdit ? data.passwordAccountEdit : account.matKhau,
       email: account.email,
       soDt: data.phone,
       maNhom: 'GP02',

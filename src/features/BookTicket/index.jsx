@@ -1,3 +1,4 @@
+import NotFound from 'components/NotFound';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
@@ -13,9 +14,9 @@ function BookTicket(props) {
 
   return (
     <Switch>
-      <Route exact path={`${match.url}/:maLichChieu`} component={TicketRoom} />
+      <Route path={`${match.url}/:maLichChieu`} component={TicketRoom} />
 
-      {/* <Route component={NotFound} /> */}
+      <Route component={NotFound} />
     </Switch>
   );
 }

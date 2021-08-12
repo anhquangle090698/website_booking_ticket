@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 ScrollToTop.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   isComponentMounted: PropTypes.bool.isRequired,
-  handleScrollToTop : PropTypes.func
+  handleScrollToTop: PropTypes.func,
 };
 
 ScrollToTop.defaultProps = {
   isVisible: false,
   isComponentMounted: true,
-  handleScrollToTop : () => {}
+  handleScrollToTop: () => {},
 };
 
 function ScrollToTop(props) {
@@ -18,15 +18,19 @@ function ScrollToTop(props) {
   const [isComponentMounted, setIsComponentMounted] = useState(true);
 
   useEffect(() => {
-    if (isComponentMounted) {
-      document.addEventListener('scroll', () => {
-        if (window.pageYOffset > 1000) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      });
-    }
+    const componentMounted = () => {
+      if (isComponentMounted) {
+        document.addEventListener('scroll', () => {
+          if (window.pageYOffset > 1000) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
+        });
+      }
+    };
+
+    componentMounted();
 
     return () => {
       setIsComponentMounted(false);

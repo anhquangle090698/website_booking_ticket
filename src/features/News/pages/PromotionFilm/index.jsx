@@ -1,3 +1,4 @@
+import NotFound from 'components/NotFound';
 import Promotion1 from 'features/News/components/Promotion/Promotion1';
 import Promotion2 from 'features/News/components/Promotion/Promotion2';
 import Promotion3 from 'features/News/components/Promotion/Promotion3';
@@ -29,7 +30,8 @@ function PromotionFilm(props) {
       <Route path={`${match.url}/tiec-tra-tat-nien-xem-phim-mien-phi`} component={Promotion6} />
       <Route path={`${match.url}/galaxy-cinema-tri-an-thanh-vien`} component={Promotion7} />
       <Route path={`${match.url}/xem-phim-hay-nhan-li-xi-chat`} component={Promotion8} />
-      {/* <Route component={NotFound} /> */}
+
+      <Route component={NotFound} />
     </Switch>
   );
 }

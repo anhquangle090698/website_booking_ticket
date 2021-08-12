@@ -36,7 +36,8 @@ function Popup() {
           >
             <i className="fa fa-times popup-content__icon"></i>
           </div>
-          <iframe
+        <iframe
+            title="Trailer Movie"
             className="popup-content__frame"
             width="900"
             height="600"

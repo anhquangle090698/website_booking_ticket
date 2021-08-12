@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 
 function Promotion(props) {
   return (
-    <div className="promotion" id="khuyen-mai">
+    <div className="promotion" id="khuyen-mai" data-aos="fade-up">
       <div className="promotion__title movie-title">Khuyến Mãi</div>
       <div className="promotion__content">
         <div className="row">

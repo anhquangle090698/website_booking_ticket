@@ -33,10 +33,10 @@ function Sign(props) {
             <div className="sign__mobile">
               <h4 className="sign__alert">Vui lòng tải ứng dụng để đăng nhập</h4>
               <div className="sign__store">
-                <a href="#">
+                <a href="https://www.apple.com/app-store/">
                   <img src={appStore} alt={appStore} className="sign__image" />
                 </a>
-                <a href="#">
+                <a href="https://play.google.com/store?hl=vi&gl=US">
                   <img src={googlePlay} alt={googlePlay} className="sign__image" />
                 </a>
               </div>

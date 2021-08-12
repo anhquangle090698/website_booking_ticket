@@ -1,9 +1,10 @@
 import {
   getListMoviesByCinema,
   getListShowtimeByNameFilm,
-  getListShowtimeSearch,
+  getListShowtimeSearch
 } from 'features/Movies/moviesSlice';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,11 +39,25 @@ const customStyles = {
   }),
 };
 
+SelectSearch.propTypes = {
+  lSystemCinema: PropTypes.array,
+  lMovies: PropTypes.array,
+  lShowtimeSearch: PropTypes.array,
+  lShowtimeByNameFilm: PropTypes.array,
+  options: PropTypes.array,
+  optionsCinema: PropTypes.array,
+  optionsMovies: PropTypes.array,
+  optionShowtime: PropTypes.array,
+  handleChangeSelectSystemCinema: PropTypes.func,
+  handleChangeSelectCinema: PropTypes.func,
+  handleChangeSelectMovie: PropTypes.func,
+};
+
 function SelectSearch(props) {
   const { control, handleSubmit } = useForm();
-  const dispatch = useDispatch();
-
   const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const lSystemCinema = useSelector((state) => state.movies.listSystemCinema);
   const lMovies = useSelector((state) => state.movies.listMoviesByCinema);
@@ -172,7 +187,5 @@ function SelectSearch(props) {
     </div>
   );
 }
-
-SelectSearch.propTypes = {};
 
 export default SelectSearch;

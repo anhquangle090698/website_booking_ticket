@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 
 function News(props) {
   return (
-    <div className="news" id="tin-tuc">
+    <div className="news" id="tin-tuc" data-aos="fade-right">
       <div className="row">
         <div className="col-12 col-lg-6">
           <div className="news__title news__title--left movie-title">Bình Luận Phim</div>

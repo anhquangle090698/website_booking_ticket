@@ -1,22 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import logo from 'assets/images/logo-600x600_g2.png';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { USER_LOGIN, ACCESS_TOKEN } from 'utils/config';
-import { useDispatch } from 'react-redux';
 import { handleSignOut } from 'features/Login/loginSlice';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { ACCESS_TOKEN, USER_LOGIN } from 'utils/config';
 
 Header.propTypes = {
-  informationUser : PropTypes.object.isRequired,
-  account : PropTypes.object.isRequired,
-  handleToggleNav : PropTypes.func
+  informationUser: PropTypes.object.isRequired,
+  account: PropTypes.object.isRequired,
+  handleToggleNav: PropTypes.func,
 };
 
 Header.defaultProps = {
-  informationUser : {},
-  account : {},
-  handleToggleNav : () => {}
+  informationUser: {},
+  account: {},
+  handleToggleNav: () => {},
 };
 
 const handleToggleNav = () => {
@@ -46,7 +45,7 @@ function Header(props) {
           <ul className="header-nav__list">
             <li className="header-nav__item">
               <a
-                href="#lich-chieu"
+                href="/trang-chu#lich-chieu"
                 className="header-nav__link"
                 onClick={() => {
                   handleToggleNav();
@@ -57,7 +56,7 @@ function Header(props) {
             </li>
             <li className="header-nav__item">
               <a
-                href="#cum-rap"
+                href="/trang-chu#cum-rap"
                 className="header-nav__link"
                 onClick={() => {
                   handleToggleNav();
@@ -68,7 +67,7 @@ function Header(props) {
             </li>
             <li className="header-nav__item">
               <a
-                href="#tin-tuc"
+                href="/trang-chu#tin-tuc"
                 className="header-nav__link"
                 onClick={() => {
                   handleToggleNav();
@@ -79,7 +78,7 @@ function Header(props) {
             </li>
             <li className="header-nav__item">
               <a
-                href="#khuyen-mai"
+                href="/trang-chu#khuyen-mai"
                 className="header-nav__link"
                 onClick={() => {
                   handleToggleNav();
@@ -114,7 +113,9 @@ function Header(props) {
         {informationUser.taiKhoan ? (
           <div className="header-user">
             <div className="header-user__dropdown">
-              <span className="header-user__name">{account.hoTen ? `Chào, ${account.hoTen} |` : `Chào, ${informationUser.hoTen} |`}</span>
+              <span className="header-user__name">
+                {account.hoTen ? `Chào, ${account.hoTen} |` : `Chào, ${informationUser.hoTen} |`}
+              </span>
               <div className="header-user__content">
                 <NavLink
                   className="header-user__logout"

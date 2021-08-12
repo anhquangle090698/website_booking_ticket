@@ -15,12 +15,12 @@ import Swal from 'sweetalert2';
 import { logicNumberChairTicket } from 'utils/common';
 
 TicketRoom.propTypes = {
-  maLichChieu: PropTypes.string.isRequired,
+  maLichChieu: PropTypes.string,
   loading: PropTypes.bool,
   timer: PropTypes.number,
-  detailTicketRoom: PropTypes.object.isRequired,
+  detailTicketRoom: PropTypes.object,
   listChairBooking: PropTypes.array,
-  informationUser: PropTypes.object.isRequired,
+  informationUser: PropTypes.object,
   renderChairBooking: PropTypes.func,
   handleBookTicket: PropTypes.func,
   getDetailTicketRoom: PropTypes.func,

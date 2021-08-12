@@ -12,7 +12,7 @@ Introduction.defaultProps = {
 function Introduction(props) {
   const { textWhite } = props;
   return (
-    <div className={textWhite ? 'introduction text--white' : 'introduction'}>
+    <div className={textWhite ? 'introduction text--white' : 'introduction'} data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000"> 
       <div className={textWhite ? 'introduction__title movie-title' : 'movie-title'}>G2 Cinema</div>
       <div className="introduction__content">
         <p className="introduction__text">

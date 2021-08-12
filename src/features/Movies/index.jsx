@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Showing from './pages/Showing';
 import ResultSearch from './pages/ResultSearch';
 import PropTypes from 'prop-types';
+import NotFound from 'components/NotFound';
 
 Movies.propTypes = {
   match: PropTypes.object.isRequired,
@@ -22,7 +23,7 @@ function Movies(props) {
         <Route path={`${match.url}/phim-dang-chieu`} component={Showing} />
         <Route path={`${match.url}/ket-qua-tim-kiem`} component={ResultSearch} />
 
-        {/* <Route component={NotFound} /> */}
+        <Route component={NotFound} />
       </Switch>
     </Suspense>
   );

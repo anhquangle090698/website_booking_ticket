@@ -1,3 +1,6 @@
+// Handle logic number chair booking
+// Param (string) id Id chair
+// Return string: '01' -> A01, '17' -> B01
 export const logicNumberChairTicket = (numberChair) => {
   return numberChair < 17
     ? `A${logicNumberChair(numberChair)}`
@@ -22,6 +25,9 @@ export const logicNumberChairTicket = (numberChair) => {
     : '';
 };
 
+//Handle id chair transform number chair 
+//Param (string) id Id chair
+// Return string: '01' -> 01, '18' -> 02
 export const logicNumberChair = (numberChair) => {
   return numberChair % 16 === 1
     ? '01'
@@ -58,6 +64,9 @@ export const logicNumberChair = (numberChair) => {
     : '';
 };
 
+//Transform second to minutes : second
+//Param (number) d Second 
+//Return string: 300 -> '5:00'
 export const secondsToHms = (d) => {
   d = Number(d);
 
@@ -69,6 +78,9 @@ export const secondsToHms = (d) => {
   return `${minute}:${second}`;
 };
 
+//Create star on background sign
+//Param: none
+//Return array
 export const renderStars = () => {
   const contentStar = [];
 

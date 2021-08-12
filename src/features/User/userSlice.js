@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import LoginApi from 'api/loginApi';
-import { USER_LOGIN, ACCESS_TOKEN } from 'utils/config';
-import Swal from 'sweetalert2';
-import history from 'utils/history';
 import UserApi from 'api/userApi';
+import Swal from 'sweetalert2';
 
 const initialUser = {
   //Information account user after sign in
@@ -38,7 +35,7 @@ export const putUpdateUserAsync = createAsyncThunk(
     setTimeout(() => {
       window.location.reload();
     }, 1000);
-  
+
     return response;
   }
 );
@@ -57,6 +54,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const {} = userSlice.actions;
+
 const { reducer: userReducer } = userSlice;
 export default userReducer;

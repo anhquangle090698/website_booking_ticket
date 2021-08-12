@@ -27,11 +27,11 @@ function Showing(props) {
 
   //Api get list film
   useEffect(() => {
-    const fetchDataFilm = async () => {
+    const getListMovies = async () => {
       dispatch(await getListMoviesAsync());
     };
 
-    fetchDataFilm();
+    getListMovies();
   }, []);
 
   //Render all movie

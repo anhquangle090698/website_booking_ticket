@@ -1,15 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import { openPopup } from 'features/Logic/logicSlice';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 Movie.propTypes = {
-  movies: PropTypes.array.isRequired,
-};
-
-Movie.defaultProps = {
-  movies: [],
+  movies: PropTypes.array,
 };
 
 function Movie(props) {
@@ -38,7 +34,7 @@ function Movie(props) {
         <div className="movie-info__overlay">
           <NavLink to={`/trang-chu/lich-chieu/${movie.maPhim}`}>
             <button className="movie-info__button movie-info__button--orange">Mua Vé</button>
-          </NavLink>        
+          </NavLink>
         </div>
       </div>
     </div>

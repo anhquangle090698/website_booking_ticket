@@ -1,3 +1,4 @@
+import NotFound from 'components/NotFound';
 import Sign from 'features/Login/pages/Sign';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -15,7 +16,7 @@ function Login(props) {
     <Switch>
       <Route exact path={match.url} component={Sign} />
 
-      {/* <Route component={NotFound} /> */}
+      <Route component={NotFound} />
     </Switch>
   );
 }

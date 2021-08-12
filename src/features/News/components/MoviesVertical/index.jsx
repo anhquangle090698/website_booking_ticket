@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getListMoviesAsync } from 'features/Movies/moviesSlice';
 
 MovieVertical.propTypes = {
   movies: PropTypes.array.isRequired,
-  start : PropTypes.number.isRequired,
-  end : PropTypes.number.isRequired,
-  renderMovie: PropTypes.func
+  start: PropTypes.number.isRequired,
+  end: PropTypes.number.isRequired,
+  renderMovie: PropTypes.func,
 };
 function MovieVertical(props) {
   const { start, end } = props;
   const movies = useSelector((state) => state.movies.listMovies);
+
+  const dispatch = useDispatch();
+  //Api get list film
+  useEffect(() => {
+    const getListMovies = async () => {
+      dispatch(await getListMoviesAsync());
+    };
+
+    getListMovies();
+  }, []);
 
   //Render movie vertical at blog, comment, promotion
   const renderMovie = () => {
@@ -35,12 +46,9 @@ function MovieVertical(props) {
   return (
     <div className="movie-vertical">
       <h3 className="detail-news__subject">Phim đang chiếu</h3>
-      <div className="movie-vertical__list-movies">
-          {renderMovie()}
-      </div>
+      <div className="movie-vertical__list-movies">{renderMovie()}</div>
     </div>
   );
 }
-
 
 export default MovieVertical;

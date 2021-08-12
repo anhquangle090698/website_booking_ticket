@@ -7,9 +7,23 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+SystemCinema.propTypes = {
+  renderShowtime: PropTypes.bool,
+  lSystemCinema: PropTypes.array,
+  lShowtime: PropTypes.array,
+  lShowtimeByC: PropTypes.array,
+  handleActiveClassLogo: PropTypes.func,
+  handleActiveClassCinema: PropTypes.func,
+  renderListSystem: PropTypes.func,
+  renderListCinema: PropTypes.func,
+  renderListShowtime: PropTypes.func,
+  renderListShowtimeByC: PropTypes.func,
+};
+
 function SystemCinema(props) {
-  const dispatch = useDispatch();
   const [renderShowtime, setRenderShowtime] = useState(false);
+
+  const dispatch = useDispatch();
 
   const lSystemCinema = useSelector((state) => state.movies.listSystemCinema);
   const lShowtime = useSelector((state) => state.movies.listShowtime);
@@ -163,16 +177,16 @@ function SystemCinema(props) {
   };
 
   return (
-    <section className="system-cinema" id="cum-rap">
+    <section className="system-cinema" id="cum-rap" data-aos="fade-right">
       <h3 className="system-cinema__title movie-title">Hệ Thống Cụm Rạp</h3>
       <div className="system-cinema__content">
         <div className="system-cinema__mobile">
           <h4 className="system-cinema__alert">Vui lòng tải ứng dụng để xem chi tiết</h4>
           <div className="system-cinema__store">
-            <a href="#">
+            <a href="https://www.apple.com/app-store/">
               <img src={appStore} alt={appStore} className="system-cinema__image" />
             </a>
-            <a href="#">
+            <a href="https://play.google.com/store?hl=vi&gl=US">
               <img src={googlePlay} alt={googlePlay} className="system-cinema__image" />
             </a>
           </div>
@@ -180,7 +194,7 @@ function SystemCinema(props) {
         <div className="system-cinema__desktop">
           <div className="system-cinema__list-system">{renderListSystem()}</div>
           <div className="system-cinema__list-cinema">{renderListCinema()}</div>
-          <div className="system-cinema__list-showtime">
+          <div className="system-cinema__list-showtime" data-aos="zoom-in">
             {!renderShowtime ? renderListShowtime() : renderListShowtimeByC()}
           </div>
         </div>
@@ -188,17 +202,5 @@ function SystemCinema(props) {
     </section>
   );
 }
-
-SystemCinema.propTypes = {
-  lSystemCinema: PropTypes.array.isRequired,
-  lShowtime: PropTypes.array.isRequired,
-  lShowtimeByC: PropTypes.array.isRequired,
-};
-
-SystemCinema.defaultProps = {
-  lSystemCinema: [],
-  lShowtime: [],
-  lShowtimeByC: [],
-};
 
 export default SystemCinema;
