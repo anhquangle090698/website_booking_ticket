@@ -109,3 +109,10 @@ export const renderStars = () => {
 
   return contentStar;
 };
+
+//Convert VND to USD
+//Param (number) money
+//Return number -> 1,000 VND = 0.04 USD
+export const convertVndToUsd = (money) => {
+  return  Number.parseFloat(money / 22821).toFixed(2);
+}

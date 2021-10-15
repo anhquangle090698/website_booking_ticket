@@ -1,16 +1,16 @@
 import Loading from 'components/Loading';
 import {
   getDetailTicketRoomAsync,
-  postBookingTicketAsync
+  postBookingTicketAsync,
 } from 'features/BookTicket/bookTicketSlice';
 import Booking from 'features/BookTicket/components/Booking';
 import InformationTicket from 'features/BookTicket/components/InfromationTicket';
 import ListChair from 'features/BookTicket/components/ListChair';
 import { useShowLoading, useShowTimeOut } from 'hooks/customHook';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { logicNumberChairTicket } from 'utils/common';
 
@@ -25,6 +25,8 @@ TicketRoom.propTypes = {
   handleBookTicket: PropTypes.func,
   getDetailTicketRoom: PropTypes.func,
 };
+
+
 
 function TicketRoom(props) {
   //Get id showtime from path url.
@@ -89,6 +91,8 @@ function TicketRoom(props) {
     }
   };
 
+
+
   return (
     <>
       {loading && <Loading></Loading>}
@@ -98,6 +102,7 @@ function TicketRoom(props) {
           <div className="ticket-room">
             <div className="row">
               <div className="col-12 col-lg-9">
+                <NavLink to="/" className="ticket-room__back">Trở về trang chủ</NavLink>
                 <div className="ticket-room__container">
                   <InformationTicket
                     detailTicketRoom={detailTicketRoom}

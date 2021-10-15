@@ -47,6 +47,11 @@ const cellStyle = {
 HistoryBooking.propTypes = {
   account: PropTypes.object.isRequired,
 };
+
+HistoryBooking.defaultProps = {
+  account : {}
+}
+
 function HistoryBooking(props) {
   const account = useSelector((state) => state.user.informationAccount);
   const [selectedRow, setSelectedRow] = useState(null);

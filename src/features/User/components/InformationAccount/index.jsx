@@ -22,8 +22,8 @@ const schema = yup.object().shape({
   phone: yup
     .string()
     .required('Vui lòng nhập số điện thoại')
-    .matches(/^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})$/, {
-      message: 'Nhập đúng định dạng, vd: 0378xxxxxx',
+    .matches(/^(84|0[3|5|7|8|9])+([0-9]{8})$/, {
+      message: 'Nhập đúng định dạng, vd: 03xxxxxxxx, 05xxxxxxx, 08xxxxxxx',
       excludeEmptyString: true,
     }),
   passwordAccount: yup.string().when('hasPassword', {
@@ -44,15 +44,23 @@ const schema = yup.object().shape({
       )
       .min(10, 'Mật khẩu phải có ít nhất 10 kí tự'),
   }),
-  passwordAccountEditConfirm: yup
-    .string()
-    .oneOf([yup.ref('passwordAccountEdit'), ''], 'Mật khẩu mới không khớp!'),
+  passwordAccountEditConfirm: yup.string().when('hasPassword', {
+    is: true,
+    then: yup
+      .string()
+      .required('Vui lòng nhập mật khẩu')
+      .oneOf([yup.ref('passwordAccountEdit')], 'Mật khẩu mới không khớp!'),
+  }),
 });
 
 InformationAccount.propTypes = {
   account: PropTypes.object.isRequired,
   onSubmit: PropTypes.func,
 };
+
+InformationAccount.defaultProps = {
+  account : {}
+}
 
 function InformationAccount(props) {
   //Use form of React-hook-form

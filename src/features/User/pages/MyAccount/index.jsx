@@ -58,10 +58,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 MyAccount.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
   loading: PropTypes.bool,
-  account: PropTypes.object.isRequired,
-  informationUser: PropTypes.object.isRequired,
+  account: PropTypes.object,
+  informationUser: PropTypes.object,
   postInformationAccount: PropTypes.func,
   handleChange: PropTypes.func,
 };

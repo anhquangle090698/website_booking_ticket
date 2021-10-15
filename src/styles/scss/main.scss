@@ -11,36 +11,37 @@
 @import "base/customizes";
 
 //Component
-// @import "Component/button";
 
-@import "layout/header";
-@import "layout/footer";
-@import "layout/carousel";
-@import "layout/popup";
-@import "layout/listSlide";
-@import "layout/movie";
-@import "layout/systemCinema";
-@import "layout/scrollToTop";
-@import "layout/news";
-@import "layout/promotion";
-@import "layout/introduction";
-@import "layout/detail";
-@import "layout/sign";
-@import "layout/signin";
-@import "layout/signup";
-@import "layout/customInput";
-@import "layout/ticketRoom";
-@import "layout/informationTicket";
-@import "layout/listChair";
-@import "layout/booking";
-@import "layout/myAccount";
-@import "layout/informationAccount";
-@import "layout/historyBooking";
-@import "layout/showing";
-@import "layout/detailNews";
-@import "layout/movieVertical";
-@import "layout/inputSearch";
-@import "layout/resultSearch";
-@import "layout/selectSearch";
-@import "layout/loading";
-@import "layout/notFound";
+@import "components/header"; // C
+@import "components/footer"; // C
+@import "components/carousel"; // C
+@import "components/popup"; // C
+@import "components/listSlide"; // C
+@import "components/movie"; // C
+@import "components/systemCinema"; //C
+@import "components/scrollToTop"; // C
+@import "components/news"; // C
+@import "components/promotion"; // C
+@import "components/introduction"; // C
+@import "components/detail"; // C
+@import "components/signin"; // C
+@import "components/signup"; // C
+@import "components/customInput"; // C
+@import "components/informationTicket"; // C
+@import "components/listChair"; // C
+@import "components/booking"; // C
+@import "components/informationAccount"; // C
+@import "components/historyBooking"; //C
+@import "components/movieVertical"; // C
+@import "components/inputSearch"; // C
+@import "components/selectSearch"; // C
+@import "components/loading"; // C
+@import "components/notFound"; // C
+
+//Layout
+@import "layout/sign"; // P
+@import "layout/ticketRoom"; // P
+@import "layout/myAccount"; // P
+@import "layout/showing"; // P
+@import "layout/detailNews"; // P
+@import "layout/resultSearch"; // P

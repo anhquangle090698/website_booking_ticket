@@ -29,6 +29,4 @@ function Movies(props) {
   );
 }
 
-Movies.propTypes = {};
-
 export default Movies;

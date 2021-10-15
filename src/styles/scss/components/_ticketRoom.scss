@@ -3,23 +3,6 @@
   width: 100%;
   min-height: auto;
 
-  &__back {
-    @include styleText($color-tertiary-0, $fs-14, $fw-400);
-
-    position: relative;
-    top: 30px;
-    left: 20px;
-
-    font-style: italic;
-    letter-spacing: .8px;
-
-    transition: color .3s;
-    
-    &:hover {
-      color: $color-blue-1;
-    }
-  }
-
   &__container {
     padding-top: $pd-40;
   }

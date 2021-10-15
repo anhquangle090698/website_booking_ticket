@@ -22,7 +22,7 @@ SystemCinema.propTypes = {
 
 function SystemCinema(props) {
   const [renderShowtime, setRenderShowtime] = useState(false);
-
+  
   const dispatch = useDispatch();
 
   const lSystemCinema = useSelector((state) => state.movies.listSystemCinema);

@@ -32,11 +32,10 @@ const schema = yup.object().shape({
   username: yup
     .string()
     .required('Vui lòng nhập họ tên')
-    .matches(/^(?=.*[a-zA-Z\S])[ a-zA-Z0-9]+$/, {
+    .matches(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]+$/, {
       excludeEmptyString: true,
-      message: 'Vui lòng không nhập kí tự đặc biệt',
+      message: 'Họ tên không chứa số và kí tự đặc biệt',
     })
-    // .matches(/^(\b[a-z](?!\s))$/, 'Vui lòng viết hoa chữ cái đầu mỗi từ')
     .min(5, 'Họ và tên phải có ít nhất 5 kí tự'),
 
   email: yup.string().required('Vui lòng nhập email').email('Vui lòng nhập đúng định dạng email'),
@@ -44,8 +43,8 @@ const schema = yup.object().shape({
   numberPhone: yup
     .string()
     .required('Vui lòng nhập số điện thoại')
-    .matches(/^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})$/, {
-      message: 'Nhập đúng định dạng, vd: 0378xxxxxx',
+    .matches(/^(84|0[3|5|7|8|9])+([0-9]{8})$/, {
+      message: 'Nhập đúng định dạng, vd: 03xxxxxxxx, 05xxxxxxx, 08xxxxxxx',
       excludeEmptyString: true,
     })
     .max(10, 'Số điện thoại tối đa 10 kí tự'),
@@ -75,23 +74,13 @@ function SignUp(props) {
       matKhau: data.passwordSignUp,
       email: data.email,
       soDt: data.numberPhone,
-      maNhom: 'GP02',
+      maNhom: 'GP03',
       maLoaiNguoiDung: 'KhachHang',
       hoTen: data.username,
     };
 
-    try {
-      await dispatch(postSignUpAsync(informationUser));
-    } catch (error) {
-      if (error.message) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Email đã tồn tại!',
-          text: 'Vui lòng sử dụng email khác',
-          timer: 3000,
-        });
-      }
-    }
+   
+    await dispatch(postSignUpAsync(informationUser));
   };
 
   return (
@@ -139,7 +128,7 @@ function SignUp(props) {
         ></CustomInput>
 
         <button className="sign-up__button" type="submit">
-          Đăng Nhập
+          Đăng Ký
         </button>
       </form>
     </div>

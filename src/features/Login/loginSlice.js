@@ -21,20 +21,32 @@ const initialLogin = {
 export const postSignInAsync = createAsyncThunk(
   'login/postSignIn',
   async (informationSignIn, { rejectWithValue }) => {
-    const response = await LoginApi.postSignIn(informationSignIn);
+    try {
+      const response = await LoginApi.postSignIn(informationSignIn);
 
-    // thunkAPI.dispatch(...)
-    // The value we return becomes the `fulfilled` action payload
-    //save data to local storage
-    localStorage.setItem(USER_LOGIN, JSON.stringify(response));
+      // thunkAPI.dispatch(...)
+      // The value we return becomes the `fulfilled` action payload
+      //save data to local storage
+      localStorage.setItem(USER_LOGIN, JSON.stringify(response));
 
-    //save token to local storage
-    localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+      //save token to local storage
+      localStorage.setItem(ACCESS_TOKEN, response.accessToken);
 
-    //Previous page
-    history.goBack();
+      //Previous page
+      history.goBack();
 
-    return response;
+      return response;
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Đăng nhập thất bại',
+        text: 'Sai tài khoản hoặc mật khẩu',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      return rejectWithValue(err.response.data);
+    }
   }
 );
 
@@ -42,17 +54,29 @@ export const postSignInAsync = createAsyncThunk(
 export const postSignUpAsync = createAsyncThunk(
   'login/postSignUp',
   async (informationSignUp, thunkAPI) => {
-    const response = await LoginApi.postSignUp(informationSignUp);
+    try {
+      const response = await LoginApi.postSignUp(informationSignUp);
 
-    //Show alter sign up success
-    Swal.fire({
-      icon: 'success',
-      title: 'Đăng ký thành công',
-      text: 'Dùng tài khoản này để đăng nhập',
-      timer: 1500,
-    });
+      //Show alter sign up success
+      Swal.fire({
+        icon: 'success',
+        title: 'Đăng ký thành công',
+        text: 'Dùng tài khoản này để đăng nhập',
+        timer: 1500,
+      });
 
-    return response;
+      return response;
+    } catch (error) {
+      if (error.message) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Đăng ký thất bại',
+          text: error.response.data,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
   }
 );
 

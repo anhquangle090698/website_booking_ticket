@@ -2,6 +2,7 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Introduction from 'components/Introduction';
 import Loading from 'components/Loading';
+import Popup from 'components/Popup';
 import ScrollToTop from 'components/ScrollToTop';
 import Movie from 'features/Movies/components/Movie';
 import { getListMoviesAsync } from 'features/Movies/moviesSlice';
@@ -59,6 +60,7 @@ function Showing(props) {
           <Introduction></Introduction>
           <Footer></Footer>
           <ScrollToTop></ScrollToTop>
+          <Popup></Popup>
         </>
       )}
     </>
