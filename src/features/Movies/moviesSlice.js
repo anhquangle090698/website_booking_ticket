@@ -31,7 +31,7 @@ const initialMovies = {
   //List movies select search by cinema
   listMoviesByCinema: [],
   //List showtime select search by name movie
-  listShowtimeByNameFilm: {},
+  listShowtimeByNameFilm: [],
 };
 
 //Action get list movies

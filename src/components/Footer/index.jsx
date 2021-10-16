@@ -19,7 +19,7 @@ function Footer(props) {
   return (
     <>
       {/* FOOTER */}
-      <footer className="footer" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="700">
+      <footer className="footer" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500">
         <div className="footer-top">
           <div className="row">
             <div className="col-md-6 col-lg-3">
