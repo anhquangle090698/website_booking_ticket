@@ -18,6 +18,7 @@ SwiperCore.use([Navigation, Pagination, A11y, EffectFade, Autoplay]);
 ListSlide.propTypes = {
   movies: PropTypes.array,
   renderMovies: PropTypes.func,
+  renderSwiperSlide: PropTypes.func,
 };
 
 function ListSlide(props) {
@@ -33,43 +34,40 @@ function ListSlide(props) {
     });
   };
 
+  const renderSwiperSlide = () => {
+    let count = Math.floor(movies.length / 8);
+    let content = [];
+
+    if (movies.length % 8 !== 0) {
+      count++;
+    }
+
+    for (let index = 0; index < count; index++) {
+
+      const start = index === 0 ? 0 : index * 8;
+      const end = index === 0 ? 8 : index * 16;
+      content.push(
+        <SwiperSlide>
+          <div className="row">{renderMovies(start, end)}</div>
+          <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
+            Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
+          </NavLink>
+        </SwiperSlide>
+      );
+    }
+
+    return content;
+  };
+  
+
   return (
     <section className="list-slide" id="lich-chieu" data-aos="fade-up">
       <h3 className="list-slide__title movie-title">Phim Đang Chiếu</h3>
 
       <div className="list-slide__content">
         <InputSearch></InputSearch>
-        <Swiper slidesPerView={1} navigation loop={true}>
-          <SwiperSlide>
-            <div className="row">{renderMovies(0, 8)}</div>
-            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
-              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </NavLink>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="row">{renderMovies(8, 16)}</div>
-            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
-              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </NavLink>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="row">{renderMovies(24, 32)}</div>
-            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
-              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </NavLink>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="row">{renderMovies(32, 40)}</div>
-            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
-              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </NavLink>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="row">{renderMovies(40, 48)}</div>
-            <NavLink to="/trang-chu/phim-dang-chieu" className="list-slide__link">
-              Xem Thêm <i className="fa fa-angle-double-right list-slide__icon"></i>
-            </NavLink>
-          </SwiperSlide>
+        <Swiper slidesPerView={1} navigation loop={false}>
+          {renderSwiperSlide()}
         </Swiper>
       </div>
     </section>

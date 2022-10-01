@@ -3,15 +3,15 @@ import axiosClient from './axiosClient';
 //Api use get/post/put/delete give data movies feature (render and handle logic movies)
 const MoviesApi = {
 
-  //Api get list movies return data(array), need params (id group default 'GP03')
+  //Api get list movies return data(array), need params (id group default 'GP04')
   getListMovies: () => {
-    const url = '/QuanLyPhim/LayDanhSachPhim?maNhom=GP03';
+    const url = '/QuanLyPhim/LayDanhSachPhim?maNhom=GP04';
     return axiosClient.get(url);
   },
 
-  //Api get search movie by name movie return data(array), need params (id group default 'GP03' && name movie)
+  //Api get search movie by name movie return data(array), need params (id group default 'GP04' && name movie)
   getSearchMovie: (nameFilm) => {
-    const url = `/QuanLyPhim/LayDanhSachPhim?maNhom=GP03&tenPhim=${nameFilm}`;
+    const url = `/QuanLyPhim/LayDanhSachPhim?maNhom=GP04&tenPhim=${nameFilm}`;
     return axiosClient.get(url);
   },
 
@@ -27,15 +27,15 @@ const MoviesApi = {
     return axiosClient.get(url);
   },
 
-  //Api get list showtime by id system cinema return data(array), need param (id group default 'GP03' && id system cinema)
+  //Api get list showtime by id system cinema return data(array), need param (id group default 'GP04' && id system cinema)
   getListShowTimeSystemCinema: (idSystemCinema) => {
-    const url = `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP03`;
+    const url = `/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${idSystemCinema}&maNhom=GP04`;
     return axiosClient.get(url);
   },
 
-  //Api get all list showtime return data(array), need params (id group default 'GP03')
+  //Api get all list showtime return data(array), need params (id group default 'GP04')
   getAllListShowtime: () => {
-    const url = '/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP03';
+    const url = '/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP04';
     return axiosClient.get(url);
   }
 };
