@@ -22,7 +22,6 @@ const LoginApi = {
   //   "email": "string",
   //   "soDt": "string",
   //   "maNhom": "string",
-  //   "maLoaiNguoiDung": "string",
   //   "hoTen": "string"
   // }
   postSignUp: (informationSignUp) => {

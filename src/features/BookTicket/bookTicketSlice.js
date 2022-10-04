@@ -14,7 +14,7 @@ export const getDetailTicketRoomAsync = createAsyncThunk(
   'bookTicket/getDetailTicketRoom',
   async (idShowtime, thunkAPI) => {
     const response = await bookTicketApi.getDetailTicketRoom(idShowtime);
-    return response;
+    return response.content;
   }
 );
 
@@ -24,6 +24,8 @@ export const postBookingTicketAsync = createAsyncThunk(
   async (informationTicket, { dispatch }) => {
     const response = await bookTicketApi.postBookingTicket(informationTicket);
     dispatch(await getDetailTicketRoomAsync(informationTicket.maLichChieu));
+
+    console.log('dat ve', response);
     return response;
   }
 );

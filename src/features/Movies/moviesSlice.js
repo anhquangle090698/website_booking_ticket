@@ -41,7 +41,7 @@ export const getListMoviesAsync = createAsyncThunk(
     const response = await MoviesApi.getListMovies();
     // thunkAPI.dispatch(...)
     // The value we return becomes the `fulfilled` action payload
-    return response;
+    return response.content;
   }
 );
 
@@ -50,7 +50,7 @@ export const getListSystemCinemaAsync = createAsyncThunk(
   'movies/getListSystemCinema',
   async (params, thunkAPI) => {
     const response = await MoviesApi.getListSystemCinema();
-    return response;
+    return response.content;
   }
 );
 
@@ -59,7 +59,7 @@ export const getListShowTimeSystemCinemaAsync = createAsyncThunk(
   'movies/getListShowTimeSystemCinema',
   async (idSystemCinema, thunkAPI) => {
     const response = await MoviesApi.getListShowTimeSystemCinema(idSystemCinema);
-    return response;
+    return response.content;
   }
 );
 
@@ -68,7 +68,7 @@ export const getAllListShowtimeAsync = createAsyncThunk(
   'movies/getAllListShowtimeAsync',
   async (idSystemCinema, thunkAPI) => {
     const response = await MoviesApi.getAllListShowtime();
-    return response;
+    return response.content;
   }
 );
 
@@ -77,7 +77,7 @@ export const getDetailMovieAsync = createAsyncThunk(
   'movies/getDetailMovie',
   async (idFilm, thunkAPI) => {
     const response = await MoviesApi.getDetailMovie(idFilm);
-    return response;
+    return response.content;
   }
 );
 
@@ -90,7 +90,7 @@ export const getSearchMovieAsync = createAsyncThunk(
     //Go to result page
     history.push('/trang-chu/ket-qua-tim-kiem');
 
-    return response;
+    return response.content;
   }
 );
 

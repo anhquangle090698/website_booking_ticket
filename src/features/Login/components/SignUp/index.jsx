@@ -60,6 +60,7 @@ function SignUp(props) {
     register,
     handleSubmit,
     formState: { errors },
+    setValue
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -74,13 +75,18 @@ function SignUp(props) {
       matKhau: data.passwordSignUp,
       email: data.email,
       soDt: data.numberPhone,
-      maNhom: 'GP03',
-      maLoaiNguoiDung: 'KhachHang',
+      maNhom: 'GP04',
       hoTen: data.username,
     };
 
    
     await dispatch(postSignUpAsync(informationUser));
+
+    setValue('accountSignUp', '');
+    setValue('passwordSignUp', '');
+    setValue('username', '');
+    setValue('email', '');
+    setValue('numberPhone', '');
   };
 
   return (

@@ -13,7 +13,7 @@ export const postInformationAccountAsync = createAsyncThunk(
   async (account, thunkAPI) => {
     const response = await UserApi.postInformationAccount(account);
 
-    return response;
+    return response.content;
   }
 );
 
@@ -32,11 +32,11 @@ export const putUpdateUserAsync = createAsyncThunk(
       });
     }
 
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 500);
 
-    return response;
+    return response.content;
   }
 );
 

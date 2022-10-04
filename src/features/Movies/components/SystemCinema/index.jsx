@@ -68,7 +68,7 @@ function SystemCinema(props) {
   };
 
   const renderListSystem = () => {
-    return lSystemCinema.map((lsc, index) => {
+    return lSystemCinema?.map((lsc, index) => {
       return (
         <div className="system-cinema__system" key={index}>
           <img

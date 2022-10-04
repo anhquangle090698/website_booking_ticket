@@ -74,15 +74,10 @@ function MyAccount(props) {
 
   const dispatch = useDispatch();
 
-  const account = useSelector((state) => state.user.informationAccount);
-  const informationUser = useSelector((state) => state.login.informationUser);
-
   useEffect(() => {
     const postInformationAccount = async () => {
       dispatch(
-        await postInformationAccountAsync({
-          taiKhoan: informationUser.taiKhoan,
-        })
+        await postInformationAccountAsync()
       );
     };
 
@@ -125,7 +120,7 @@ function MyAccount(props) {
                 <HistoryBooking></HistoryBooking>
               </TabPanel>
               <TabPanel value={value} index={1} className="tab-panel">
-                <InformationAccount account={account}></InformationAccount>
+                <InformationAccount></InformationAccount>
               </TabPanel>
             </div>
           </div>

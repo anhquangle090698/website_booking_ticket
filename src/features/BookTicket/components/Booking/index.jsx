@@ -1,11 +1,10 @@
 import notify from 'assets/images/exclamation.png';
 import { postBookingTicketAsync } from 'features/BookTicket/bookTicketSlice';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2';
 import { logicNumberChairTicket } from 'utils/common';
-import { convertVndToUsd } from 'utils/common';
 
 Booking.propTypes = {
   maLichChieu: PropTypes.string.isRequired,
@@ -65,34 +64,6 @@ function Booking(props) {
     }
   };
 
-  // useEffect(() => {
-  //   const renderButtonPaypal = () => {
-  //     paypal.Buttons({
-  //       createOrder: function(data, actions) {
-  //         return actions.order.create({
-  //           intent : "CAPTURE",
-  //           purchase_units: [{
-  //             amount: {
-  //               currency_code: "USD",
-  //               value: listChairBooking.length === 0 ? convertVndToUsd(700000) : convertVndToUsd(totalPrice())
-  //             }
-  //           }]
-  //         });
-  //       },
-  //       onApprove: function(data, actions) {
-  //         // This function captures the funds from the transaction.
-  //         return actions.order.capture().then(function(details) {
-  //           // This function shows a transaction success message to your buyer.
-  //           console.log('details', details);
-  //           alert('Transaction completed by ' + details.payer.name.given_name);
-  //         });
-  //       }
-  //     }).render('#paypal-button-container');
-  //   };
-
-  //   renderButtonPaypal();
-  // }, []);
-
   return (
     <div className="ticket-room__book">
       <p className="ticket-room__book-price">{totalPrice().toLocaleString(2) + ' đ'}</p>
@@ -128,8 +99,6 @@ function Booking(props) {
           Đặt Vé
         </button>
       </div>
-
-      {/* <div id="paypal-button-container"></div> */}
     </div>
   );
 }

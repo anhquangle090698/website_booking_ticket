@@ -45,7 +45,8 @@ function ListSlide(props) {
     for (let index = 0; index < count; index++) {
 
       const start = index === 0 ? 0 : index * 8;
-      const end = index === 0 ? 8 : index * 16;
+      const end = index === 0 ? 8 : index * 8 + 8;
+
       content.push(
         <SwiperSlide>
           <div className="row">{renderMovies(start, end)}</div>

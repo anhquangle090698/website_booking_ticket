@@ -27,15 +27,15 @@ export const postSignInAsync = createAsyncThunk(
       // thunkAPI.dispatch(...)
       // The value we return becomes the `fulfilled` action payload
       //save data to local storage
-      localStorage.setItem(USER_LOGIN, JSON.stringify(response));
+      localStorage.setItem(USER_LOGIN, JSON.stringify(response.content));
 
       //save token to local storage
-      localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+      localStorage.setItem(ACCESS_TOKEN, response.content.accessToken);
 
       //Previous page
       history.goBack();
 
-      return response;
+      return response.content;
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -67,11 +67,11 @@ export const postSignUpAsync = createAsyncThunk(
 
       return response;
     } catch (error) {
-      if (error.message) {
+      if (error.response.status === 400) {
         Swal.fire({
           icon: 'error',
           title: 'Đăng ký thất bại',
-          text: error.response.data,
+          text: error.response.data.content,
           showConfirmButton: false,
           timer: 1500,
         });

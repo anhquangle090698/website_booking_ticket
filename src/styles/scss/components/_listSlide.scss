@@ -38,7 +38,7 @@
     padding: 0 $pd-20;
 
     &__link {
-      right: 15px;
+      right: 30gpx;
     }
   }
 }
@@ -47,6 +47,10 @@
   .list-slide {
     .row {
       padding: $pd-30 0 $pd-30 0;
+    }
+
+    &__link {
+      right: 150px;
     }
   }
 }
@@ -89,7 +93,7 @@
     }
 
     &__link {
-      right: 100px;
+      right: 180px;
     }
   }
 }

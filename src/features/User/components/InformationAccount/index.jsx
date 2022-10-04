@@ -88,7 +88,7 @@ function InformationAccount(props) {
     setValue('emailAccount', `${account?.email}`);
     setValue('passWordHidden', `${account?.matKhau}`);
     setValue('hasPassword', false);
-  }, []);
+  }, [account]);
 
   const onSubmit = async (data) => {
     const informationUpdate = {

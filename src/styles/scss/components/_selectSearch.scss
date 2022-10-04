@@ -6,7 +6,7 @@
   @include responsive-min-width('lg') {
     position: relative;
     top: 30px;
-    z-index: 100;
+    z-index: 15;
 
     visibility: visible;
     display: flex;

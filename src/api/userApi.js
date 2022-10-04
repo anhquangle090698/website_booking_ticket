@@ -4,13 +4,13 @@ import { ACCESS_TOKEN } from 'utils/config';
 //Api use get/post/put/delete give data user feature (render && handle logic user)
 const UserApi = {
   //Api post information account (after sign in) return data(object)
-  //Need data account name
-  // {
-  //   "taiKhoan": "string"
-  // }
   postInformationAccount: (account) => {
     const url = '/QuanLyNguoiDung/ThongTinTaiKhoan';
-    return axiosClient.post(url, account);
+    return axiosClient.post(url, undefined, {
+      headers: {
+        Authorization: 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+      }
+    });
   },
 
   //Api put update information user return data(string)
